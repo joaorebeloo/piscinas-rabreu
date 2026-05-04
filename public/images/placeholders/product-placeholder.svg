@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder de produto Piscinas R Abreu</title>
+  <desc id="desc">Imagem temporaria para substituir por fotografia real de piscina ou equipamento.</desc>
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6fbfd"/>
+      <stop offset="0.48" stop-color="#8bd5e5"/>
+      <stop offset="1" stop-color="#0b2b52"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#water)"/>
+  <path d="M-80 555 C 95 455 225 655 396 548 S 720 464 900 553 1190 624 1285 520" fill="none" stroke="#ffffff" stroke-width="16" stroke-opacity="0.34"/>
+  <path d="M-70 650 C 100 560 232 750 405 642 S 716 560 898 646 1184 716 1294 616" fill="none" stroke="#ffffff" stroke-width="9" stroke-opacity="0.24"/>
+  <rect x="-100" y="180" width="1400" height="140" fill="url(#shine)" opacity="0.35" transform="rotate(-18 600 450)"/>
+  <rect x="116" y="112" width="968" height="676" rx="42" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="0.42"/>
+  <text x="600" y="420" fill="#ffffff" font-family="Arial, sans-serif" font-size="54" font-weight="700" text-anchor="middle">Imagem placeholder</text>
+  <text x="600" y="482" fill="#ffffff" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" opacity="0.88">Substituir por fotografia real</text>
+</svg>

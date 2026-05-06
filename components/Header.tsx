@@ -71,8 +71,8 @@ export function Header() {
             navigateToSection("#inicio");
           }}
         >
-          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white text-[#06162b] shadow-lg shadow-cyan-950/20 sm:h-[5.5rem] sm:w-[5.5rem]">
-            <Waves className="h-9 w-9 text-[#0787b7] sm:h-12 sm:w-12" aria-hidden="true" />
+          <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white text-[#06162b] shadow-lg shadow-cyan-950/20 sm:h-[4.125rem] sm:w-[4.125rem]">
+            <Waves className="h-7 w-7 text-[#0787b7] sm:h-9 sm:w-9" aria-hidden="true" />
           </span>
           <span className="leading-none">
             <span className="block text-xl font-semibold tracking-[0.08em] sm:text-3xl">

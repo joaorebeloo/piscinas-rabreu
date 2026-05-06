@@ -227,7 +227,7 @@ export const translations: Record<Locale, SiteCopy> = {
         "Assistência contínua",
       ],
       asideAria: "Compromissos de serviço",
-      asideTitle: "Serviço chave na mão",
+      asideTitle: "Qualidade garantida",
       asideText:
         "Do estudo inicial à entrega, cada detalhe é tratado para garantir uma piscina bonita, funcional e preparada para uso frequente.",
       asideItems: [
@@ -481,7 +481,7 @@ export const translations: Record<Locale, SiteCopy> = {
       videoAria: "Watch Piscinas R Abreu video",
       highlights: ["Custom pools", "Premium finishes", "Ongoing support"],
       asideAria: "Service commitments",
-      asideTitle: "Turnkey service",
+      asideTitle: "Guaranteed quality",
       asideText:
         "From the first study to final delivery, every detail is handled so your pool is beautiful, functional and ready for frequent use.",
       asideItems: [
@@ -729,7 +729,7 @@ export const translations: Record<Locale, SiteCopy> = {
       videoAria: "Ver vídeo de Piscinas R Abreu",
       highlights: ["Piscinas personalizadas", "Acabados premium", "Asistencia continua"],
       asideAria: "Compromisos de servicio",
-      asideTitle: "Servicio llave en mano",
+      asideTitle: "Calidad garantizada",
       asideText:
         "Desde el estudio inicial hasta la entrega, cada detalle se cuida para garantizar una piscina bonita, funcional y lista para uso frecuente.",
       asideItems: [
@@ -977,7 +977,7 @@ export const translations: Record<Locale, SiteCopy> = {
       videoAria: "Voir la vidéo de Piscinas R Abreu",
       highlights: ["Piscines personnalisées", "Finitions premium", "Assistance continue"],
       asideAria: "Engagements de service",
-      asideTitle: "Service clé en main",
+      asideTitle: "Qualité garantie",
       asideText:
         "De la première étude à la livraison, chaque détail est traité pour garantir une piscine belle, fonctionnelle et prête pour un usage fréquent.",
       asideItems: [

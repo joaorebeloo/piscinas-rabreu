@@ -8,7 +8,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeftRight } from "lucide-react";
 
 import { useLanguage } from "@/components/LanguageProvider";
@@ -19,8 +19,10 @@ function clamp(value: number) {
 
 export function BeforeAfter() {
   const { t } = useLanguage();
+  const prefersReducedMotion = useReducedMotion();
   const [position, setPosition] = useState(52);
   const [isDragging, setIsDragging] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const frameRef = useRef<HTMLDivElement | null>(null);
 
   const updateFromClientX = useCallback((clientX: number) => {
@@ -33,6 +35,27 @@ export function BeforeAfter() {
     const nextPosition = ((clientX - rect.left) / rect.width) * 100;
     setPosition(clamp(Math.round(nextPosition)));
   }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion || hasInteracted || isDragging) {
+      return;
+    }
+
+    const duration = 9000;
+    const start = performance.now();
+    let frameId = 0;
+
+    const animateSlider = (timestamp: number) => {
+      const progress = ((timestamp - start) % duration) / duration;
+      const easedProgress = (1 - Math.cos(progress * Math.PI * 2)) / 2;
+      setPosition(Math.round(4 + easedProgress * 92));
+      frameId = window.requestAnimationFrame(animateSlider);
+    };
+
+    frameId = window.requestAnimationFrame(animateSlider);
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [hasInteracted, isDragging, prefersReducedMotion]);
 
   const updateFromKeyboard = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {
@@ -145,6 +168,7 @@ export function BeforeAfter() {
                 return;
               }
 
+              setHasInteracted(true);
               updateFromClientX(event.clientX);
               setIsDragging(true);
             }}
@@ -172,17 +196,17 @@ export function BeforeAfter() {
               />
             </div>
 
-            <div className="pointer-events-none absolute inset-x-4 top-4 flex justify-between text-xs font-semibold uppercase tracking-[0.14em]">
-              <span className="rounded-full bg-slate-950/75 px-3 py-2 text-white backdrop-blur">
+            <div className="pointer-events-none absolute inset-x-4 top-4 flex justify-between text-lg font-semibold uppercase tracking-[0.14em]">
+              <span className="rounded-full bg-slate-950/75 px-4 py-3 text-white backdrop-blur">
                 {t.beforeAfter.before}
               </span>
-              <span className="rounded-full bg-white/85 px-3 py-2 text-slate-950 backdrop-blur">
+              <span className="rounded-full bg-white/85 px-4 py-3 text-slate-950 backdrop-blur">
                 {t.beforeAfter.after}
               </span>
             </div>
 
             <div
-              className="absolute inset-y-0 flex w-12 -translate-x-1/2 cursor-ew-resize touch-none items-center justify-center focus-visible:outline-none"
+              className="absolute inset-y-0 flex w-12 -translate-x-1/2 cursor-ew-resize touch-none items-center justify-center focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300/70"
               style={{ left: `${position}%` }}
               role="slider"
               tabIndex={0}
@@ -196,6 +220,7 @@ export function BeforeAfter() {
               onPointerDown={(event) => {
                 event.preventDefault();
                 event.stopPropagation();
+                setHasInteracted(true);
                 setIsDragging(true);
                 updateFromClientX(event.clientX);
               }}

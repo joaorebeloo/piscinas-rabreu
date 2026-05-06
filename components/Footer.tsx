@@ -1,15 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  BriefcaseBusiness,
-  Camera,
-  Mail,
-  MapPin,
-  Phone,
-  ThumbsUp,
-  Waves,
-} from "lucide-react";
+import { Mail, MapPin, Phone, Waves } from "lucide-react";
 
 import { useLanguage } from "@/components/LanguageProvider";
 
@@ -90,58 +82,6 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Piscinas R Abreu.{" "}
             {t.footer.copyright}
           </p>
-          <nav aria-label={t.footer.linksAria} className="flex flex-wrap gap-4">
-            <a
-              href="#modelos"
-              className="transition-colors duration-200 hover:text-cyan-200"
-            >
-              {t.nav.models}
-            </a>
-            <a
-              href="#servicos"
-              className="transition-colors duration-200 hover:text-cyan-200"
-            >
-              {t.nav.services}
-            </a>
-            <a
-              href="#contactos"
-              className="transition-colors duration-200 hover:text-cyan-200"
-            >
-              {t.nav.contacts}
-            </a>
-            <a
-              href="#antes-depois"
-              className="transition-colors duration-200 hover:text-cyan-200"
-            >
-              {t.nav.beforeAfter}
-            </a>
-          </nav>
-          <div className="flex gap-3" aria-label={t.footer.socialAria}>
-            {[
-              { label: "Instagram", href: "https://instagram.com/", icon: Camera },
-              { label: "Facebook", href: "https://facebook.com/", icon: ThumbsUp },
-              {
-                label: "LinkedIn",
-                href: "https://linkedin.com/",
-                icon: BriefcaseBusiness,
-              },
-            ].map((social) => {
-              const Icon = social.icon;
-
-              return (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={social.label}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-slate-300 transition-colors duration-200 hover:border-cyan-200/30 hover:text-cyan-200"
-                >
-                  <Icon aria-hidden="true" size={16} strokeWidth={1.8} />
-                </a>
-              );
-            })}
-          </div>
         </div>
       </motion.div>
     </footer>

@@ -25,16 +25,16 @@ export type Product = {
 export const PRODUCT_FILTERS: ProductFilter[] = [
   "todos",
   "piscinas",
+  "coberturas",
+  "aquecimento",
   "acessorios",
 ];
-
-const placeholder = "/images/placeholders/product-placeholder.svg";
 
 export const PRODUCTS: Product[] = [
   {
     id: "piscina-classica",
     category: "piscinas",
-    imageSrc: placeholder,
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0014.jpg",
     copy: {
       pt: {
         name: "Piscina clássica",
@@ -69,7 +69,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "piscina-moderna",
     category: "piscinas",
-    imageSrc: placeholder,
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0023.jpg",
     copy: {
       pt: {
         name: "Piscina moderna",
@@ -104,7 +104,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "piscina-compacta",
     category: "piscinas",
-    imageSrc: placeholder,
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0032.jpg",
     copy: {
       pt: {
         name: "Piscina compacta",
@@ -139,7 +139,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "piscina-infinity",
     category: "piscinas",
-    imageSrc: placeholder,
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0049.jpg",
     copy: {
       pt: {
         name: "Piscina com transbordo infinito",
@@ -174,7 +174,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "piscina-fibra",
     category: "piscinas",
-    imageSrc: placeholder,
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0052.jpg",
     copy: {
       pt: {
         name: "Piscina em fibra",
@@ -209,7 +209,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "piscina-betao",
     category: "piscinas",
-    imageSrc: placeholder,
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0027.jpg",
     copy: {
       pt: {
         name: "Piscina em betão",
@@ -244,7 +244,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "coberturas",
     category: "coberturas",
-    imageSrc: placeholder,
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0043.jpg",
     copy: {
       pt: {
         name: "Coberturas",
@@ -279,7 +279,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "sistemas-aquecimento",
     category: "aquecimento",
-    imageSrc: placeholder,
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0044.jpg",
     copy: {
       pt: {
         name: "Sistemas de aquecimento",

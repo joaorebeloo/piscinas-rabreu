@@ -41,7 +41,18 @@ export function ProductCatalog() {
   }, [activeFilter]);
 
   return (
-    <section className="w-full px-4 py-24 sm:px-6 lg:px-8" id="modelos">
+    <section
+      className="relative w-full border-t border-slate-200 bg-[var(--color-foam)] px-4 py-24 pt-28 sm:px-6 lg:px-8"
+      id="modelos"
+    >
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-[linear-gradient(180deg,rgba(7,27,53,0.08),rgba(7,27,53,0))]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-700/35 to-transparent"
+        aria-hidden="true"
+      />
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <div>

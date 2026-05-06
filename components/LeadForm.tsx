@@ -88,6 +88,7 @@ async function getLeadResponseCode(response: Response) {
 export function LeadForm({ className = "" }: { className?: string }) {
   const { locale, t } = useLanguage();
   const [values, setValues] = useState<LeadFormValues>(initialValues);
+  const [company, setCompany] = useState("");
   const [errors, setErrors] = useState<LeadFormErrors>({});
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -207,6 +208,7 @@ export function LeadForm({ className = "" }: { className?: string }) {
         },
         body: JSON.stringify({
           ...values,
+          company,
           locale,
           name: values.name.trim(),
           email: values.email.trim(),
@@ -232,6 +234,7 @@ export function LeadForm({ className = "" }: { className?: string }) {
       }
 
       setValues(initialValues);
+      setCompany("");
       setErrors({});
       setStatus("success");
       setStatusMessage(t.leadForm.success);
@@ -252,7 +255,6 @@ export function LeadForm({ className = "" }: { className?: string }) {
     >
       <div className="absolute inset-0 bg-[url('/images/hero-piscina.jpg')] bg-cover bg-center opacity-18" />
       <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(7,27,53,0.98),rgba(7,27,53,0.78)_48%,rgba(24,167,201,0.44))]" />
-      <div className="water-shimmer" />
 
       <div className="section-shell relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <motion.div
@@ -308,6 +310,17 @@ export function LeadForm({ className = "" }: { className?: string }) {
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2">
+              <input
+                type="text"
+                name="company"
+                value={company}
+                onChange={(event) => setCompany(event.target.value)}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+
               <div>
                 <label htmlFor="lead-name" className="text-sm font-semibold">
                   {t.leadForm.labels.name}
@@ -462,8 +475,8 @@ export function LeadForm({ className = "" }: { className?: string }) {
 
             {statusMessage ? (
               <p
-                role="status"
-                aria-live="polite"
+                role={status === "error" ? "alert" : "status"}
+                aria-live={status === "error" ? "assertive" : "polite"}
                 data-status={status}
                 className={`mt-5 rounded-2xl px-4 py-3 text-sm font-medium ${
                   status === "success"

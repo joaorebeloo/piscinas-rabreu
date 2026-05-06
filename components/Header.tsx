@@ -8,9 +8,9 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/components/LanguageProvider";
 
 const navItems = [
-  { key: "models", href: "#modelos" },
   { key: "services", href: "#servicos" },
   { key: "beforeAfter", href: "#antes-depois" },
+  { key: "models", href: "#modelos" },
   { key: "testimonials", href: "#testemunhos" },
   { key: "contacts", href: "#contactos" },
 ] as const;
@@ -21,6 +21,26 @@ export function Header() {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   const closeMenu = () => setIsOpen(false);
+
+  function navigateToSection(hash: string) {
+    const target = document.querySelector(hash);
+
+    closeMenu();
+
+    if (!target) {
+      window.location.hash = hash;
+      return;
+    }
+
+    const headerOffset = 120;
+    const top =
+      target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+    window.history.pushState(null, "", hash);
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    });
+  }
 
   useEffect(() => {
     const updateHeader = () => setHasScrolled(window.scrollY > 20);
@@ -41,21 +61,24 @@ export function Header() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <a
           href="#inicio"
           aria-label={t.header.homeAria}
           className="group inline-flex items-center gap-3 rounded-full outline-none transition focus-visible:ring-2 focus-visible:ring-[#55d6ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#06162b]"
-          onClick={closeMenu}
+          onClick={(event) => {
+            event.preventDefault();
+            navigateToSection("#inicio");
+          }}
         >
-          <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white text-[#06162b] shadow-lg shadow-cyan-950/20">
-            <Waves className="h-6 w-6 text-[#0787b7]" aria-hidden="true" />
+          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white text-[#06162b] shadow-lg shadow-cyan-950/20 sm:h-[5.5rem] sm:w-[5.5rem]">
+            <Waves className="h-9 w-9 text-[#0787b7] sm:h-12 sm:w-12" aria-hidden="true" />
           </span>
           <span className="leading-none">
-            <span className="block text-base font-semibold tracking-[0.08em]">
+            <span className="block text-xl font-semibold tracking-[0.08em] sm:text-3xl">
               Piscinas R Abreu
             </span>
-            <span className="mt-1 block text-xs font-medium uppercase tracking-[0.18em] text-cyan-100/80">
+            <span className="mt-1 block text-sm font-medium uppercase tracking-[0.18em] text-cyan-100/80 sm:mt-2 sm:text-2xl">
               {t.header.tagline}
             </span>
           </span>
@@ -69,6 +92,10 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
+              onClick={(event) => {
+                event.preventDefault();
+                navigateToSection(item.href);
+              }}
               className="rounded-full px-4 py-2 text-sm font-medium text-cyan-50/80 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55d6ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#06162b]"
             >
               {t.nav[item.key]}
@@ -112,7 +139,10 @@ export function Header() {
                   <a
                     key={item.href}
                     href={item.href}
-                    onClick={closeMenu}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      navigateToSection(item.href);
+                    }}
                     className="rounded-lg px-4 py-3 text-base font-semibold text-cyan-50/90 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55d6ff]"
                   >
                     {t.nav[item.key]}

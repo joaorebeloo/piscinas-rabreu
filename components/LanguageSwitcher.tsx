@@ -47,7 +47,6 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
         type="button"
         aria-label={`${t.language.label}: ${activeOption.name}`}
         aria-expanded={isOpen}
-        aria-haspopup="menu"
         onClick={() => setIsOpen((value) => !value)}
         className={`inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/16 bg-white/10 px-3 text-sm font-bold text-white transition duration-300 ease-[var(--ease-premium)] hover:bg-white/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55d6ff] ${
           compact ? "w-full" : "min-w-24"
@@ -65,7 +64,6 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
 
       {isOpen ? (
         <div
-          role="menu"
           aria-label={t.language.label}
           className={`absolute right-0 top-[calc(100%+0.5rem)] z-50 min-w-44 overflow-hidden rounded-2xl border border-white/16 bg-[#06162b]/96 p-1 shadow-2xl shadow-cyan-950/35 backdrop-blur-xl ${
             compact ? "left-0 right-auto w-full" : ""
@@ -78,8 +76,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
               <button
                 key={option.id}
                 type="button"
-                role="menuitemradio"
-                aria-checked={isActive}
+                aria-current={isActive ? "true" : undefined}
                 lang={htmlLang[option.id]}
                 onClick={() => {
                   setLocale(option.id);

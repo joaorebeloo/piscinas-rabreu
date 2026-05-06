@@ -1,13 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ArrowDown,
-  ArrowRight,
-  CheckCircle2,
-  ShieldCheck,
-  Waves,
-} from "lucide-react";
+import { ArrowDown, ArrowRight, ShieldCheck, Waves } from "lucide-react";
 
 import { useLanguage } from "@/components/LanguageProvider";
 
@@ -30,7 +24,7 @@ export function Hero() {
         loop
         playsInline
         poster={heroPosterSrc}
-        preload="auto"
+        preload="metadata"
         aria-hidden="true"
       >
         <source src={heroVideoSrc} type="video/mp4" />
@@ -57,11 +51,6 @@ export function Hero() {
           transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
           className="max-w-5xl"
         >
-          <p className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-50/78">
-            <span className="h-px w-10 bg-[#6ee7ff]" aria-hidden="true" />
-            {t.hero.eyebrow}
-          </p>
-
           <h1
             id="hero-title"
             className="max-w-[17ch] text-[clamp(3.1rem,5.5vw,6rem)] font-semibold leading-[0.9] tracking-tight text-white"
@@ -91,17 +80,6 @@ export function Hero() {
             </a>
           </div>
 
-          <ul className="mt-8 grid max-w-2xl gap-3 text-sm font-semibold text-cyan-50/90 sm:grid-cols-3">
-            {t.hero.highlights.map((item) => (
-              <li key={item} className="flex items-center gap-2">
-                <CheckCircle2
-                  className="h-5 w-5 flex-none text-[#6ee7ff]"
-                  aria-hidden="true"
-                />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
         </motion.div>
 
         <motion.aside

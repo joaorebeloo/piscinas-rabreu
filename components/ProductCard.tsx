@@ -57,7 +57,6 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           fill
           sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition duration-700 ease-[var(--ease-premium)] group-hover:scale-105"
-          unoptimized
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,27,53,0)_35%,rgba(7,27,53,0.42)_100%)]" />
         <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-white/45 bg-white/65 px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md">
@@ -76,15 +75,15 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
         <p className="mt-3 flex-1 text-sm leading-6 text-slate-600">
           {copy.description}
         </p>
-        <motion.button
-          type="button"
+        <motion.a
+          href="#contactos"
           whileTap={{ scale: 0.98 }}
           className="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--color-navy)] px-4 py-2.5 text-sm font-semibold text-white transition duration-500 ease-[var(--ease-premium)] hover:-translate-y-0.5 hover:bg-[var(--color-navy-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-pool)]"
           aria-label={`${t.catalog.learnMoreAriaPrefix} ${copy.name}`}
         >
           {t.catalog.learnMore}
           <ArrowRight className="h-4 w-4" strokeWidth={1.8} />
-        </motion.button>
+        </motion.a>
       </div>
     </motion.article>
   );

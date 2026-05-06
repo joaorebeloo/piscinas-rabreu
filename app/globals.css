@@ -24,6 +24,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section {
+  scroll-margin-top: 7.5rem;
+}
+
 body {
   margin: 0;
   background:

@@ -23,13 +23,12 @@ export function buildWhatsAppHref(message: string) {
 }
 
 export const poolTypeValues = [
-  "fiber",
-  "concrete",
+  "classic",
+  "modern",
   "compact",
   "infinity",
-  "cover",
-  "heating",
-  "undecided",
+  "fiber",
+  "concrete",
 ] as const;
 
 export type PoolTypeValue = (typeof poolTypeValues)[number];
@@ -240,10 +239,9 @@ export const translations: Record<Locale, SiteCopy> = {
       scrollLabel: "Scroll",
     },
     benefits: {
-      eyebrow: "Compromissos R Abreu",
+      eyebrow: "O nosso compromisso",
       title: "Acompanhamento profissional do primeiro estudo ao primeiro mergulho.",
-      intro:
-        "Projectos orientados para qualidade, segurança e uma experiência de utilização simples depois da montagem.",
+      intro: "",
       items: [
         {
           title: "Qualidade garantida",
@@ -271,7 +269,7 @@ export const translations: Record<Locale, SiteCopy> = {
     },
     catalog: {
       eyebrow: "Catálogo",
-      title: "Encontre a piscina em fibra ideal para o seu espaço",
+      title: "Encontre a piscina ideal para o seu espaço",
       intro:
         "Modelos, coberturas e soluções técnicas preparados para adaptar o projecto ao terreno, ao estilo da casa e à forma como quer usar a piscina.",
       filterAria: "Filtrar catálogo de produtos",
@@ -294,7 +292,7 @@ export const translations: Record<Locale, SiteCopy> = {
       intro:
         "Compare o potencial de um espaço exterior antes da intervenção com uma solução pronta para receber família, amigos e dias longos de sol.",
       steps: [
-        "Estudo do terreno, acessos e estilo pretendido.",
+        "Estudo e preparação do terreno.",
         "Montagem, acabamentos e ensaio antes da entrega.",
       ],
       before: "Antes",
@@ -308,10 +306,9 @@ export const translations: Record<Locale, SiteCopy> = {
       sliderValue: (position) => `${position}% da imagem antes visível`,
     },
     testimonials: {
-      eyebrow: "Clientes",
+      eyebrow: "Feedbacks",
       title: "O que os nossos clientes dizem",
-      intro:
-        "Projectos de venda, montagem e assistência em moradias, condomínios e espaços exteriores com uso familiar regular.",
+      intro: "",
       ratingAria: "Avaliação de cinco estrelas",
       items: [
         {
@@ -374,13 +371,12 @@ export const translations: Record<Locale, SiteCopy> = {
       helper:
         "Quanto mais detalhe partilhar, mais precisa será a primeira resposta.",
       poolTypes: [
+        { value: "classic", label: "Piscina clássica" },
+        { value: "modern", label: "Piscina moderna" },
+        { value: "compact", label: "Piscina compacta" },
+        { value: "infinity", label: "Piscina com transbordo infinito" },
         { value: "fiber", label: "Piscina em fibra" },
         { value: "concrete", label: "Piscina em betão" },
-        { value: "compact", label: "Piscina compacta" },
-        { value: "infinity", label: "Piscina infinity" },
-        { value: "cover", label: "Cobertura" },
-        { value: "heating", label: "Sistema de aquecimento" },
-        { value: "undecided", label: "Ainda estou a decidir" },
       ],
       submit: "Enviar pedido",
       submitting: "A enviar pedido...",
@@ -440,7 +436,7 @@ export const translations: Record<Locale, SiteCopy> = {
         },
         {
           label: "Zona",
-          value: "Lisboa, Cascais, Sintra e Margem Sul",
+          value: "Alcobaça, Leiria",
           href: null,
         },
       ],
@@ -497,7 +493,7 @@ export const translations: Record<Locale, SiteCopy> = {
       scrollLabel: "Scroll",
     },
     benefits: {
-      eyebrow: "R Abreu commitments",
+      eyebrow: "Our commitment",
       title: "Professional guidance from first study to first swim.",
       intro:
         "Projects focused on quality, safety and a simple ownership experience after installation.",
@@ -551,7 +547,7 @@ export const translations: Record<Locale, SiteCopy> = {
       intro:
         "Compare the potential of an outdoor space before intervention with a solution ready for family, friends and long sunny days.",
       steps: [
-        "Study of land, access and desired style.",
+        "Site study and preparation.",
         "Installation, finishes and testing before delivery.",
       ],
       before: "Before",
@@ -565,7 +561,7 @@ export const translations: Record<Locale, SiteCopy> = {
       sliderValue: (position) => `${position}% of the before image visible`,
     },
     testimonials: {
-      eyebrow: "Clients",
+      eyebrow: "Feedbacks",
       title: "What our clients say",
       intro:
         "Pool sales, installation and support projects in villas, condominiums and outdoor family spaces.",
@@ -630,13 +626,12 @@ export const translations: Record<Locale, SiteCopy> = {
       },
       helper: "The more detail you share, the more precise our first response will be.",
       poolTypes: [
-        { value: "fiber", label: "Fibreglass pool" },
-        { value: "concrete", label: "Concrete pool" },
+        { value: "classic", label: "Classic pool" },
+        { value: "modern", label: "Modern pool" },
         { value: "compact", label: "Compact pool" },
         { value: "infinity", label: "Infinity pool" },
-        { value: "cover", label: "Cover" },
-        { value: "heating", label: "Heating system" },
-        { value: "undecided", label: "Still deciding" },
+        { value: "fiber", label: "Fibreglass pool" },
+        { value: "concrete", label: "Concrete pool" },
       ],
       submit: "Send request",
       submitting: "Sending request...",
@@ -694,7 +689,7 @@ export const translations: Record<Locale, SiteCopy> = {
           value: "geral@piscinasrabreu.pt",
           href: "mailto:geral@piscinasrabreu.pt",
         },
-        { label: "Area", value: "Lisbon, Cascais, Sintra and South Bank", href: null },
+        { label: "Area", value: "Alcobaça, Leiria", href: null },
       ],
       copyright: "All rights reserved.",
       linksAria: "Quick links",
@@ -746,7 +741,7 @@ export const translations: Record<Locale, SiteCopy> = {
       scrollLabel: "Scroll",
     },
     benefits: {
-      eyebrow: "Compromisos R Abreu",
+      eyebrow: "Nuestro compromiso",
       title: "Acompañamiento profesional desde el primer estudio hasta el primer baño.",
       intro:
         "Proyectos orientados a la calidad, la seguridad y una experiencia de uso sencilla después de la instalación.",
@@ -800,7 +795,7 @@ export const translations: Record<Locale, SiteCopy> = {
       intro:
         "Compara el potencial de un espacio exterior antes de la intervención con una solución lista para recibir familia, amigos y largos días de sol.",
       steps: [
-        "Estudio del terreno, accesos y estilo deseado.",
+        "Estudio y preparación del terreno.",
         "Instalación, acabados y prueba antes de la entrega.",
       ],
       before: "Antes",
@@ -814,7 +809,7 @@ export const translations: Record<Locale, SiteCopy> = {
       sliderValue: (position) => `${position}% de la imagen anterior visible`,
     },
     testimonials: {
-      eyebrow: "Clientes",
+      eyebrow: "Feedbacks",
       title: "Lo que dicen nuestros clientes",
       intro:
         "Proyectos de venta, instalación y asistencia en viviendas, comunidades y espacios exteriores de uso familiar.",
@@ -879,13 +874,12 @@ export const translations: Record<Locale, SiteCopy> = {
       },
       helper: "Cuantos más detalles compartas, más precisa será la primera respuesta.",
       poolTypes: [
-        { value: "fiber", label: "Piscina de fibra" },
-        { value: "concrete", label: "Piscina de hormigón" },
+        { value: "classic", label: "Piscina clásica" },
+        { value: "modern", label: "Piscina moderna" },
         { value: "compact", label: "Piscina compacta" },
         { value: "infinity", label: "Piscina infinity" },
-        { value: "cover", label: "Cubierta" },
-        { value: "heating", label: "Sistema de calefacción" },
-        { value: "undecided", label: "Aún estoy decidiendo" },
+        { value: "fiber", label: "Piscina de fibra" },
+        { value: "concrete", label: "Piscina de hormigón" },
       ],
       submit: "Enviar solicitud",
       submitting: "Enviando solicitud...",
@@ -943,7 +937,7 @@ export const translations: Record<Locale, SiteCopy> = {
           value: "geral@piscinasrabreu.pt",
           href: "mailto:geral@piscinasrabreu.pt",
         },
-        { label: "Zona", value: "Lisboa, Cascais, Sintra y Margen Sur", href: null },
+        { label: "Zona", value: "Alcobaça, Leiria", href: null },
       ],
       copyright: "Todos los derechos reservados.",
       linksAria: "Enlaces rápidos",
@@ -995,7 +989,7 @@ export const translations: Record<Locale, SiteCopy> = {
       scrollLabel: "Scroll",
     },
     benefits: {
-      eyebrow: "Engagements R Abreu",
+      eyebrow: "Notre engagement",
       title: "Accompagnement professionnel de la première étude au premier plongeon.",
       intro:
         "Des projets axés sur la qualité, la sécurité et une utilisation simple après l'installation.",
@@ -1049,7 +1043,7 @@ export const translations: Record<Locale, SiteCopy> = {
       intro:
         "Comparez le potentiel d'un espace extérieur avant l'intervention avec une solution prête pour la famille, les amis et les longues journées de soleil.",
       steps: [
-        "Étude du terrain, des accès et du style souhaité.",
+        "Étude et préparation du terrain.",
         "Installation, finitions et essai avant livraison.",
       ],
       before: "Avant",
@@ -1063,7 +1057,7 @@ export const translations: Record<Locale, SiteCopy> = {
       sliderValue: (position) => `${position}% de l'image avant visible`,
     },
     testimonials: {
-      eyebrow: "Clients",
+      eyebrow: "Feedbacks",
       title: "Ce que disent nos clients",
       intro:
         "Projets de vente, installation et assistance dans maisons, copropriétés et espaces extérieurs familiaux.",
@@ -1128,13 +1122,12 @@ export const translations: Record<Locale, SiteCopy> = {
       },
       helper: "Plus vous partagez de détails, plus notre première réponse sera précise.",
       poolTypes: [
-        { value: "fiber", label: "Piscine en fibre" },
-        { value: "concrete", label: "Piscine en béton" },
+        { value: "classic", label: "Piscine classique" },
+        { value: "modern", label: "Piscine moderne" },
         { value: "compact", label: "Piscine compacte" },
         { value: "infinity", label: "Piscine infinity" },
-        { value: "cover", label: "Couverture" },
-        { value: "heating", label: "Système de chauffage" },
-        { value: "undecided", label: "Je réfléchis encore" },
+        { value: "fiber", label: "Piscine en fibre" },
+        { value: "concrete", label: "Piscine en béton" },
       ],
       submit: "Envoyer la demande",
       submitting: "Envoi de la demande...",
@@ -1192,7 +1185,7 @@ export const translations: Record<Locale, SiteCopy> = {
           value: "geral@piscinasrabreu.pt",
           href: "mailto:geral@piscinasrabreu.pt",
         },
-        { label: "Zone", value: "Lisbonne, Cascais, Sintra et Rive Sud", href: null },
+        { label: "Zone", value: "Alcobaça, Leiria", href: null },
       ],
       copyright: "Tous droits réservés.",
       linksAria: "Liens rapides",

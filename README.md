@@ -19,6 +19,16 @@ npm run dev
 
 Depois abre `http://localhost:3000`.
 
+## Configuração Para Produção
+
+Define estas variáveis no ambiente de deploy:
+
+- `NEXT_PUBLIC_SITE_URL`: domínio final HTTPS, por exemplo `https://piscinasrabreu.pt`.
+- `LEAD_WEBHOOK_URL`: endpoint HTTPS que recebe a lead por `POST`.
+- `LEAD_WEBHOOK_SECRET`: bearer token opcional enviado no header `Authorization`.
+
+Sem `LEAD_WEBHOOK_URL`, a rota de leads devolve erro em produção para não simular sucesso sem entregar o pedido. Em desenvolvimento local, a rota aceita o pedido e regista apenas metadados sem dados pessoais.
+
 ## Assets
 
 Os ficheiros em `public/images` e `public/videos` são placeholders ou caminhos preparados para substituição. Troca por assets finais mantendo os mesmos nomes para evitar alterações no código:
@@ -32,4 +42,4 @@ Os produtos usam imagens em `public/images/placeholders`. Podes substituir por f
 
 ## Leads
 
-O formulário envia dados para `app/api/leads/route.ts`. A rota faz validação mínima e `console.log` dos dados recebidos. O ponto de integração com email, CRM, Google Sheets ou webhook está assinalado no ficheiro.
+O formulário envia dados para `app/api/leads/route.ts`. A rota valida origem, tipo e tamanho do pedido, aplica rate limit básico, rejeita honeypot de bots, limita tamanho dos campos e envia a lead para o webhook configurado antes de responder com sucesso.

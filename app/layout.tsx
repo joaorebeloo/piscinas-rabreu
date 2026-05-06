@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import { getSiteUrl } from "@/data/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,17 +16,39 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const siteUrl = getSiteUrl();
+const siteTitle = "Piscinas R Abreu | Venda e montagem de piscinas";
+const siteDescription =
+  "Especialistas em venda, montagem e assistência de piscinas. Peça o seu orçamento gratuito.";
+
 export const metadata: Metadata = {
-  title: "Piscinas R Abreu | Venda e montagem de piscinas",
-  description:
-    "Especialistas em venda, montagem e assistência de piscinas. Peça o seu orçamento gratuito.",
-  metadataBase: new URL("https://piscinas-r-abreu.local"),
+  metadataBase: siteUrl,
+  title: siteTitle,
+  description: siteDescription,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Piscinas R Abreu | Venda e montagem de piscinas",
-    description:
-      "Especialistas em venda, montagem e assistência de piscinas. Peça o seu orçamento gratuito.",
+    title: siteTitle,
+    description: siteDescription,
+    url: "/",
+    siteName: "Piscinas R Abreu",
     type: "website",
     locale: "pt_PT",
+    images: [
+      {
+        url: "/images/hero-pool-residential.png",
+        width: 1200,
+        height: 630,
+        alt: "Piscina residencial instalada pela Piscinas R Abreu",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/images/hero-pool-residential.png"],
   },
 };
 

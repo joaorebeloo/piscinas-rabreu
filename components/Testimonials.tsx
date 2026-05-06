@@ -32,7 +32,7 @@ export function Testimonials() {
       className="bg-slate-950 px-4 py-16 text-white sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+        <div>
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-cyan-300">
               {t.testimonials.eyebrow}
@@ -44,9 +44,6 @@ export function Testimonials() {
               {t.testimonials.title}
             </h2>
           </div>
-          <p className="max-w-xl text-base leading-7 text-slate-300 lg:justify-self-end">
-            {t.testimonials.intro}
-          </p>
         </div>
 
         <motion.div

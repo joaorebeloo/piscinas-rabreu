@@ -37,7 +37,7 @@ export function BenefitsBar() {
       className="bg-[var(--color-navy)] px-4 py-12 text-white sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-7 flex flex-col gap-3 border-t border-white/10 pt-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-7 border-t border-white/10 pt-6">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-cyan-200">
               {t.benefits.eyebrow}
@@ -49,9 +49,6 @@ export function BenefitsBar() {
               {t.benefits.title}
             </h2>
           </div>
-          <p className="max-w-md text-sm leading-6 text-cyan-50/72 md:text-right">
-            {t.benefits.intro}
-          </p>
         </div>
 
         <motion.div

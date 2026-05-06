@@ -28,5 +28,10 @@
     "remotion": "^4.0.454",
     "tailwindcss": "4.2.4",
     "typescript": "6.0.3"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.14"
+    }
   }
 }

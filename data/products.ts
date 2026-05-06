@@ -25,6 +25,7 @@ export type Product = {
 export const PRODUCT_FILTERS: ProductFilter[] = ["piscinas", "acessorios"];
 
 const modelImagePath = "/images/fotos-piscinas/Modelos";
+const modelImageVersion = "v=3";
 
 function poolCopy(name: string, badge = "Piscina"): Record<Locale, ProductCopy> {
   return {
@@ -88,55 +89,55 @@ export const PRODUCTS: Product[] = [
   {
     id: "big-tran",
     category: "piscinas",
-    imageSrc: `${modelImagePath}/Big Tran.png`,
+    imageSrc: `${modelImagePath}/Big Tran.png?${modelImageVersion}`,
     copy: poolCopy("Big Tran", "Best seller"),
   },
   {
     id: "franco",
     category: "piscinas",
-    imageSrc: `${modelImagePath}/Franco.png`,
+    imageSrc: `${modelImagePath}/Franco.png?${modelImageVersion}`,
     copy: poolCopy("Franco"),
   },
   {
     id: "jupiter",
     category: "piscinas",
-    imageSrc: `${modelImagePath}/Jupiter.png`,
+    imageSrc: `${modelImagePath}/Jupiter.png?${modelImageVersion}`,
     copy: poolCopy("Jupiter"),
   },
   {
     id: "relax",
     category: "piscinas",
-    imageSrc: `${modelImagePath}/Relax.png`,
+    imageSrc: `${modelImagePath}/Relax.png?${modelImageVersion}`,
     copy: poolCopy("Relax"),
   },
   {
     id: "space-laze",
     category: "piscinas",
-    imageSrc: `${modelImagePath}/Space Laze.png`,
+    imageSrc: `${modelImagePath}/Space Laze.png?${modelImageVersion}`,
     copy: poolCopy("Space Laze"),
   },
   {
     id: "space",
     category: "piscinas",
-    imageSrc: `${modelImagePath}/Space.png`,
+    imageSrc: `${modelImagePath}/Space.png?${modelImageVersion}`,
     copy: poolCopy("Space"),
   },
   {
     id: "trust",
     category: "piscinas",
-    imageSrc: `${modelImagePath}/Trust.png`,
+    imageSrc: `${modelImagePath}/Trust.png?${modelImageVersion}`,
     copy: poolCopy("Trust"),
   },
   {
     id: "filtro500",
     category: "acessorios",
-    imageSrc: `${modelImagePath}/filtro500.png`,
+    imageSrc: `${modelImagePath}/filtro500.png?${modelImageVersion}`,
     copy: accessoryCopy("filtro500"),
   },
   {
     id: "filtro600",
     category: "acessorios",
-    imageSrc: `${modelImagePath}/filtro600.png`,
+    imageSrc: `${modelImagePath}/filtro600.png?${modelImageVersion}`,
     copy: accessoryCopy("filtro600"),
   },
 ];

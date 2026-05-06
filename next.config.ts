@@ -34,6 +34,17 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  images: {
+    localPatterns: [
+      {
+        pathname: "/images/**",
+      },
+      {
+        pathname: "/images/fotos-piscinas/Modelos/**",
+        search: "?v=3",
+      },
+    ],
+  },
   async headers() {
     return [
       {

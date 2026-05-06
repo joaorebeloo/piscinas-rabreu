@@ -78,7 +78,7 @@ export function Header() {
             <span className="block text-base font-semibold tracking-[0.08em] sm:text-2xl">
               Piscinas R Abreu
             </span>
-            <span className="mt-1 block text-xs font-medium uppercase tracking-[0.18em] text-cyan-100/80 sm:mt-1.5 sm:text-lg">
+            <span className="mt-1 block text-[0.65rem] font-medium uppercase tracking-[0.16em] text-cyan-100/80 sm:mt-1.5 sm:text-sm">
               {t.header.tagline}
             </span>
           </span>

@@ -65,20 +65,20 @@ export function Header() {
         <a
           href="#inicio"
           aria-label={t.header.homeAria}
-          className="group inline-flex items-center gap-3 rounded-full outline-none transition focus-visible:ring-2 focus-visible:ring-[#55d6ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#06162b]"
+          className="group inline-flex items-center gap-2 rounded-full outline-none transition focus-visible:ring-2 focus-visible:ring-[#55d6ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#06162b] sm:gap-3"
           onClick={(event) => {
             event.preventDefault();
             navigateToSection("#inicio");
           }}
         >
-          <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white text-[#06162b] shadow-lg shadow-cyan-950/20 sm:h-[4.125rem] sm:w-[4.125rem]">
-            <Waves className="h-7 w-7 text-[#0787b7] sm:h-9 sm:w-9" aria-hidden="true" />
+          <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white text-[#06162b] shadow-lg shadow-cyan-950/20 sm:h-[3.75rem] sm:w-[3.75rem]">
+            <Waves className="h-6 w-6 text-[#0787b7] sm:h-8 sm:w-8" aria-hidden="true" />
           </span>
           <span className="leading-none">
-            <span className="block text-xl font-semibold tracking-[0.08em] sm:text-3xl">
+            <span className="block text-base font-semibold tracking-[0.08em] sm:text-2xl">
               Piscinas R Abreu
             </span>
-            <span className="mt-1 block text-sm font-medium uppercase tracking-[0.18em] text-cyan-100/80 sm:mt-2 sm:text-2xl">
+            <span className="mt-1 block text-xs font-medium uppercase tracking-[0.18em] text-cyan-100/80 sm:mt-1.5 sm:text-lg">
               {t.header.tagline}
             </span>
           </span>

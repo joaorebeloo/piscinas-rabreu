@@ -197,11 +197,11 @@ export function BeforeAfter() {
               />
             </div>
 
-            <div className="pointer-events-none absolute inset-x-4 top-4 flex justify-between text-lg font-semibold uppercase tracking-[0.14em]">
-              <span className="rounded-full bg-slate-950/75 px-4 py-3 text-white backdrop-blur">
+            <div className="pointer-events-none absolute inset-x-4 top-4 flex justify-between text-[0.65rem] font-semibold uppercase tracking-[0.14em] sm:text-xs">
+              <span className="rounded-full bg-slate-950/75 px-2 py-1.5 text-white backdrop-blur">
                 {t.beforeAfter.before}
               </span>
-              <span className="rounded-full bg-white/85 px-4 py-3 text-slate-950 backdrop-blur">
+              <span className="rounded-full bg-white/85 px-2 py-1.5 text-slate-950 backdrop-blur">
                 {t.beforeAfter.after}
               </span>
             </div>

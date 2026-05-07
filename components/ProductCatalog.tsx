@@ -1,8 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  X,
   LayoutGrid,
   ShieldCheck,
   SlidersHorizontal,
@@ -17,6 +19,7 @@ import { ProductCard } from "@/components/ProductCard";
 import {
   PRODUCTS,
   PRODUCT_FILTERS,
+  type Product,
   type ProductFilter,
 } from "@/data/products";
 
@@ -29,8 +32,9 @@ const FILTER_ICON: Record<ProductFilter, LucideIcon> = {
 };
 
 export function ProductCatalog() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<ProductFilter>("todos");
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const visibleProducts = useMemo(() => {
     if (activeFilter === "todos") {
@@ -40,9 +44,29 @@ export function ProductCatalog() {
     return PRODUCTS.filter((product) => product.category === activeFilter);
   }, [activeFilter]);
 
+  useEffect(() => {
+    if (!selectedProduct) {
+      return;
+    }
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setSelectedProduct(null);
+      }
+    }
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [selectedProduct]);
+
   return (
     <section
-      className="relative w-full border-t border-slate-200 bg-[var(--color-foam)] px-4 py-24 pt-28 sm:px-6 lg:px-8"
+      className="relative w-full overflow-hidden border-t border-slate-200 bg-[var(--color-foam)] px-4 py-24 pt-28 sm:px-6 lg:px-8"
       id="modelos"
     >
       <div
@@ -53,7 +77,15 @@ export function ProductCatalog() {
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-700/35 to-transparent"
         aria-hidden="true"
       />
-      <div className="mx-auto max-w-7xl">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.38] [background-image:linear-gradient(rgba(7,27,53,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(7,27,53,0.055)_1px,transparent_1px)] [background-size:44px_44px]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.88),rgba(246,251,253,0.34)_42%,rgba(246,251,253,0.78)_100%)]"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-7xl">
         <div className="mb-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600">
@@ -117,11 +149,16 @@ export function ProductCatalog() {
         {visibleProducts.length > 0 ? (
           <motion.div
             layout
-            className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4"
+            className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-2 xl:grid-cols-4"
           >
             <AnimatePresence>
               {visibleProducts.map((product, index) => (
-                <ProductCard key={product.id} product={product} index={index} />
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  index={index}
+                  onImageOpen={setSelectedProduct}
+                />
               ))}
             </AnimatePresence>
           </motion.div>
@@ -140,6 +177,55 @@ export function ProductCatalog() {
           </motion.div>
         )}
       </div>
+
+      <AnimatePresence>
+        {selectedProduct ? (
+          <motion.div
+            aria-modal="true"
+            className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/88 p-4 backdrop-blur-md"
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            role="dialog"
+            animate={{ opacity: 1 }}
+            onClick={() => setSelectedProduct(null)}
+          >
+            <motion.div
+              className="relative w-full max-w-5xl overflow-hidden rounded-[1.2rem] bg-slate-950 shadow-[0_36px_120px_-48px_rgba(0,0,0,0.95)]"
+              initial={{ opacity: 0, scale: 0.94, y: 18 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 12 }}
+              transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                aria-label={t.catalog.closeImage}
+                onClick={() => setSelectedProduct(null)}
+                className="absolute right-3 top-3 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-slate-950 shadow-lg transition hover:bg-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+              >
+                <X className="h-5 w-5" aria-hidden="true" />
+              </button>
+              <div className="relative aspect-[4/3] max-h-[78vh] w-full">
+                <Image
+                  src={selectedProduct.imageSrc}
+                  alt={selectedProduct.copy[locale].imageAlt}
+                  fill
+                  sizes="100vw"
+                  className="object-contain"
+                />
+              </div>
+              <div className="border-t border-white/10 px-5 py-4 text-white">
+                <h3 className="text-lg font-semibold tracking-tight">
+                  {selectedProduct.copy[locale].name}
+                </h3>
+                <p className="mt-1 text-sm leading-6 text-cyan-50/78">
+                  {selectedProduct.copy[locale].description}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </section>
   );
 }

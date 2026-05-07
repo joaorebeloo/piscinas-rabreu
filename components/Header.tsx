@@ -11,6 +11,7 @@ const navItems = [
   { key: "services", href: "#servicos" },
   { key: "beforeAfter", href: "#antes-depois" },
   { key: "models", href: "#modelos" },
+  { key: "gallery", href: "#galeria" },
   { key: "testimonials", href: "#testemunhos" },
   { key: "contacts", href: "#contactos" },
 ] as const;
@@ -96,7 +97,7 @@ export function Header() {
                 event.preventDefault();
                 navigateToSection(item.href);
               }}
-              className="rounded-full px-4 py-2 text-sm font-medium text-cyan-50/80 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55d6ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#06162b]"
+              className="rounded-full px-3 py-2 text-sm font-medium text-cyan-50/80 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55d6ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#06162b] xl:px-4"
             >
               {t.nav[item.key]}
             </a>

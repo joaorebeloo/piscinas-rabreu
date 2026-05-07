@@ -41,6 +41,7 @@ type NavItem = {
   models: string;
   services: string;
   beforeAfter: string;
+  gallery: string;
   testimonials: string;
   contacts: string;
 };
@@ -104,6 +105,8 @@ export type SiteCopy = {
     };
     learnMore: string;
     learnMoreAriaPrefix: string;
+    imageZoomAriaPrefix: string;
+    closeImage: string;
     emptyTitle: string;
     emptyText: string;
   };
@@ -194,6 +197,7 @@ export const translations: Record<Locale, SiteCopy> = {
       models: "Modelos",
       services: "Serviços",
       beforeAfter: "Antes e Depois",
+      gallery: "Galeria",
       testimonials: "Feedbacks",
       contacts: "Contactos",
     },
@@ -282,6 +286,8 @@ export const translations: Record<Locale, SiteCopy> = {
       },
       learnMore: "Saber mais",
       learnMoreAriaPrefix: "Saber mais sobre",
+      imageZoomAriaPrefix: "Ampliar imagem de",
+      closeImage: "Fechar imagem ampliada",
       emptyTitle: "Categoria preparada para novos produtos",
       emptyText:
         "Pode adicionar robôs de limpeza, iluminação, tratamento salino ou outros acessórios em data/products.ts.",
@@ -454,6 +460,7 @@ export const translations: Record<Locale, SiteCopy> = {
       models: "Models",
       services: "Services",
       beforeAfter: "Before & After",
+      gallery: "Gallery",
       testimonials: "Testimonials",
       contacts: "Contacts",
     },
@@ -537,6 +544,8 @@ export const translations: Record<Locale, SiteCopy> = {
       },
       learnMore: "Learn more",
       learnMoreAriaPrefix: "Learn more about",
+      imageZoomAriaPrefix: "Open larger image of",
+      closeImage: "Close enlarged image",
       emptyTitle: "Category ready for new products",
       emptyText:
         "Add cleaning robots, lighting, salt treatment or other accessories in data/products.ts.",
@@ -702,6 +711,7 @@ export const translations: Record<Locale, SiteCopy> = {
       models: "Modelos",
       services: "Servicios",
       beforeAfter: "Antes y después",
+      gallery: "Galería",
       testimonials: "Testimonios",
       contacts: "Contactos",
     },
@@ -785,6 +795,8 @@ export const translations: Record<Locale, SiteCopy> = {
       },
       learnMore: "Saber más",
       learnMoreAriaPrefix: "Saber más sobre",
+      imageZoomAriaPrefix: "Ampliar imagen de",
+      closeImage: "Cerrar imagen ampliada",
       emptyTitle: "Categoría preparada para nuevos productos",
       emptyText:
         "Puedes añadir robots de limpieza, iluminación, tratamiento salino u otros accesorios en data/products.ts.",
@@ -950,6 +962,7 @@ export const translations: Record<Locale, SiteCopy> = {
       models: "Modèles",
       services: "Services",
       beforeAfter: "Avant / Après",
+      gallery: "Galerie",
       testimonials: "Témoignages",
       contacts: "Contacts",
     },
@@ -1033,6 +1046,8 @@ export const translations: Record<Locale, SiteCopy> = {
       },
       learnMore: "En savoir plus",
       learnMoreAriaPrefix: "En savoir plus sur",
+      imageZoomAriaPrefix: "Agrandir l'image de",
+      closeImage: "Fermer l'image agrandie",
       emptyTitle: "Catégorie prête pour de nouveaux produits",
       emptyText:
         "Ajoutez robots de nettoyage, éclairage, traitement au sel ou autres accessoires dans data/products.ts.",

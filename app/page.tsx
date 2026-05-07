@@ -1,6 +1,7 @@
 import { BenefitsBar } from "@/components/BenefitsBar";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { Footer } from "@/components/Footer";
+import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { LeadForm } from "@/components/LeadForm";
@@ -17,6 +18,7 @@ export default function Home() {
       <BenefitsBar />
       <BeforeAfter />
       <ProductCatalog />
+      <Gallery />
       <Testimonials />
       <LeadForm />
       <Stats />

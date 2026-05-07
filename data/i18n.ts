@@ -202,7 +202,7 @@ export const translations: Record<Locale, SiteCopy> = {
       contacts: "Contactos",
     },
     header: {
-      tagline: "Venda e montagem",
+      tagline: "Venda e instalação",
       homeAria: "Piscinas R Abreu, voltar ao início",
       mainNavAria: "Navegação principal",
       mobileNavAria: "Navegação móvel",
@@ -215,12 +215,12 @@ export const translations: Record<Locale, SiteCopy> = {
       label: "Idioma",
     },
     hero: {
-      eyebrow: "Venda, montagem e assistência de piscinas",
+      eyebrow: "Venda, instalação e assistência de piscinas",
       titlePrefix: "Piscinas que",
       titleHighlight: "transformam",
       titleSuffix: "espaços em momentos únicos.",
       subheadline:
-        "Venda, montagem e assistência de piscinas com qualidade, segurança e acabamentos de excelência.",
+        "Venda, instalação e assistência de piscinas com qualidade, segurança e acabamentos de excelência.",
       primaryCta: "Pedir orçamento",
       secondaryCta: "Ver catálogo",
       videoCta: "Ver vídeo",
@@ -252,7 +252,7 @@ export const translations: Record<Locale, SiteCopy> = {
           text: "Materiais seleccionados e acabamentos pensados para resistir ao uso diário.",
         },
         {
-          title: "Montagem especializada",
+          title: "Instalação especializada",
           text: "Equipa experiente em instalação, preparação técnica e entrega chave na mão.",
         },
         {
@@ -261,7 +261,7 @@ export const translations: Record<Locale, SiteCopy> = {
         },
         {
           title: "Apoio contínuo",
-          text: "Assistência após montagem para manter a piscina segura, limpa e pronta a usar.",
+          text: "Assistência após instalação para manter a piscina segura, limpa e pronta a usar.",
         },
       ],
     },
@@ -299,7 +299,7 @@ export const translations: Record<Locale, SiteCopy> = {
         "Compare o potencial de um espaço exterior antes da intervenção com uma solução pronta para receber família, amigos e dias longos de sol.",
       steps: [
         "Estudo e preparação do terreno.",
-        "Montagem, acabamentos e ensaio antes da entrega.",
+        "Instalação, acabamentos e ensaio antes da entrega.",
       ],
       before: "Antes",
       after: "Depois",
@@ -327,7 +327,7 @@ export const translations: Record<Locale, SiteCopy> = {
           name: "Ricardo Almeida",
           location: "Porto",
           quote:
-            "Gostei da clareza do orçamento e do acompanhamento durante a montagem. Ficámos com uma piscina pronta a usar sem surpresas no processo.",
+            "Gostei da clareza do orçamento e do acompanhamento durante a instalação. Ficámos com uma piscina pronta a usar sem surpresas no processo.",
         },
         {
           name: "Sofia Ferreira",
@@ -352,7 +352,7 @@ export const translations: Record<Locale, SiteCopy> = {
         "Resposta rápida",
         "Visita técnica",
         "Soluções chave na mão",
-        "Apoio após montagem",
+        "Apoio após instalação",
       ],
       whatsapp: "Falar no WhatsApp",
       formAria: "Formulário de pedido de orçamento",
@@ -407,7 +407,7 @@ export const translations: Record<Locale, SiteCopy> = {
           value: 10,
           suffix: "+",
           label: "anos de experiência",
-          detail: "Venda, montagem e assistência de piscinas em Portugal.",
+          detail: "Venda, instalação e assistência de piscinas em Portugal.",
         },
         {
           value: 500,
@@ -419,7 +419,7 @@ export const translations: Record<Locale, SiteCopy> = {
           value: 100,
           suffix: "%",
           label: "clientes satisfeitos",
-          detail: "Acompanhamento próximo antes, durante e após a montagem.",
+          detail: "Acompanhamento próximo antes, durante e após a instalação.",
         },
         {
           value: 100,
@@ -432,7 +432,7 @@ export const translations: Record<Locale, SiteCopy> = {
     footer: {
       homeAria: "Piscinas R Abreu, voltar ao início",
       description:
-        "Venda, montagem e assistência de piscinas personalizadas com qualidade, segurança e acabamentos de excelência.",
+        "Venda, instalação e assistência de piscinas personalizadas com qualidade, segurança e acabamentos de excelência.",
       contacts: [
         { label: "Telefone", value: "+351 912 458 376", href: "tel:+351912458376" },
         {

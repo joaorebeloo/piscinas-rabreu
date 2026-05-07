@@ -33,7 +33,7 @@ export const GALLERY_COPY: Record<
     eyebrow: "Galeria",
     title: "Piscinas montadas e momentos de obra",
     intro:
-      "Uma seleção visual de piscinas concluídas, transporte, preparação do terreno e montagem no local.",
+      "Uma seleção visual de piscinas concluídas, transporte, preparação do terreno e instalação no local.",
     filterAria: "Filtrar galeria de imagens",
     filters: {
       all: "Todos",

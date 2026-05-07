@@ -36,7 +36,7 @@ function poolCopy(name: string, badge = "Piscina"): Record<Locale, ProductCopy> 
     pt: {
       name,
       badge,
-      description: `Modelo ${name} para venda e montagem.`,
+      description: `Modelo ${name} para venda e instalação.`,
       imageAlt: `Piscina ${name}`,
     },
     en: {

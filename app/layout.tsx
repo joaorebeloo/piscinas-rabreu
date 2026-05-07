@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = getSiteUrl();
-const siteTitle = "Piscinas R Abreu | Venda e montagem de piscinas";
+const siteTitle = "Piscinas R Abreu | Venda e instalação de piscinas";
 const siteDescription =
-  "Especialistas em venda, montagem e assistência de piscinas. Peça o seu orçamento gratuito.";
+  "Especialistas em venda, instalação e assistência de piscinas. Peça o seu orçamento gratuito.";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,

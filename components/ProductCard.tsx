@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
   ShieldCheck,
   ThermometerSun,
   Waves,
@@ -35,7 +34,7 @@ export function ProductCard({
   const { locale, t } = useLanguage();
   const Icon = CATEGORY_ICON[product.category];
   const copy = product.copy[locale];
-  const isBestSeller = copy.badge.toLowerCase() === "best seller";
+  const isBestSeller = copy.badge.toLowerCase().replace("-", " ") === "best seller";
 
   return (
     <motion.article
@@ -70,8 +69,8 @@ export function ProductCard({
           className="object-cover transition duration-700 ease-[var(--ease-premium)] group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,27,53,0)_35%,rgba(7,27,53,0.42)_100%)]" />
-        <div className="absolute left-2 top-2 inline-flex items-center gap-1 rounded-full border border-white/45 bg-white/72 px-2 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-slate-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md sm:left-5 sm:top-5 sm:gap-2 sm:px-3 sm:py-2 sm:text-xs">
-          <Icon className="h-3 w-3 sm:h-4 sm:w-4" strokeWidth={1.8} />
+        <div className="absolute left-2 top-2 inline-flex items-center gap-0.5 rounded-full border border-white/45 bg-white/72 px-1.5 py-0.5 text-[0.42rem] font-semibold uppercase tracking-[0.1em] text-slate-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md sm:left-4 sm:top-4 sm:gap-1 sm:px-2 sm:py-1 sm:text-[0.62rem]">
+          <Icon className="h-2 w-2 sm:h-3 sm:w-3" strokeWidth={1.8} />
           <span className="hidden min-[420px]:inline">{t.categories[product.category]}</span>
         </div>
         {isBestSeller ? (
@@ -93,15 +92,6 @@ export function ProductCard({
         <p className="mt-2 hidden flex-1 text-sm leading-6 text-slate-600 sm:block">
           {copy.description}
         </p>
-        <motion.a
-          href="#contactos"
-          whileTap={{ scale: 0.98 }}
-          className="mt-3 inline-flex min-h-9 items-center justify-center gap-1 rounded-full bg-[var(--color-navy)] px-3 py-2 text-xs font-semibold !text-white transition duration-500 ease-[var(--ease-premium)] hover:-translate-y-0.5 hover:bg-[var(--color-navy-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-pool)] sm:mt-6 sm:min-h-11 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm [&_*]:!text-white"
-          aria-label={`${t.catalog.learnMoreAriaPrefix} ${copy.name}`}
-        >
-          {t.catalog.learnMore}
-          <ArrowRight className="h-4 w-4" strokeWidth={1.8} />
-        </motion.a>
       </div>
     </motion.article>
   );

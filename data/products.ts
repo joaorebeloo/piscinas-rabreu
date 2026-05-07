@@ -22,7 +22,11 @@ export type Product = {
   copy: Record<Locale, ProductCopy>;
 };
 
-export const PRODUCT_FILTERS: ProductFilter[] = ["piscinas", "acessorios"];
+export const PRODUCT_FILTERS: ProductFilter[] = [
+  "todos",
+  "piscinas",
+  "acessorios",
+];
 
 const modelImagePath = "/images/fotos-piscinas/Modelos";
 const modelImageVersion = "v=3";
@@ -60,7 +64,7 @@ function accessoryCopy(name: string): Record<Locale, ProductCopy> {
   return {
     pt: {
       name,
-      badge: "Acessorio",
+      badge: "Acessório",
       description: `${name} para apoio ao sistema da piscina.`,
       imageAlt: name,
     },
@@ -90,7 +94,7 @@ export const PRODUCTS: Product[] = [
     id: "big-tran",
     category: "piscinas",
     imageSrc: `${modelImagePath}/Big Tran.png?${modelImageVersion}`,
-    copy: poolCopy("Big Tran", "Best seller"),
+    copy: poolCopy("Big Tran", "Best-seller"),
   },
   {
     id: "franco",
@@ -132,12 +136,12 @@ export const PRODUCTS: Product[] = [
     id: "filtro500",
     category: "acessorios",
     imageSrc: `${modelImagePath}/filtro500.png?${modelImageVersion}`,
-    copy: accessoryCopy("filtro500"),
+    copy: accessoryCopy("Filtro 500"),
   },
   {
     id: "filtro600",
     category: "acessorios",
     imageSrc: `${modelImagePath}/filtro600.png?${modelImageVersion}`,
-    copy: accessoryCopy("filtro600"),
+    copy: accessoryCopy("Filtro 600"),
   },
 ];

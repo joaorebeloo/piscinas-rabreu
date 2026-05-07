@@ -271,7 +271,7 @@ export const translations: Record<Locale, SiteCopy> = {
       eyebrow: "Catálogo",
       title: "Encontre a piscina ideal para o seu espaço",
       intro:
-        "Modelos, coberturas e soluções técnicas preparados para adaptar o projecto ao terreno, ao estilo da casa e à forma como quer usar a piscina.",
+        "Modelos, coberturas e soluções técnicas preparados para adaptar o projeto ao terreno, ao estilo da casa e à forma como quer usar a piscina.",
       filterAria: "Filtrar catálogo de produtos",
       filters: {
         todos: "Todos",
@@ -284,7 +284,7 @@ export const translations: Record<Locale, SiteCopy> = {
       learnMoreAriaPrefix: "Saber mais sobre",
       emptyTitle: "Categoria preparada para novos produtos",
       emptyText:
-        "Pode adicionar robots de limpeza, iluminação, tratamento salino ou outros acessórios em data/products.ts.",
+        "Pode adicionar robôs de limpeza, iluminação, tratamento salino ou outros acessórios em data/products.ts.",
     },
     beforeAfter: {
       eyebrow: "Antes e depois",

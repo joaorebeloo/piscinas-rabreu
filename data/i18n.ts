@@ -14,7 +14,7 @@ export const htmlLang: Record<Locale, string> = {
   fr: "fr",
 };
 
-export const businessWhatsAppNumber = "351912458376";
+export const businessWhatsAppNumber = "351934643669";
 
 export function buildWhatsAppHref(message: string) {
   return `https://wa.me/${businessWhatsAppNumber}?text=${encodeURIComponent(
@@ -434,7 +434,7 @@ export const translations: Record<Locale, SiteCopy> = {
       description:
         "Venda, instalação e assistência de piscinas personalizadas com qualidade, segurança e acabamentos de excelência.",
       contacts: [
-        { label: "Telefone", value: "+351 912 458 376", href: "tel:+351912458376" },
+        { label: "Telefone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
           value: "geral@piscinasrabreu.pt",
@@ -692,7 +692,7 @@ export const translations: Record<Locale, SiteCopy> = {
       description:
         "Sales, installation and support for custom pools with quality, safety and excellent finishes.",
       contacts: [
-        { label: "Phone", value: "+351 912 458 376", href: "tel:+351912458376" },
+        { label: "Phone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
           value: "geral@piscinasrabreu.pt",
@@ -943,7 +943,7 @@ export const translations: Record<Locale, SiteCopy> = {
       description:
         "Venta, instalación y asistencia de piscinas personalizadas con calidad, seguridad y acabados excelentes.",
       contacts: [
-        { label: "Teléfono", value: "+351 912 458 376", href: "tel:+351912458376" },
+        { label: "Teléfono", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
           value: "geral@piscinasrabreu.pt",
@@ -1194,7 +1194,7 @@ export const translations: Record<Locale, SiteCopy> = {
       description:
         "Vente, installation et assistance de piscines personnalisées avec qualité, sécurité et finitions d'excellence.",
       contacts: [
-        { label: "Téléphone", value: "+351 912 458 376", href: "tel:+351912458376" },
+        { label: "Téléphone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
           value: "geral@piscinasrabreu.pt",

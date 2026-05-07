@@ -5,6 +5,7 @@ import { animate, motion, useInView, type Variants } from "framer-motion";
 import { CalendarCheck, ShieldCheck, Smile, Waves } from "lucide-react";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import { SectionEyebrow } from "@/components/SectionEyebrow";
 
 const icons = [CalendarCheck, Waves, Smile, ShieldCheck] as const;
 
@@ -71,12 +72,12 @@ export function Stats() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-6 border-y border-slate-200 py-8 lg:grid-cols-[0.65fr_1.35fr] lg:items-center">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-cyan-800">
+            <SectionEyebrow icon={CalendarCheck}>
               {t.stats.eyebrow}
-            </p>
+            </SectionEyebrow>
             <h2
               id="stats-title"
-              className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl"
+              className="text-3xl font-semibold tracking-tight md:text-4xl"
             >
               {t.stats.title}
             </h2>

@@ -4,6 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import { Clock3, Headphones, ShieldCheck, Wrench } from "lucide-react";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import { SectionEyebrow } from "@/components/SectionEyebrow";
 
 const icons = [ShieldCheck, Wrench, Clock3, Headphones] as const;
 
@@ -39,12 +40,12 @@ export function BenefitsBar() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-7 border-t border-white/10 pt-6">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-cyan-200">
+            <SectionEyebrow icon={ShieldCheck} variant="dark">
               {t.benefits.eyebrow}
-            </p>
+            </SectionEyebrow>
             <h2
               id="benefits-title"
-              className="mt-2 max-w-2xl text-3xl font-semibold tracking-tight text-white md:text-4xl"
+              className="max-w-2xl text-3xl font-semibold tracking-tight text-white md:text-4xl"
             >
               {t.benefits.title}
             </h2>

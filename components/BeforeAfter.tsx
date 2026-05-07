@@ -9,9 +9,10 @@ import {
 } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowLeftRight } from "lucide-react";
+import { ArrowLeftRight, SlidersHorizontal } from "lucide-react";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import { SectionEyebrow } from "@/components/SectionEyebrow";
 
 function clamp(value: number) {
   return Math.min(96, Math.max(4, value));
@@ -129,9 +130,9 @@ export function BeforeAfter() {
           transition={{ type: "spring", stiffness: 100, damping: 20 }}
           className="max-w-xl"
         >
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-cyan-800">
+          <SectionEyebrow icon={SlidersHorizontal}>
             {t.beforeAfter.eyebrow}
-          </p>
+          </SectionEyebrow>
           <h2
             id="before-after-title"
             className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-5xl"

@@ -4,6 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import { SectionEyebrow } from "@/components/SectionEyebrow";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -34,12 +35,12 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl">
         <div>
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-cyan-300">
+            <SectionEyebrow icon={Star} variant="dark">
               {t.testimonials.eyebrow}
-            </p>
+            </SectionEyebrow>
             <h2
               id="testimonials-title"
-              className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight md:text-5xl"
+              className="max-w-2xl text-3xl font-semibold tracking-tight md:text-5xl"
             >
               {t.testimonials.title}
             </h2>

@@ -6,6 +6,7 @@ import { Camera, Hammer, Images, Waves, type LucideIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import { SectionEyebrow } from "@/components/SectionEyebrow";
 import {
   GALLERY_COPY,
   GALLERY_FILTERS,
@@ -48,10 +49,9 @@ export function Gallery() {
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-200/20 bg-white/8 px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-cyan-100">
-              <Camera className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
+            <SectionEyebrow icon={Camera} variant="dark">
               {copy.eyebrow}
-            </div>
+            </SectionEyebrow>
             <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
               {copy.title}
             </h2>

@@ -5,6 +5,7 @@ import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import { SectionEyebrow } from "@/components/SectionEyebrow";
 import { isPoolTypeValue } from "@/data/i18n";
 
 type LeadFormValues = {
@@ -264,9 +265,9 @@ export function LeadForm({ className = "" }: { className?: string }) {
           transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
           className="pt-2"
         >
-          <p className="mb-5 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-100">
+          <SectionEyebrow icon={Send} variant="dark" className="mb-5">
             {t.leadForm.sectionEyebrow}
-          </p>
+          </SectionEyebrow>
           <h2 className="max-w-2xl text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
             {t.leadForm.title}
           </h2>

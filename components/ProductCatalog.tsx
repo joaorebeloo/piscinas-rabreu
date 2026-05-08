@@ -18,8 +18,11 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { ProductCard } from "@/components/ProductCard";
 import { SectionEyebrow } from "@/components/SectionEyebrow";
 import {
+  getProductImageSrc,
+  POOL_COLOR_OPTIONS,
   PRODUCTS,
   PRODUCT_FILTERS,
+  type PoolColorId,
   type Product,
   type ProductFilter,
 } from "@/data/products";
@@ -32,9 +35,17 @@ const FILTER_ICON: Record<ProductFilter, LucideIcon> = {
   acessorios: Wrench,
 };
 
+const WARRANTY_BY_CATEGORY: Record<Product["category"], string> = {
+  piscinas: "10 anos de Garantia",
+  coberturas: "2 anos de Garantia",
+  aquecimento: "2 anos de Garantia",
+  acessorios: "2 anos de Garantia",
+};
+
 export function ProductCatalog() {
   const { locale, t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<ProductFilter>("todos");
+  const [activeColor, setActiveColor] = useState<PoolColorId>("azul");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const visibleProducts = useMemo(() => {
@@ -100,49 +111,81 @@ export function ProductCatalog() {
             </p>
           </div>
 
-          <div
-            className="flex flex-wrap gap-2 lg:justify-end"
-            aria-label={t.catalog.filterAria}
-            role="group"
-          >
-            {PRODUCT_FILTERS.map((filter) => {
-              const Icon = FILTER_ICON[filter];
-              const isActive = activeFilter === filter;
+          <div className="space-y-3 lg:text-right">
+            <div
+              className="flex flex-wrap gap-2 lg:justify-end"
+              aria-label={t.catalog.filterAria}
+              role="group"
+            >
+              {PRODUCT_FILTERS.map((filter) => {
+                const Icon = FILTER_ICON[filter];
+                const isActive = activeFilter === filter;
 
-              return (
-                <button
-                  key={filter}
-                  type="button"
-                  aria-pressed={isActive}
-                  onClick={() => setActiveFilter(filter)}
-                  className="relative inline-flex min-h-10 items-center gap-2 overflow-hidden rounded-md border border-slate-200 px-3.5 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
-                >
-                  {isActive ? (
-                    <motion.span
-                      layoutId="product-filter-active"
-                      className="absolute inset-0 bg-slate-950"
-                      transition={{
-                        type: "spring",
-                        stiffness: 220,
-                        damping: 24,
-                      }}
+                return (
+                  <button
+                    key={filter}
+                    type="button"
+                    aria-pressed={isActive}
+                    onClick={() => setActiveFilter(filter)}
+                    className="relative inline-flex min-h-10 items-center gap-2 overflow-hidden rounded-md border border-slate-200 px-3.5 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                  >
+                    {isActive ? (
+                      <motion.span
+                        layoutId="product-filter-active"
+                        className="absolute inset-0 bg-slate-950"
+                        transition={{
+                          type: "spring",
+                          stiffness: 220,
+                          damping: 24,
+                        }}
+                      />
+                    ) : null}
+                    <Icon
+                      className={
+                        isActive
+                          ? "relative h-4 w-4 text-white"
+                          : "relative h-4 w-4 text-current"
+                      }
+                      strokeWidth={1.8}
+                      aria-hidden="true"
                     />
-                  ) : null}
-                  <Icon
-                    className={
+                    <span className={isActive ? "relative text-white" : "relative"}>
+                      {t.catalog.filters[filter]}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div
+              className="flex flex-wrap gap-2 lg:justify-end"
+              aria-label="Escolher cor das piscinas"
+              role="group"
+            >
+              {POOL_COLOR_OPTIONS.map((color) => {
+                const isActive = activeColor === color.id;
+
+                return (
+                  <button
+                    key={color.id}
+                    type="button"
+                    aria-pressed={isActive}
+                    onClick={() => setActiveColor(color.id)}
+                    className={`inline-flex min-h-10 items-center gap-2 rounded-md border px-3 py-2 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 ${
                       isActive
-                        ? "relative h-4 w-4 text-white"
-                        : "relative h-4 w-4 text-current"
-                    }
-                    strokeWidth={1.8}
-                    aria-hidden="true"
-                  />
-                  <span className={isActive ? "relative text-white" : "relative"}>
-                    {t.catalog.filters[filter]}
-                  </span>
-                </button>
-              );
-            })}
+                        ? "border-slate-950 bg-slate-950 text-white"
+                        : "border-slate-200 bg-white/72 text-slate-700 hover:border-slate-300 hover:text-slate-950"
+                    }`}
+                  >
+                    <span
+                      className={`h-4 w-4 rounded-full border border-slate-300 shadow-inner ${color.swatchClass}`}
+                      aria-hidden="true"
+                    />
+                    {color.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -156,6 +199,7 @@ export function ProductCatalog() {
                 <ProductCard
                   key={product.id}
                   product={product}
+                  imageSrc={getProductImageSrc(product, activeColor)}
                   index={index}
                   onImageOpen={setSelectedProduct}
                 />
@@ -207,7 +251,8 @@ export function ProductCatalog() {
               </button>
               <div className="relative aspect-[4/3] max-h-[78vh] w-full">
                 <Image
-                  src={selectedProduct.imageSrc}
+                  key={getProductImageSrc(selectedProduct, activeColor)}
+                  src={getProductImageSrc(selectedProduct, activeColor)}
                   alt={selectedProduct.copy[locale].imageAlt}
                   fill
                   sizes="100vw"
@@ -218,8 +263,11 @@ export function ProductCatalog() {
                 <h3 className="text-lg font-semibold tracking-tight">
                   {selectedProduct.copy[locale].name}
                 </h3>
-                <p className="mt-1 text-sm leading-6 text-cyan-50/78">
+                <p className="mt-1 whitespace-pre-line text-sm leading-6 text-cyan-50/78">
                   {selectedProduct.copy[locale].description}
+                </p>
+                <p className="mt-3 text-sm font-semibold text-[#6ee7ff]">
+                  {WARRANTY_BY_CATEGORY[selectedProduct.category]}
                 </p>
               </div>
             </motion.div>

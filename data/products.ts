@@ -19,6 +19,7 @@ export type Product = {
   id: string;
   category: ProductCategory;
   imageSrc: string;
+  imageFileName?: string;
   copy: Record<Locale, ProductCopy>;
 };
 
@@ -29,119 +30,404 @@ export const PRODUCT_FILTERS: ProductFilter[] = [
 ];
 
 const modelImagePath = "/images/fotos-piscinas/Modelos";
-const modelImageVersion = "v=3";
+const modelImageVersion = "v=6";
 
-function poolCopy(name: string, badge = "Piscina"): Record<Locale, ProductCopy> {
+export const POOL_COLOR_OPTIONS = [
+  {
+    id: "azul",
+    label: "Azul",
+    folder: "",
+    swatchClass: "bg-[#0788d8]",
+  },
+  {
+    id: "branca",
+    label: "Branca",
+    folder: "branca",
+    swatchClass: "bg-white",
+  },
+  {
+    id: "granito-bege",
+    label: "Granito Bege",
+    folder: "granito-bege",
+    swatchClass: "bg-[#c7b79c]",
+  },
+  {
+    id: "granito-azul",
+    label: "Granito Azul",
+    folder: "granito-azul",
+    swatchClass: "bg-[#5f8fa8]",
+  },
+  {
+    id: "granito-branco",
+    label: "Granito Branco",
+    folder: "granito-branco",
+    swatchClass: "bg-[#e2e5df]",
+  },
+] as const;
+
+export type PoolColorId = (typeof POOL_COLOR_OPTIONS)[number]["id"];
+
+export function getProductImageSrc(product: Product, poolColor: PoolColorId) {
+  if (product.category !== "piscinas" || !product.imageFileName) {
+    return product.imageSrc;
+  }
+
+  const selectedColor =
+    POOL_COLOR_OPTIONS.find((option) => option.id === poolColor) ??
+    POOL_COLOR_OPTIONS[0];
+  const colorPath = selectedColor.folder ? `/${selectedColor.folder}` : "";
+
+  return `${modelImagePath}${colorPath}/${product.imageFileName}?${modelImageVersion}-${selectedColor.id}`;
+}
+
+function jupiterCopy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casco Piscina de Poliéster\nMed. Ext. ( 3.15 x 2.40 cm ) Med. Int. ( 2.99 x 2.23 cm )\nProfundidade 1.20 cm";
+
   return {
     pt: {
-      name,
-      badge,
-      description: `Modelo ${name} para venda e instalação.`,
-      imageAlt: `Piscina ${name}`,
+      name: "Jupiter",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Jupiter",
     },
     en: {
-      name,
-      badge: badge === "Best seller" ? "Best seller" : "Pool",
-      description: `${name} model for sales and installation.`,
-      imageAlt: `${name} pool`,
+      name: "Jupiter",
+      badge: "Pool",
+      description,
+      imageAlt: "Jupiter pool",
     },
     es: {
-      name,
-      badge: badge === "Best seller" ? "Best seller" : "Piscina",
-      description: `Modelo ${name} para venta e instalacion.`,
-      imageAlt: `Piscina ${name}`,
+      name: "Jupiter",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Jupiter",
     },
     fr: {
-      name,
-      badge: badge === "Best seller" ? "Best seller" : "Piscine",
-      description: `Modele ${name} pour vente et installation.`,
-      imageAlt: `Piscine ${name}`,
+      name: "Jupiter",
+      badge: "Piscine",
+      description,
+      imageAlt: "Piscine Jupiter",
     },
   };
 }
 
-function accessoryCopy(name: string): Record<Locale, ProductCopy> {
+function francoCopy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casco Piscina de Poliéster\nMed. Ext. ( 4.02 x 2.40 cm ) Med. Int. ( 3.87 x 2.23 cm )\nProfundidade 1.20 cm";
+
   return {
     pt: {
-      name,
-      badge: "Acessório",
-      description: `${name} para apoio ao sistema da piscina.`,
-      imageAlt: name,
+      name: "Franco",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Franco",
     },
     en: {
-      name,
-      badge: "Accessory",
-      description: `${name} for pool system support.`,
-      imageAlt: name,
+      name: "Franco",
+      badge: "Pool",
+      description,
+      imageAlt: "Franco pool",
     },
     es: {
-      name,
-      badge: "Accesorio",
-      description: `${name} para apoyo al sistema de la piscina.`,
-      imageAlt: name,
+      name: "Franco",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Franco",
     },
     fr: {
-      name,
+      name: "Franco",
+      badge: "Piscine",
+      description,
+      imageAlt: "Piscine Franco",
+    },
+  };
+}
+
+function bigTranCopy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casco Piscina de Poliéster\nMed. Ext. ( 8.40 x 3.85cm ) Med. Int. ( 8.20x 3.60 cm )\nProfundidade Inclinação de 1.35 cm a 1.71 cm";
+
+  return {
+    pt: {
+      name: "Big Tran",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Big Tran",
+    },
+    en: {
+      name: "Big Tran",
+      badge: "Pool",
+      description,
+      imageAlt: "Big Tran pool",
+    },
+    es: {
+      name: "Big Tran",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Big Tran",
+    },
+    fr: {
+      name: "Big Tran",
+      badge: "Piscine",
+      description,
+      imageAlt: "Piscine Big Tran",
+    },
+  };
+}
+
+function spaceCopy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casco Piscina de Poliéster\nMed. Ext. ( 6.20 x 3.25 cm ) Med. Int. ( 6.00 x 3.00 cm )\nProfundidade Inclinação de 1.20 cm a 1.60 cm";
+
+  return {
+    pt: {
+      name: "Space",
+      badge: "Best-seller",
+      description,
+      imageAlt: "Piscina Space",
+    },
+    en: {
+      name: "Space",
+      badge: "Best-seller",
+      description,
+      imageAlt: "Space pool",
+    },
+    es: {
+      name: "Space",
+      badge: "Best-seller",
+      description,
+      imageAlt: "Piscina Space",
+    },
+    fr: {
+      name: "Space",
+      badge: "Best-seller",
+      description,
+      imageAlt: "Piscine Space",
+    },
+  };
+}
+
+function spaceLazeCopy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casco Piscina de Poliéster\nMed. Ext. ( 6.25 x 3.20cm ) Med. Int. ( 6.05x 3.00 cm )\nProfundidade Inclinação de 1.20 cm a 1.60 cm";
+
+  return {
+    pt: {
+      name: "Space Laze",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Space Laze",
+    },
+    en: {
+      name: "Space Laze",
+      badge: "Pool",
+      description,
+      imageAlt: "Space Laze pool",
+    },
+    es: {
+      name: "Space Laze",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Space Laze",
+    },
+    fr: {
+      name: "Space Laze",
+      badge: "Piscine",
+      description,
+      imageAlt: "Piscine Space Laze",
+    },
+  };
+}
+
+function trustCopy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casco Piscina de Poliéster\nMed. Ext. ( 8.57 x 3.97cm ) Med. Int. ( 8.27x 3.60 cm )\nProfundidade Inclinação de 1.39 cm a 1.70 cm";
+
+  return {
+    pt: {
+      name: "Trust",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Trust",
+    },
+    en: {
+      name: "Trust",
+      badge: "Pool",
+      description,
+      imageAlt: "Trust pool",
+    },
+    es: {
+      name: "Trust",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Trust",
+    },
+    fr: {
+      name: "Trust",
+      badge: "Piscine",
+      description,
+      imageAlt: "Piscine Trust",
+    },
+  };
+}
+
+function relaxCopy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casco Piscina de Poliéster\nMed. Ext. ( 5.10 x 2.57 cm ) Med. Int. ( 4.90 x 2.37 cm )\nProfundidade 1.40 cm";
+
+  return {
+    pt: {
+      name: "Relax",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Relax",
+    },
+    en: {
+      name: "Relax",
+      badge: "Pool",
+      description,
+      imageAlt: "Relax pool",
+    },
+    es: {
+      name: "Relax",
+      badge: "Piscina",
+      description,
+      imageAlt: "Piscina Relax",
+    },
+    fr: {
+      name: "Relax",
+      badge: "Piscine",
+      description,
+      imageAlt: "Piscine Relax",
+    },
+  };
+}
+
+function filter500Copy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casa de máquinas de Poliéster para Piscina de 3 a 7 Metros\nMed.  ( 1.20 x 1.20cm )\nFiltro de Areia 500\nBomba 0,75CV\nValvula Seletora\nTratamento de Água a Cloro";
+
+  return {
+    pt: {
+      name: "Filtro 500",
+      badge: "Acessório",
+      description,
+      imageAlt: "Filtro 500",
+    },
+    en: {
+      name: "Filtro 500",
+      badge: "Accessory",
+      description,
+      imageAlt: "Filtro 500",
+    },
+    es: {
+      name: "Filtro 500",
+      badge: "Accesorio",
+      description,
+      imageAlt: "Filtro 500",
+    },
+    fr: {
+      name: "Filtro 500",
       badge: "Accessoire",
-      description: `${name} pour le systeme de piscine.`,
-      imageAlt: name,
+      description,
+      imageAlt: "Filtro 500",
+    },
+  };
+}
+
+function filter600Copy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casa de máquinas de Poliéster para Piscina de 7 a 10 Metros\nMed.  ( 1.20 x 1.20cm )\nFiltro de Areia 600\nBomba 1CV\nValvula Seletora\nTratamento de Água a Cloro";
+
+  return {
+    pt: {
+      name: "Filtro 600",
+      badge: "Acessório",
+      description,
+      imageAlt: "Filtro 600",
+    },
+    en: {
+      name: "Filtro 600",
+      badge: "Accessory",
+      description,
+      imageAlt: "Filtro 600",
+    },
+    es: {
+      name: "Filtro 600",
+      badge: "Accesorio",
+      description,
+      imageAlt: "Filtro 600",
+    },
+    fr: {
+      name: "Filtro 600",
+      badge: "Accessoire",
+      description,
+      imageAlt: "Filtro 600",
     },
   };
 }
 
 export const PRODUCTS: Product[] = [
   {
+    id: "space",
+    category: "piscinas",
+    imageSrc: `${modelImagePath}/Space.png?${modelImageVersion}`,
+    imageFileName: "Space.png",
+    copy: spaceCopy(),
+  },
+  {
     id: "big-tran",
     category: "piscinas",
-    imageSrc: `${modelImagePath}/Big Tran.png?${modelImageVersion}`,
-    copy: poolCopy("Big Tran", "Best-seller"),
+    imageSrc: `${modelImagePath}/BigTran.png?${modelImageVersion}`,
+    imageFileName: "BigTran.png",
+    copy: bigTranCopy(),
   },
   {
     id: "franco",
     category: "piscinas",
     imageSrc: `${modelImagePath}/Franco.png?${modelImageVersion}`,
-    copy: poolCopy("Franco"),
+    imageFileName: "Franco.png",
+    copy: francoCopy(),
   },
   {
     id: "jupiter",
     category: "piscinas",
     imageSrc: `${modelImagePath}/Jupiter.png?${modelImageVersion}`,
-    copy: poolCopy("Jupiter"),
+    imageFileName: "Jupiter.png",
+    copy: jupiterCopy(),
   },
   {
     id: "relax",
     category: "piscinas",
     imageSrc: `${modelImagePath}/Relax.png?${modelImageVersion}`,
-    copy: poolCopy("Relax"),
+    imageFileName: "Relax.png",
+    copy: relaxCopy(),
   },
   {
     id: "space-laze",
     category: "piscinas",
     imageSrc: `${modelImagePath}/Space Laze.png?${modelImageVersion}`,
-    copy: poolCopy("Space Laze"),
-  },
-  {
-    id: "space",
-    category: "piscinas",
-    imageSrc: `${modelImagePath}/Space.png?${modelImageVersion}`,
-    copy: poolCopy("Space"),
+    imageFileName: "Space Laze.png",
+    copy: spaceLazeCopy(),
   },
   {
     id: "trust",
     category: "piscinas",
     imageSrc: `${modelImagePath}/Trust.png?${modelImageVersion}`,
-    copy: poolCopy("Trust"),
+    imageFileName: "Trust.png",
+    copy: trustCopy(),
   },
   {
     id: "filtro500",
     category: "acessorios",
     imageSrc: `${modelImagePath}/filtro500.png?${modelImageVersion}`,
-    copy: accessoryCopy("Filtro 500"),
+    copy: filter500Copy(),
   },
   {
     id: "filtro600",
     category: "acessorios",
     imageSrc: `${modelImagePath}/filtro600.png?${modelImageVersion}`,
-    copy: accessoryCopy("Filtro 600"),
+    copy: filter600Copy(),
   },
 ];

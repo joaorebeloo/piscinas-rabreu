@@ -253,7 +253,7 @@ export const translations: Record<Locale, SiteCopy> = {
         },
         {
           title: "Instalação especializada",
-          text: "Equipa experiente em instalação, preparação técnica e entrega chave na mão.",
+          text: "Equipa experiente em instalação e preparação técnica.",
         },
         {
           title: "Prazos cumpridos",
@@ -351,7 +351,6 @@ export const translations: Record<Locale, SiteCopy> = {
       trustItems: [
         "Resposta rápida",
         "Visita técnica",
-        "Soluções chave na mão",
         "Apoio após instalação",
       ],
       whatsapp: "Falar no WhatsApp",
@@ -386,7 +385,7 @@ export const translations: Record<Locale, SiteCopy> = {
       ],
       submit: "Enviar pedido",
       submitting: "A enviar pedido...",
-      success: "Pedido recebido. Entraremos em contacto em breve.",
+      success: "Mensagem preparada no WhatsApp. Confirme o envio para concluir o pedido.",
       reviewFields: "Reveja os campos assinalados.",
       errors: {
         name: "Indique o seu nome.",
@@ -511,7 +510,7 @@ export const translations: Record<Locale, SiteCopy> = {
         },
         {
           title: "Specialised installation",
-          text: "Experienced team for installation, technical preparation and turnkey delivery.",
+          text: "Experienced team for installation and technical preparation.",
         },
         {
           title: "Deadlines met",
@@ -610,7 +609,6 @@ export const translations: Record<Locale, SiteCopy> = {
       trustItems: [
         "Fast response",
         "Technical visit",
-        "Turnkey solutions",
         "Post-installation support",
       ],
       whatsapp: "Talk on WhatsApp",
@@ -644,7 +642,7 @@ export const translations: Record<Locale, SiteCopy> = {
       ],
       submit: "Send request",
       submitting: "Sending request...",
-      success: "Request received. We will contact you soon.",
+      success: "Message prepared in WhatsApp. Confirm sending to complete the request.",
       reviewFields: "Review the highlighted fields.",
       errors: {
         name: "Enter your name.",
@@ -762,7 +760,7 @@ export const translations: Record<Locale, SiteCopy> = {
         },
         {
           title: "Instalación especializada",
-          text: "Equipo experto en instalación, preparación técnica y entrega llave en mano.",
+          text: "Equipo experto en instalación y preparación técnica.",
         },
         {
           title: "Plazos cumplidos",
@@ -861,7 +859,6 @@ export const translations: Record<Locale, SiteCopy> = {
       trustItems: [
         "Respuesta rápida",
         "Visita técnica",
-        "Soluciones llave en mano",
         "Apoyo tras la instalación",
       ],
       whatsapp: "Hablar por WhatsApp",
@@ -895,7 +892,7 @@ export const translations: Record<Locale, SiteCopy> = {
       ],
       submit: "Enviar solicitud",
       submitting: "Enviando solicitud...",
-      success: "Solicitud recibida. Contactaremos contigo pronto.",
+      success: "Mensaje preparado en WhatsApp. Confirma el envío para completar la solicitud.",
       reviewFields: "Revisa los campos señalados.",
       errors: {
         name: "Indica tu nombre.",
@@ -1013,7 +1010,7 @@ export const translations: Record<Locale, SiteCopy> = {
         },
         {
           title: "Installation spécialisée",
-          text: "Équipe expérimentée en installation, préparation technique et livraison clé en main.",
+          text: "Équipe expérimentée en installation et préparation technique.",
         },
         {
           title: "Délais respectés",
@@ -1112,7 +1109,6 @@ export const translations: Record<Locale, SiteCopy> = {
       trustItems: [
         "Réponse rapide",
         "Visite technique",
-        "Solutions clé en main",
         "Assistance après installation",
       ],
       whatsapp: "Parler sur WhatsApp",
@@ -1146,7 +1142,7 @@ export const translations: Record<Locale, SiteCopy> = {
       ],
       submit: "Envoyer la demande",
       submitting: "Envoi de la demande...",
-      success: "Demande reçue. Nous vous contacterons bientôt.",
+      success: "Message préparé dans WhatsApp. Confirmez l'envoi pour terminer la demande.",
       reviewFields: "Vérifiez les champs signalés.",
       errors: {
         name: "Indiquez votre nom.",

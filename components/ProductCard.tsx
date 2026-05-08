@@ -20,14 +20,23 @@ const CATEGORY_ICON: Record<ProductCategory, LucideIcon> = {
   acessorios: Wrench,
 };
 
+const WARRANTY_BY_CATEGORY: Record<ProductCategory, string> = {
+  piscinas: "10 anos de Garantia",
+  coberturas: "2 anos de Garantia",
+  aquecimento: "2 anos de Garantia",
+  acessorios: "2 anos de Garantia",
+};
+
 type ProductCardProps = {
   product: Product;
+  imageSrc?: string;
   index?: number;
   onImageOpen?: (product: Product) => void;
 };
 
 export function ProductCard({
   product,
+  imageSrc,
   index = 0,
   onImageOpen,
 }: ProductCardProps) {
@@ -35,6 +44,7 @@ export function ProductCard({
   const Icon = CATEGORY_ICON[product.category];
   const copy = product.copy[locale];
   const isBestSeller = copy.badge.toLowerCase().replace("-", " ") === "best seller";
+  const resolvedImageSrc = imageSrc ?? product.imageSrc;
 
   return (
     <motion.article
@@ -62,7 +72,8 @@ export function ProductCard({
       >
         {/* Substituir este placeholder por fotografia real do modelo/produto. */}
         <Image
-          src={product.imageSrc}
+          key={resolvedImageSrc}
+          src={resolvedImageSrc}
           alt={copy.imageAlt}
           fill
           sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 50vw"
@@ -81,16 +92,14 @@ export function ProductCard({
       </button>
 
       <div className="flex flex-1 flex-col p-3 sm:p-6">
-        {!isBestSeller ? (
-          <span className="mb-2 hidden w-fit rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600 sm:mb-4 sm:inline-flex">
-            {copy.badge}
-          </span>
-        ) : null}
         <h3 className="text-sm font-semibold leading-tight tracking-tight text-slate-950 sm:text-xl">
           {copy.name}
         </h3>
-        <p className="mt-2 hidden flex-1 text-sm leading-6 text-slate-600 sm:block">
+        <p className="mt-2 flex-1 whitespace-pre-line text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6">
           {copy.description}
+        </p>
+        <p className="mt-4 text-xs font-semibold text-[var(--color-pool-dark)] sm:text-sm">
+          {WARRANTY_BY_CATEGORY[product.category]}
         </p>
       </div>
     </motion.article>

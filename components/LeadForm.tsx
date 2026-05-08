@@ -1,12 +1,13 @@
 "use client";
 
-import { type FormEvent, useState } from "react";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { type FormEvent, useMemo, useState } from "react";
+import { CheckCircle2, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { useLanguage } from "@/components/LanguageProvider";
 import { SectionEyebrow } from "@/components/SectionEyebrow";
-import { isPoolTypeValue } from "@/data/i18n";
+import { buildWhatsAppHref } from "@/data/i18n";
+import { PRODUCTS } from "@/data/products";
 
 type LeadFormValues = {
   name: string;
@@ -67,33 +68,24 @@ function FieldError({ id, message }: { id: string; message?: string }) {
   );
 }
 
-async function getLeadResponseCode(response: Response) {
-  try {
-    const payload = (await response.json()) as unknown;
-
-    if (
-      payload &&
-      typeof payload === "object" &&
-      "code" in payload &&
-      typeof payload.code === "string"
-    ) {
-      return payload.code;
-    }
-  } catch {
-    return "";
-  }
-
-  return "";
-}
-
 export function LeadForm({ className = "" }: { className?: string }) {
   const { locale, t } = useLanguage();
   const [values, setValues] = useState<LeadFormValues>(initialValues);
   const [company, setCompany] = useState("");
   const [errors, setErrors] = useState<LeadFormErrors>({});
-  const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
+
+  const poolOptions = useMemo(
+    () =>
+      PRODUCTS.filter((product) => product.category === "piscinas").map(
+        (product) => ({
+          value: product.id,
+          label: product.copy[locale].name,
+        }),
+      ),
+    [locale],
+  );
 
   function validateLeadForm(currentValues: LeadFormValues): LeadFormErrors {
     const nextErrors: LeadFormErrors = {};
@@ -122,34 +114,14 @@ export function LeadForm({ className = "" }: { className?: string }) {
       nextErrors.location = t.leadForm.errors.location;
     }
 
-    if (!currentValues.poolType.trim() || !isPoolTypeValue(currentValues.poolType)) {
+    if (
+      !currentValues.poolType.trim() ||
+      !poolOptions.some((option) => option.value === currentValues.poolType)
+    ) {
       nextErrors.poolType = t.leadForm.errors.poolType;
     }
 
     return nextErrors;
-  }
-
-  function getErrorsFromApiCode(code: string): LeadFormErrors | null {
-    switch (code) {
-      case "name_required":
-        return { name: t.leadForm.errors.name };
-      case "contact_required":
-        return {
-          email: t.leadForm.errors.contactEmail,
-          phone: t.leadForm.errors.contactPhone,
-        };
-      case "email_invalid":
-        return { email: t.leadForm.errors.email };
-      case "phone_invalid":
-        return { phone: t.leadForm.errors.phone };
-      case "location_required":
-        return { location: t.leadForm.errors.location };
-      case "pool_type_required":
-      case "pool_type_invalid":
-        return { poolType: t.leadForm.errors.poolType };
-      default:
-        return null;
-    }
   }
 
   function focusFirstError(nextErrors: LeadFormErrors) {
@@ -184,7 +156,31 @@ export function LeadForm({ className = "" }: { className?: string }) {
     setStatusMessage("");
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function getSelectedPoolLabel(poolType: string) {
+    return poolOptions.find((option) => option.value === poolType)?.label ?? poolType;
+  }
+
+  function buildLeadMessage(currentValues: LeadFormValues) {
+    const email = currentValues.email.trim();
+    const phone = currentValues.phone.trim();
+    const message = currentValues.message.trim();
+    const lines = [
+      `${t.header.quote} - Piscinas R Abreu`,
+      "",
+      `${t.leadForm.labels.name}: ${currentValues.name.trim()}`,
+      phone ? `${t.leadForm.labels.phone}: ${phone}` : "",
+      email ? `${t.leadForm.labels.email}: ${email}` : "",
+      `${t.leadForm.labels.location}: ${currentValues.location.trim()}`,
+      `${t.leadForm.labels.poolType}: ${getSelectedPoolLabel(
+        currentValues.poolType,
+      )}`,
+      message ? `${t.leadForm.labels.message}: ${message}` : "",
+    ];
+
+    return lines.filter(Boolean).join("\n");
+  }
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const nextErrors = validateLeadForm(values);
@@ -197,56 +193,19 @@ export function LeadForm({ className = "" }: { className?: string }) {
       return;
     }
 
-    setIsLoading(true);
     setStatus("idle");
     setStatusMessage("");
 
-    try {
-      const response = await fetch("/api/leads", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...values,
-          company,
-          locale,
-          name: values.name.trim(),
-          email: values.email.trim(),
-          phone: values.phone.trim(),
-          location: values.location.trim(),
-          poolType: values.poolType.trim(),
-          message: values.message.trim(),
-        }),
-      });
-
-      if (!response.ok) {
-        const apiErrors = getErrorsFromApiCode(await getLeadResponseCode(response));
-
-        if (apiErrors) {
-          setErrors(apiErrors);
-          setStatus("error");
-          setStatusMessage(t.leadForm.reviewFields);
-          focusFirstError(apiErrors);
-          return;
-        }
-
-        throw new Error(t.leadForm.errors.server);
-      }
-
+    if (company.trim()) {
       setValues(initialValues);
       setCompany("");
-      setErrors({});
-      setStatus("success");
-      setStatusMessage(t.leadForm.success);
-    } catch (error) {
-      setStatus("error");
-      setStatusMessage(
-        error instanceof Error ? error.message : t.leadForm.errors.server,
-      );
-    } finally {
-      setIsLoading(false);
+      return;
     }
+
+    window.open(buildWhatsAppHref(buildLeadMessage(values)), "_blank", "noopener");
+    setErrors({});
+    setStatus("success");
+    setStatusMessage(t.leadForm.success);
   }
 
   return (
@@ -337,7 +296,6 @@ export function LeadForm({ className = "" }: { className?: string }) {
                   onChange={(event) => updateField("name", event.target.value)}
                   aria-invalid={Boolean(errors.name)}
                   aria-describedby={errors.name ? "lead-name-error" : undefined}
-                  disabled={isLoading}
                   required
                 />
                 <FieldError id="lead-name-error" message={errors.name} />
@@ -358,7 +316,6 @@ export function LeadForm({ className = "" }: { className?: string }) {
                   onChange={(event) => updateField("phone", event.target.value)}
                   aria-invalid={Boolean(errors.phone)}
                   aria-describedby={errors.phone ? "lead-phone-error" : undefined}
-                  disabled={isLoading}
                 />
                 <FieldError id="lead-phone-error" message={errors.phone} />
               </div>
@@ -378,7 +335,6 @@ export function LeadForm({ className = "" }: { className?: string }) {
                   onChange={(event) => updateField("email", event.target.value)}
                   aria-invalid={Boolean(errors.email)}
                   aria-describedby={errors.email ? "lead-email-error" : undefined}
-                  disabled={isLoading}
                 />
                 <FieldError id="lead-email-error" message={errors.email} />
               </div>
@@ -400,7 +356,6 @@ export function LeadForm({ className = "" }: { className?: string }) {
                   aria-describedby={
                     errors.location ? "lead-location-error" : undefined
                   }
-                  disabled={isLoading}
                   required
                 />
                 <FieldError id="lead-location-error" message={errors.location} />
@@ -420,11 +375,10 @@ export function LeadForm({ className = "" }: { className?: string }) {
                   aria-describedby={
                     errors.poolType ? "lead-pool-type-error" : undefined
                   }
-                  disabled={isLoading}
                   required
                 >
                   <option value="">{t.leadForm.placeholders.poolType}</option>
-                  {t.leadForm.poolTypes.map((type) => (
+                  {poolOptions.map((type) => (
                     <option key={type.value} value={type.value}>
                       {type.label}
                     </option>
@@ -449,7 +403,6 @@ export function LeadForm({ className = "" }: { className?: string }) {
                   aria-describedby={
                     errors.message ? "lead-message-error" : "lead-message-helper"
                   }
-                  disabled={isLoading}
                 />
                 <p id="lead-message-helper" className="mt-2 text-xs text-slate-500">
                   {t.leadForm.helper}
@@ -460,18 +413,13 @@ export function LeadForm({ className = "" }: { className?: string }) {
 
             <button
               type="submit"
-              disabled={isLoading}
               className="group mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[var(--color-navy)] px-6 py-4 text-sm font-semibold text-white shadow-[0_20px_56px_-36px_rgba(7,27,53,0.9)] transition duration-500 ease-[var(--ease-premium)] hover:-translate-y-1 hover:bg-[var(--color-navy-soft)] focus-visible:ring-4 focus-visible:ring-cyan-100 active:scale-[0.98] disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {isLoading ? (
-                <Loader2 aria-hidden className="h-5 w-5 animate-spin" />
-              ) : (
-                <Send
-                  aria-hidden
-                  className="h-5 w-5 transition duration-500 ease-[var(--ease-premium)] group-hover:translate-x-1"
-                />
-              )}
-              {isLoading ? t.leadForm.submitting : t.leadForm.submit}
+              <Send
+                aria-hidden
+                className="h-5 w-5 transition duration-500 ease-[var(--ease-premium)] group-hover:translate-x-1"
+              />
+              {t.leadForm.submit}
             </button>
 
             {statusMessage ? (

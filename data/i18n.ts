@@ -275,7 +275,7 @@ export const translations: Record<Locale, SiteCopy> = {
       eyebrow: "Catálogo",
       title: "Encontre a piscina ideal para o seu espaço",
       intro:
-        "Modelos, coberturas e soluções técnicas preparados para adaptar o projeto ao terreno, ao estilo da casa e à forma como quer usar a piscina.",
+        "Modelos e soluções técnicas preparados para adaptar o projeto ao terreno, ao estilo da casa e à forma como quer usar a piscina.",
       filterAria: "Filtrar catálogo de produtos",
       filters: {
         todos: "Todos",
@@ -532,7 +532,7 @@ export const translations: Record<Locale, SiteCopy> = {
       eyebrow: "Catalogue",
       title: "Find the right pool for your space",
       intro:
-        "Models, covers and technical solutions prepared to adapt the project to your land, home style and how you want to use the pool.",
+        "Models and technical solutions prepared to adapt the project to your land, home style and how you want to use the pool.",
       filterAria: "Filter product catalogue",
       filters: {
         todos: "All",
@@ -782,7 +782,7 @@ export const translations: Record<Locale, SiteCopy> = {
       eyebrow: "Catálogo",
       title: "Encuentra la piscina ideal para tu espacio",
       intro:
-        "Modelos, cubiertas y soluciones técnicas preparados para adaptar el proyecto al terreno, al estilo de la casa y a la forma en que quieres usar la piscina.",
+        "Modelos y soluciones técnicas preparados para adaptar el proyecto al terreno, al estilo de la casa y a la forma en que quieres usar la piscina.",
       filterAria: "Filtrar catálogo de productos",
       filters: {
         todos: "Todos",
@@ -1032,7 +1032,7 @@ export const translations: Record<Locale, SiteCopy> = {
       eyebrow: "Catalogue",
       title: "Trouvez la piscine idéale pour votre espace",
       intro:
-        "Modèles, couvertures et solutions techniques préparés pour adapter le projet au terrain, au style de la maison et à votre façon d'utiliser la piscine.",
+        "Modèles et solutions techniques préparés pour adapter le projet au terrain, au style de la maison et à votre façon d'utiliser la piscine.",
       filterAria: "Filtrer le catalogue de produits",
       filters: {
         todos: "Tous",

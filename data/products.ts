@@ -377,13 +377,6 @@ export const PRODUCTS: Product[] = [
     copy: spaceCopy(),
   },
   {
-    id: "big-tran",
-    category: "piscinas",
-    imageSrc: `${modelImagePath}/BigTran.png?${modelImageVersion}`,
-    imageFileName: "BigTran.png",
-    copy: bigTranCopy(),
-  },
-  {
     id: "franco",
     category: "piscinas",
     imageSrc: `${modelImagePath}/Franco.png?${modelImageVersion}`,
@@ -417,6 +410,13 @@ export const PRODUCTS: Product[] = [
     imageSrc: `${modelImagePath}/Trust.png?${modelImageVersion}`,
     imageFileName: "Trust.png",
     copy: trustCopy(),
+  },
+  {
+    id: "big-tran",
+    category: "piscinas",
+    imageSrc: `${modelImagePath}/BigTran.png?${modelImageVersion}`,
+    imageFileName: "BigTran.png",
+    copy: bigTranCopy(),
   },
   {
     id: "filtro500",

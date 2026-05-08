@@ -30,7 +30,7 @@ export const PRODUCT_FILTERS: ProductFilter[] = [
 ];
 
 const modelImagePath = "/images/fotos-piscinas/Modelos";
-const modelImageVersion = "v=6";
+const modelImageVersion = "v=7";
 
 export const POOL_COLOR_OPTIONS = [
   {
@@ -52,10 +52,10 @@ export const POOL_COLOR_OPTIONS = [
     swatchClass: "bg-[#c7b79c]",
   },
   {
-    id: "granito-azul",
-    label: "Granito Azul",
-    folder: "granito-azul",
-    swatchClass: "bg-[#5f8fa8]",
+    id: "granito-verde",
+    label: "Granito Verde",
+    folder: "granito-verde",
+    swatchClass: "bg-[#6f8f7a]",
   },
   {
     id: "granito-branco",

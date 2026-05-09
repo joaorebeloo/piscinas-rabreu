@@ -29,6 +29,7 @@ const initialValues: LeadFormValues = {
   message: "",
 };
 
+const desktopLeadEmailAddress = "geral@piscinasrabreu.pt";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const fieldIds: Record<keyof LeadFormValues, string> = {
@@ -66,6 +67,16 @@ function FieldError({ id, message }: { id: string; message?: string }) {
       {message}
     </p>
   );
+}
+
+function isMobileViewport() {
+  return window.matchMedia("(max-width: 767px)").matches;
+}
+
+function buildEmailHref(subject: string, body: string) {
+  return `mailto:${desktopLeadEmailAddress}?subject=${encodeURIComponent(
+    subject,
+  )}&body=${encodeURIComponent(body)}`;
 }
 
 export function LeadForm({ className = "" }: { className?: string }) {
@@ -202,10 +213,21 @@ export function LeadForm({ className = "" }: { className?: string }) {
       return;
     }
 
-    window.open(buildWhatsAppHref(buildLeadMessage(values)), "_blank", "noopener");
+    const leadMessage = buildLeadMessage(values);
+
+    if (isMobileViewport()) {
+      window.open(buildWhatsAppHref(leadMessage), "_blank", "noopener");
+      setStatusMessage(t.leadForm.success);
+    } else {
+      window.location.href = buildEmailHref(
+        `${t.header.quote} - Piscinas R Abreu`,
+        leadMessage,
+      );
+      setStatusMessage(t.leadForm.emailSuccess);
+    }
+
     setErrors({});
     setStatus("success");
-    setStatusMessage(t.leadForm.success);
   }
 
   return (

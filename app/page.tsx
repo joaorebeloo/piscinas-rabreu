@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { InstallationGuideVideo } from "@/components/InstallationGuideVideo";
 import { LeadForm } from "@/components/LeadForm";
 import { ProductCatalog } from "@/components/ProductCatalog";
 import { Stats } from "@/components/Stats";
@@ -18,6 +19,7 @@ export default function Home() {
       <BenefitsBar />
       <BeforeAfter />
       <ProductCatalog />
+      <InstallationGuideVideo />
       <Gallery />
       <Testimonials />
       <LeadForm />

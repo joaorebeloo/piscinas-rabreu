@@ -160,6 +160,7 @@ export type SiteCopy = {
     submit: string;
     submitting: string;
     success: string;
+    emailSuccess: string;
     reviewFields: string;
     errors: {
       name: string;
@@ -202,7 +203,7 @@ export const translations: Record<Locale, SiteCopy> = {
       contacts: "Contactos",
     },
     header: {
-      tagline: "Venda e instalação",
+      tagline: "Venda de piscinas",
       homeAria: "Piscinas R Abreu, voltar ao início",
       mainNavAria: "Navegação principal",
       mobileNavAria: "Navegação móvel",
@@ -215,53 +216,53 @@ export const translations: Record<Locale, SiteCopy> = {
       label: "Idioma",
     },
     hero: {
-      eyebrow: "Venda, instalação e assistência de piscinas",
+      eyebrow: "Venda de piscinas e soluções para exterior",
       titlePrefix: "Piscinas que",
       titleHighlight: "transformam",
       titleSuffix: "espaços em momentos únicos.",
       subheadline:
-        "Venda, instalação e assistência de piscinas com qualidade, segurança e acabamentos de excelência.",
+        "Escolha a piscina ideal para o seu espaço, com aconselhamento especializado, modelos de qualidade e orçamento gratuito.",
       primaryCta: "Pedir orçamento",
       secondaryCta: "Ver catálogo",
       videoCta: "Ver vídeo",
       videoAria: "Ver vídeo da Piscinas R Abreu",
       highlights: [
-        "Rapidez",
+        "Modelos para vários espaços",
         "Acabamentos premium",
-        "Assistência contínua",
+        "Orçamento gratuito",
       ],
       asideAria: "Compromissos de serviço",
-      asideTitle: "Qualidade garantida",
+      asideTitle: "Escolha com confiança",
       asideText:
-        "Do estudo inicial à entrega, cada detalhe é tratado para garantir uma piscina bonita, funcional e preparada para uso frequente.",
+        "Compare modelos, acabamentos e acessórios com orientação clara para escolher a piscina certa para a sua casa.",
       asideItems: [
-        "Avaliação do espaço e aconselhamento técnico",
-        "Materiais adequados ao uso e ao estilo da casa",
-        "Assistência planeada para água limpa e segura",
+        "Modelos adaptados ao espaço disponível",
+        "Cores e acabamentos para diferentes estilos",
+        "Aconselhamento antes do pedido de orçamento",
       ],
       scrollAria: "Avançar para a próxima secção",
       scrollLabel: "Scroll",
     },
     benefits: {
       eyebrow: "O nosso compromisso",
-      title: "Acompanhamento profissional do primeiro estudo ao primeiro mergulho.",
+      title: "Piscinas para diferentes espaços, estilos e formas de utilização.",
       intro: "",
       items: [
         {
-          title: "Qualidade garantida",
-          text: "Materiais seleccionados e acabamentos pensados para resistir ao uso diário.",
+          title: "Modelos variados",
+          text: "Piscinas compactas, familiares e de maior dimensão para diferentes terrenos e jardins.",
         },
         {
-          title: "Instalação especializada",
-          text: "Equipa experiente em instalação e preparação técnica.",
+          title: "Aconselhamento claro",
+          text: "Ajuda na escolha do modelo, medidas e acabamento mais adequados ao seu espaço.",
         },
         {
-          title: "Prazos cumpridos",
-          text: "Planeamento claro, comunicação directa e execução organizada em cada fase.",
+          title: "Orçamento gratuito",
+          text: "Receba uma proposta ajustada ao tipo de piscina, localidade e características do projeto.",
         },
         {
-          title: "Apoio contínuo",
-          text: "Assistência após instalação para manter a piscina segura, limpa e pronta a usar.",
+          title: "Acessórios disponíveis",
+          text: "Filtros, soluções técnicas e opções para completar a piscina com mais conforto.",
         },
       ],
     },
@@ -275,7 +276,7 @@ export const translations: Record<Locale, SiteCopy> = {
       eyebrow: "Catálogo",
       title: "Encontre a piscina ideal para o seu espaço",
       intro:
-        "Modelos e soluções técnicas preparados para adaptar o projeto ao terreno, ao estilo da casa e à forma como quer usar a piscina.",
+        "Modelos, medidas, cores e acessórios para escolher a piscina certa antes de pedir orçamento.",
       filterAria: "Filtrar catálogo de produtos",
       filters: {
         todos: "Todos",
@@ -321,13 +322,13 @@ export const translations: Record<Locale, SiteCopy> = {
           name: "Carlos e Mariana",
           location: "Lisboa",
           quote:
-            "A equipa ajudou-nos a escolher o modelo certo para o jardim e cumpriu o prazo combinado. O resultado ficou elegante e muito fácil de manter.",
+            "A equipa ajudou-nos a escolher o modelo certo para o jardim. O resultado ficou elegante e muito fácil de manter.",
         },
         {
           name: "Ricardo Almeida",
           location: "Porto",
           quote:
-            "Gostei da clareza do orçamento e do acompanhamento durante a instalação. Ficámos com uma piscina pronta a usar sem surpresas no processo.",
+            "Gostei da clareza do orçamento e das opções apresentadas. Ficámos com uma piscina adequada ao nosso espaço.",
         },
         {
           name: "Sofia Ferreira",
@@ -347,11 +348,11 @@ export const translations: Record<Locale, SiteCopy> = {
       sectionEyebrow: "Orçamento gratuito",
       title: "Pronto para ter a piscina dos seus sonhos?",
       intro:
-        "Peça já o seu orçamento gratuito e sem compromisso. A nossa equipa entra em contacto consigo para avaliar o seu projecto.",
+        "Peça já o seu orçamento gratuito e sem compromisso. A nossa equipa entra em contacto consigo para ajudar a escolher a piscina certa.",
       trustItems: [
         "Resposta rápida",
-        "Visita técnica",
-        "Apoio após instalação",
+        "Aconselhamento técnico",
+        "Modelos e acabamentos",
       ],
       whatsapp: "Falar no WhatsApp",
       formAria: "Formulário de pedido de orçamento",
@@ -371,7 +372,7 @@ export const translations: Record<Locale, SiteCopy> = {
         email: "nome@email.pt",
         location: "Lisboa, Braga, Faro...",
         poolType: "Seleccionar opção",
-        message: "Medidas aproximadas, tipo de terreno, prazo pretendido...",
+        message: "Medidas aproximadas, modelo pretendido, localidade...",
       },
       helper:
         "Quanto mais detalhe partilhar, mais precisa será a primeira resposta.",
@@ -386,6 +387,7 @@ export const translations: Record<Locale, SiteCopy> = {
       submit: "Enviar pedido",
       submitting: "A enviar pedido...",
       success: "Mensagem preparada no WhatsApp. Confirme o envio para concluir o pedido.",
+      emailSuccess: "Email preparado. Confirme o envio na sua aplicação de email.",
       reviewFields: "Reveja os campos assinalados.",
       errors: {
         name: "Indique o seu nome.",
@@ -400,25 +402,25 @@ export const translations: Record<Locale, SiteCopy> = {
     },
     stats: {
       eyebrow: "Números que contam",
-      title: "Experiência, volume e compromisso em cada projecto.",
+      title: "Experiência e catálogo para escolher com confiança.",
       items: [
         {
           value: 10,
           suffix: "+",
           label: "anos de experiência",
-          detail: "Venda, instalação e assistência de piscinas em Portugal.",
+          detail: "Venda e aconselhamento de piscinas em Portugal.",
         },
         {
           value: 500,
           suffix: "+",
           label: "piscinas instaladas",
-          detail: "Projectos adaptados a moradias, jardins e espaços exteriores.",
+          detail: "Modelos adaptados a moradias, jardins e espaços exteriores.",
         },
         {
           value: 100,
           suffix: "%",
           label: "clientes satisfeitos",
-          detail: "Acompanhamento próximo antes, durante e após a instalação.",
+          detail: "Acompanhamento próximo na escolha e no pedido de orçamento.",
         },
         {
           value: 100,
@@ -431,7 +433,7 @@ export const translations: Record<Locale, SiteCopy> = {
     footer: {
       homeAria: "Piscinas R Abreu, voltar ao início",
       description:
-        "Venda, instalação e assistência de piscinas personalizadas com qualidade, segurança e acabamentos de excelência.",
+        "Venda de piscinas personalizadas com qualidade, segurança, aconselhamento e acabamentos de excelência.",
       contacts: [
         { label: "Telefone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
@@ -643,6 +645,7 @@ export const translations: Record<Locale, SiteCopy> = {
       submit: "Send request",
       submitting: "Sending request...",
       success: "Message prepared in WhatsApp. Confirm sending to complete the request.",
+      emailSuccess: "Email prepared. Confirm sending in your email app.",
       reviewFields: "Review the highlighted fields.",
       errors: {
         name: "Enter your name.",
@@ -893,6 +896,7 @@ export const translations: Record<Locale, SiteCopy> = {
       submit: "Enviar solicitud",
       submitting: "Enviando solicitud...",
       success: "Mensaje preparado en WhatsApp. Confirma el envío para completar la solicitud.",
+      emailSuccess: "Email preparado. Confirma el envío en tu aplicación de correo.",
       reviewFields: "Revisa los campos señalados.",
       errors: {
         name: "Indica tu nombre.",
@@ -1143,6 +1147,7 @@ export const translations: Record<Locale, SiteCopy> = {
       submit: "Envoyer la demande",
       submitting: "Envoi de la demande...",
       success: "Message préparé dans WhatsApp. Confirmez l'envoi pour terminer la demande.",
+      emailSuccess: "Email préparé. Confirmez l'envoi dans votre application email.",
       reviewFields: "Vérifiez les champs signalés.",
       errors: {
         name: "Indiquez votre nom.",

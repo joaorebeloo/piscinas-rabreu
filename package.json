@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "render:hero": "remotion render remotion/index.ts HeroPool public/videos/hero-piscina.mp4 --overwrite"
+    "render:hero": "remotion render remotion/index.ts HeroPool public/videos/hero-piscina.mp4 --overwrite",
+    "render:installation": "remotion render remotion/index.ts PoolInstallationGuide public/videos/pool-installation-guide.mp4 --overwrite"
   },
   "dependencies": {
     "framer-motion": "12.38.0",

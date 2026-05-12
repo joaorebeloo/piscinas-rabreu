@@ -35,6 +35,7 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const maxBodyBytes = 16 * 1024;
 const rateLimitWindowMs = 10 * 60 * 1000;
 const rateLimitMaxRequests = 6;
+const rateLimitRetryAfterSeconds = Math.ceil(rateLimitWindowMs / 1000);
 const rateLimitBuckets = new Map<string, RateLimitBucket>();
 
 const fieldLimits = {
@@ -61,10 +62,16 @@ function getLocale(value: unknown): Locale {
   return matchedLocale?.id ?? "pt";
 }
 
+function normalizeHeaderValue(value: string | undefined) {
+  return value?.replace(/[\r\n]/g, "").trim().slice(0, 128);
+}
+
 function getClientKey(request: Request) {
-  const forwardedFor = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-  const realIp = request.headers.get("x-real-ip")?.trim();
-  const cfIp = request.headers.get("cf-connecting-ip")?.trim();
+  const forwardedFor = normalizeHeaderValue(
+    request.headers.get("x-forwarded-for")?.split(",")[0],
+  );
+  const realIp = normalizeHeaderValue(request.headers.get("x-real-ip") ?? undefined);
+  const cfIp = normalizeHeaderValue(request.headers.get("cf-connecting-ip") ?? undefined);
 
   return cfIp || forwardedFor || realIp || "unknown";
 }
@@ -114,6 +121,20 @@ function checkRateLimit(key: string) {
 
   bucket.count += 1;
   return true;
+}
+
+function parseWebhookUrl(webhookUrl: string) {
+  try {
+    const url = new URL(webhookUrl);
+
+    if (url.username || url.password) {
+      return null;
+    }
+
+    return url;
+  } catch {
+    return null;
+  }
 }
 
 async function readLimitedJson(request: Request) {
@@ -192,7 +213,12 @@ async function deliverLead(leadRecord: LeadRecord) {
     return true;
   }
 
-  const url = new URL(webhookUrl);
+  const url = parseWebhookUrl(webhookUrl);
+
+  if (!url) {
+    console.error("lead_delivery_invalid_webhook");
+    return false;
+  }
 
   if (url.protocol !== "https:" && process.env.NODE_ENV === "production") {
     console.error("lead_delivery_insecure_webhook", { host: url.host });
@@ -235,7 +261,13 @@ export async function POST(request: Request) {
   }
 
   if (!checkRateLimit(getClientKey(request))) {
-    return NextResponse.json({ code: "rate_limited" }, { status: 429 });
+    return NextResponse.json(
+      { code: "rate_limited" },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rateLimitRetryAfterSeconds) },
+      },
+    );
   }
 
   const parsedBody = await readLimitedJson(request);

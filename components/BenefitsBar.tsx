@@ -1,12 +1,12 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { Clock3, Headphones, ShieldCheck, Wrench } from "lucide-react";
+import { Clock3, ShieldCheck, Wrench } from "lucide-react";
 
 import { useLanguage } from "@/components/LanguageProvider";
 import { SectionEyebrow } from "@/components/SectionEyebrow";
 
-const icons = [ShieldCheck, Wrench, Clock3, Headphones] as const;
+const icons = [ShieldCheck, Wrench, Clock3] as const;
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -57,7 +57,7 @@ export function BenefitsBar() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.25 }}
-          className="grid grid-cols-1 gap-px overflow-hidden rounded-[1.1rem] border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4"
+          className="grid grid-cols-1 gap-px overflow-hidden rounded-[1.1rem] border border-white/10 bg-white/10 md:grid-cols-3"
         >
           {t.benefits.items.map((benefit, index) => {
             const Icon = icons[index] ?? ShieldCheck;

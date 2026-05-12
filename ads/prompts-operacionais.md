@@ -2,6 +2,8 @@
 
 Usar estes prompts para operar o sistema. Antes de qualquer analise, garantir que `ads/contexto.md`, `ads/regras.md` e dados em `ads/data/` estao atualizados.
 
+Contexto comercial atual: a pagina deve focar venda de piscinas, escolha de modelos, catalogo, acabamentos e pedido de orcamento. O guia de instalacao deve ser usado como conteudo educativo, nao como oferta principal.
+
 ## Ads Command Center
 
 ```text
@@ -20,13 +22,13 @@ Ao receber `/ads report`: usar Rex para gerar relatorio cliente; criar versao cu
 /ads creative
 ```
 
-Ao receber `/ads creative`: usar Ada para copies; usar Cleo para briefs criativos; guardar outputs em ads/copies/ e ads/creatives/. Nunca publicar anuncios ou criativos automaticamente. Separar diagnostico, recomendacao e acao sugerida. Terminar com acoes para aprovacao humana.
+Ao receber `/ads creative`: usar Ada para copies; usar Cleo para briefs criativos; guardar outputs em ads/copies/ e ads/creatives/. Focar venda de piscinas, catalogo, modelos, acabamentos e orcamento. Usar instalacao apenas como conteudo educativo. Nunca publicar anuncios ou criativos automaticamente. Separar diagnostico, recomendacao e acao sugerida. Terminar com acoes para aprovacao humana.
 
 ```text
 /ads image
 ```
 
-Ao receber `/ads image`: usar Iris para pedir ou inferir objetivo do criativo; criar 3 conceitos visuais; gerar 1 imagem para cada conceito com modelo de imagem disponivel, preferencialmente `gpt-image-2`; guardar imagens e ficheiros `.md` em ads/creatives/. Nunca publicar ou subir criativos para a Meta automaticamente. Separar diagnostico, recomendacao e acao sugerida. Terminar com acoes para aprovacao humana.
+Ao receber `/ads image`: usar Iris para pedir ou inferir objetivo do criativo; criar 3 conceitos visuais; gerar 1 imagem para cada conceito com modelo de imagem disponivel, preferencialmente `gpt-image-2`; guardar imagens e ficheiros `.md` em ads/creatives/. Focar venda de piscinas; se o conceito for instalacao, tratar como guia educativo. Nunca publicar ou subir criativos para a Meta automaticamente. Separar diagnostico, recomendacao e acao sugerida. Terminar com acoes para aprovacao humana.
 
 ```text
 /ads carousel
@@ -89,7 +91,7 @@ Usa Rex para transformar este diagnostico num email profissional para o cliente.
 ## Ada - Novas copies
 
 ```text
-Usa Ada para criar novas copies. Le ads/contexto.md, ads/regras.md, landing page e dados de anuncios vencedores. Cria 5 headlines, 5 primary texts, 5 CTAs, 3 variacoes completas de anuncio e matriz de angulos para teste A/B. Usa dores, desejos, prova, autoridade, urgencia e transformacao. Nao prometer nada que a landing page nao sustente.
+Usa Ada para criar novas copies. Le ads/contexto.md, ads/regras.md, landing page e dados de anuncios vencedores. Cria 5 headlines, 5 primary texts, 5 CTAs, 3 variacoes completas de anuncio e matriz de angulos para teste A/B. Foca venda de piscinas, escolha de modelos, catalogo, acabamentos e pedido de orcamento. Usa instalacao apenas como conteudo educativo ou apoio a decisao. Nao prometer nada que a landing page nao sustente.
 ```
 
 ```text
@@ -99,7 +101,7 @@ Usa Ada para criar copies focadas em objecoes do publico. Para cada copy, indica
 ## Cleo - Briefs criativos
 
 ```text
-Usa Cleo para criar 3 briefs de video. Le ads/contexto.md, ads/regras.md, landing page, dados em ads/data/ e analises de Cris/Trace, se existirem. Cada brief deve incluir conceito, objetivo, formato, roteiro, hook dos primeiros 3 segundos, cenas, texto no ecra, direcao visual, CTA final e variacoes para teste.
+Usa Cleo para criar 3 briefs de video. Le ads/contexto.md, ads/regras.md, landing page, dados em ads/data/ e analises de Cris/Trace, se existirem. Cada brief deve incluir conceito, objetivo, formato, roteiro, hook dos primeiros 3 segundos, cenas, texto no ecra, direcao visual, CTA final e variacoes para teste. Foca venda de piscinas; se criares video de instalacao, enquadra como guia educativo.
 ```
 
 ```text
@@ -122,6 +124,10 @@ Usa Iris para criar um carrossel 1080x1080 sobre modelos de piscinas. Criar estr
 
 ```text
 Usa Iris para criar um story/reels cover 1080x1920 com foco em orcamento gratuito. Guardar em ads/creatives/stories/ com o prompt usado e recomendacao de uso.
+```
+
+```text
+Usa Iris para criar um criativo educativo sobre instalacao de piscinas. Le o guia corrigido em ads/contexto.md. Usa texto curto, portugues de Portugal sem erros, e deixa claro que e conteudo informativo para compradores. Nao vender instalacao como oferta principal.
 ```
 
 ## Plano de acao completo

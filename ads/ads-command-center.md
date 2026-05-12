@@ -16,6 +16,12 @@ Antes de qualquer comando, ler sempre:
 
 Nunca executar acoes na Meta automaticamente.
 
+Contexto comercial atual:
+
+- foco principal: venda de piscinas, escolha de modelos, catalogo, acabamentos e pedido de orcamento;
+- foco secundario: instalacao como guia educativo, remarketing ou prova de conhecimento tecnico;
+- nunca transformar instalacao na oferta principal da pagina ou dos anuncios.
+
 Proibido sem aprovacao humana explicita:
 
 - pausar campanhas;
@@ -225,4 +231,3 @@ O que preparar ou submeter para aprovacao humana.
 ### Acoes para aprovacao humana
 
 Lista clara de decisoes pendentes. Nenhuma acao deve ser descrita como executada se ainda depende de aprovacao.
-

@@ -39,8 +39,10 @@ export function isPoolTypeValue(value: string): value is PoolTypeValue {
 
 type NavItem = {
   models: string;
+  installation: string;
   services: string;
   beforeAfter: string;
+  beforeAfterGallery: string;
   gallery: string;
   testimonials: string;
   contacts: string;
@@ -196,14 +198,16 @@ export const translations: Record<Locale, SiteCopy> = {
   pt: {
     nav: {
       models: "Modelos",
+      installation: "Instalação",
       services: "Serviços",
       beforeAfter: "Antes e Depois",
+      beforeAfterGallery: "Galeria",
       gallery: "Galeria",
       testimonials: "Feedbacks",
       contacts: "Contactos",
     },
     header: {
-      tagline: "Venda de piscinas",
+      tagline: "Comércio de Piscinas",
       homeAria: "Piscinas R Abreu, voltar ao início",
       mainNavAria: "Navegação principal",
       mobileNavAria: "Navegação móvel",
@@ -260,10 +264,6 @@ export const translations: Record<Locale, SiteCopy> = {
           title: "Orçamento gratuito",
           text: "Receba uma proposta ajustada ao tipo de piscina, localidade e características do projeto.",
         },
-        {
-          title: "Acessórios disponíveis",
-          text: "Filtros, soluções técnicas e opções para completar a piscina com mais conforto.",
-        },
       ],
     },
     categories: {
@@ -300,7 +300,7 @@ export const translations: Record<Locale, SiteCopy> = {
         "Compare o potencial de um espaço exterior antes da intervenção com uma solução pronta para receber família, amigos e dias longos de sol.",
       steps: [
         "Estudo e preparação do terreno.",
-        "Instalação, acabamentos e ensaio antes da entrega.",
+        "Instalação, e acabamento.",
       ],
       before: "Antes",
       after: "Depois",
@@ -352,7 +352,6 @@ export const translations: Record<Locale, SiteCopy> = {
       trustItems: [
         "Resposta rápida",
         "Aconselhamento técnico",
-        "Modelos e acabamentos",
       ],
       whatsapp: "Falar no WhatsApp",
       formAria: "Formulário de pedido de orçamento",
@@ -370,7 +369,7 @@ export const translations: Record<Locale, SiteCopy> = {
         name: "O seu nome",
         phone: "+351 9XX XXX XXX",
         email: "nome@email.pt",
-        location: "Lisboa, Braga, Faro...",
+        location: "Lisboa, Leiria, Aveiro...",
         poolType: "Seleccionar opção",
         message: "Medidas aproximadas, modelo pretendido, localidade...",
       },
@@ -402,7 +401,7 @@ export const translations: Record<Locale, SiteCopy> = {
     },
     stats: {
       eyebrow: "Números que contam",
-      title: "Experiência e catálogo para escolher com confiança.",
+      title: "Experiência para escolher com confiança.",
       items: [
         {
           value: 10,
@@ -425,8 +424,8 @@ export const translations: Record<Locale, SiteCopy> = {
         {
           value: 100,
           suffix: "%",
-          label: "serviços com garantia",
-          detail: "Garantia em todos os serviços executados pela equipa.",
+          label: "com garantia",
+          detail: "Garantia em todos os nossos produtos.",
         },
       ],
     },
@@ -459,8 +458,10 @@ export const translations: Record<Locale, SiteCopy> = {
   en: {
     nav: {
       models: "Models",
+      installation: "Installation",
       services: "Services",
       beforeAfter: "Before & After",
+      beforeAfterGallery: "Gallery",
       gallery: "Gallery",
       testimonials: "Testimonials",
       contacts: "Contacts",
@@ -517,10 +518,6 @@ export const translations: Record<Locale, SiteCopy> = {
         {
           title: "Deadlines met",
           text: "Clear planning, direct communication and organised execution at every stage.",
-        },
-        {
-          title: "Continuous support",
-          text: "Post-installation support to keep the pool safe, clean and ready to use.",
         },
       ],
     },
@@ -611,7 +608,6 @@ export const translations: Record<Locale, SiteCopy> = {
       trustItems: [
         "Fast response",
         "Technical visit",
-        "Post-installation support",
       ],
       whatsapp: "Talk on WhatsApp",
       formAria: "Quote request form",
@@ -629,7 +625,7 @@ export const translations: Record<Locale, SiteCopy> = {
         name: "Your name",
         phone: "+351 9XX XXX XXX",
         email: "name@email.com",
-        location: "Lisbon, Braga, Faro...",
+        location: "Lisbon, Leiria, Aveiro...",
         poolType: "Select option",
         message: "Approximate dimensions, land type, desired deadline...",
       },
@@ -710,8 +706,10 @@ export const translations: Record<Locale, SiteCopy> = {
   es: {
     nav: {
       models: "Modelos",
+      installation: "Instalación",
       services: "Servicios",
       beforeAfter: "Antes y después",
+      beforeAfterGallery: "Galería",
       gallery: "Galería",
       testimonials: "Testimonios",
       contacts: "Contactos",
@@ -768,10 +766,6 @@ export const translations: Record<Locale, SiteCopy> = {
         {
           title: "Plazos cumplidos",
           text: "Planificación clara, comunicación directa y ejecución organizada en cada fase.",
-        },
-        {
-          title: "Apoyo continuo",
-          text: "Asistencia tras la instalación para mantener la piscina segura, limpia y lista para usar.",
         },
       ],
     },
@@ -862,7 +856,6 @@ export const translations: Record<Locale, SiteCopy> = {
       trustItems: [
         "Respuesta rápida",
         "Visita técnica",
-        "Apoyo tras la instalación",
       ],
       whatsapp: "Hablar por WhatsApp",
       formAria: "Formulario de solicitud de presupuesto",
@@ -880,7 +873,7 @@ export const translations: Record<Locale, SiteCopy> = {
         name: "Tu nombre",
         phone: "+351 9XX XXX XXX",
         email: "nombre@email.com",
-        location: "Lisboa, Braga, Faro...",
+        location: "Lisboa, Leiria, Aveiro...",
         poolType: "Seleccionar opción",
         message: "Medidas aproximadas, tipo de terreno, plazo deseado...",
       },
@@ -961,8 +954,10 @@ export const translations: Record<Locale, SiteCopy> = {
   fr: {
     nav: {
       models: "Modèles",
+      installation: "Installation",
       services: "Services",
       beforeAfter: "Avant / Après",
+      beforeAfterGallery: "Galerie",
       gallery: "Galerie",
       testimonials: "Témoignages",
       contacts: "Contacts",
@@ -1019,10 +1014,6 @@ export const translations: Record<Locale, SiteCopy> = {
         {
           title: "Délais respectés",
           text: "Planification claire, communication directe et exécution organisée à chaque étape.",
-        },
-        {
-          title: "Assistance continue",
-          text: "Assistance après installation pour garder la piscine sûre, propre et prête à l'emploi.",
         },
       ],
     },
@@ -1113,7 +1104,6 @@ export const translations: Record<Locale, SiteCopy> = {
       trustItems: [
         "Réponse rapide",
         "Visite technique",
-        "Assistance après installation",
       ],
       whatsapp: "Parler sur WhatsApp",
       formAria: "Formulaire de demande de devis",
@@ -1131,7 +1121,7 @@ export const translations: Record<Locale, SiteCopy> = {
         name: "Votre nom",
         phone: "+351 9XX XXX XXX",
         email: "nom@email.com",
-        location: "Lisbonne, Braga, Faro...",
+        location: "Lisbonne, Leiria, Aveiro...",
         poolType: "Sélectionner une option",
         message: "Dimensions approximatives, type de terrain, délai souhaité...",
       },

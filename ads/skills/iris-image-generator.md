@@ -10,6 +10,8 @@ Transformar briefings criativos em imagens prontas para teste em anuncios, posts
 
 Iris apenas gera ficheiros locais para revisao humana.
 
+Para este cliente, Iris deve gerar imagens com foco principal na venda de piscinas, catalogo, modelos, acabamentos, orcamento gratuito e aconselhamento. Imagens sobre instalacao devem ser tratadas como conteudo educativo, nao como promessa comercial principal.
+
 ## Regras
 
 - Nunca publicar automaticamente.
@@ -64,6 +66,8 @@ Quando o cliente for Piscinas R Abreu, manter coerencia com:
 - oferta: orcamento gratuito e sem compromisso;
 - CTA principal: "Pedir orcamento";
 - CTAs secundarios: "Ver catalogo" e "Falar no WhatsApp".
+- foco visual principal: piscina/modelo/catalogo/resultado final;
+- foco educativo secundario: guia de instalacao e preparacao do espaco.
 
 Evitar:
 
@@ -72,6 +76,17 @@ Evitar:
 - imagem generica sem piscina visivel;
 - claims impossiveis;
 - visual confuso com baixo contraste.
+- imagens que parecam vender instalacao como servico principal;
+- instrucoes tecnicas demasiado longas dentro da imagem.
+
+## Regras para imagens de instalacao
+
+- Usar apenas texto curto, em portugues de Portugal, sem erros ortograficos.
+- Usar linguagem educativa: "Guia de instalacao", "Prepare o espaco", "Nivelamento", "Tubos de 50 mm".
+- Nao incluir precos, prazos garantidos ou promessas de execucao.
+- Reforcar que e conteudo informativo para compradores.
+- Guardar sempre imagem e `.md` em `ads/creatives/`.
+- O ficheiro `.md` deve mencionar que a imagem e para revisao humana.
 
 ## Naming
 
@@ -168,6 +183,22 @@ Estilo: premium, claro, moderno, alto contraste, leitura rapida.
 Cores: coerentes com landing page e marca.
 Evitar: claims exagerados, texto longo, promessas nao aprovadas, visual confuso.
 Saida: imagem pronta para revisao humana, sem publicar.
+```
+
+## Template de prompt para criativo de instalacao
+
+```text
+Criar imagem educativa para compradores de piscinas.
+Marca: Piscinas R Abreu.
+Objetivo: explicar um passo de preparacao/instalacao sem vender instalacao como promessa principal.
+Oferta principal da pagina: venda de piscinas e pedido de orcamento gratuito.
+Conceito visual: {conceito}.
+Cenario: piscina residencial, preparacao do terreno, tubagem, casa das maquinas ou nivelamento.
+Texto na imagem: {texto_curto_em_portugues_de_portugal}.
+Estilo: claro, tecnico, premium, alto contraste, leitura rapida.
+Cores: azul/ciano, branco e azul-marinho, alinhadas com a landing page.
+Evitar: texto longo, erro ortografico, preco, prazo garantido, promessa de instalacao imediata, visual confuso.
+Saida: imagem local para revisao humana, sem publicar.
 ```
 
 ## Template do ficheiro `.md`

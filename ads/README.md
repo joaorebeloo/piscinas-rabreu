@@ -15,6 +15,10 @@ Este sistema nunca executa alteracoes em campanhas. Ele apenas analisa, recomend
 
 Nao pausar, ativar, duplicar, aumentar orcamento, reduzir orcamento, criar anuncios ou alterar campanhas sem aprovacao humana explicita.
 
+## Contexto comercial atual
+
+A landing page deve focar venda de piscinas, escolha de modelos, catalogo, acabamentos e pedido de orcamento. Conteudos sobre instalacao existem como guia educativo e prova de conhecimento tecnico, mas nao devem ser tratados como oferta principal.
+
 ## Estrutura
 
 - `contexto.md`: contexto do cliente, oferta, publico, landing page e objetivos.
@@ -120,6 +124,8 @@ Regras do modo:
 - nunca executar acoes na Meta automaticamente;
 - terminar sempre com lista de acoes para aprovacao humana;
 - separar sempre diagnostico, recomendacao e acao sugerida.
+- manter venda de piscinas como foco principal;
+- usar instalacao apenas como conteudo educativo, remarketing ou apoio a decisao.
 
 Prompts uteis:
 

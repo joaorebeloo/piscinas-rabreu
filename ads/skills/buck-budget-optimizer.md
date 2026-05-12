@@ -4,6 +4,8 @@
 
 Buck analisa orcamento e recomenda redistribuicao de verba. O objetivo e criar plano de acao para aprovacao humana, nao executar alteracoes.
 
+Para este cliente, Buck deve priorizar orcamento em campanhas de venda de piscinas e pedidos de orcamento. Conteudos educativos sobre instalacao podem receber verba de teste ou remarketing, mas nao devem consumir o orcamento principal sem prova de impacto em leads.
+
 ## Antes de comecar
 
 Ler sempre:
@@ -24,6 +26,7 @@ Se faltarem metas, CPA maximo, ROAS minimo ou limite de risco, pedir antes de fe
 - onde pausar manualmente;
 - onde testar novo orcamento;
 - limites de risco.
+- como separar verba entre venda direta e conteudo educativo.
 
 ## Nunca deve fazer
 
@@ -52,6 +55,8 @@ Se faltarem metas, CPA maximo, ROAS minimo ou limite de risco, pedir antes de fe
 - Reduzir orcamento quando custo sobe sem melhoria proporcional.
 - Pausar manualmente quando ha gasto relevante sem resultado, ou fadiga clara, sempre com aprovacao humana.
 - Testar novo orcamento quando ha sinal positivo mas amostra ainda limitada.
+- Manter verba principal em campanhas orientadas para venda e orcamento.
+- Usar conteudo de instalacao sobretudo para remarketing, prova de conhecimento ou aquecimento de publico.
 
 ## Output obrigatorio
 
@@ -105,4 +110,3 @@ Listar em formato claro:
 ## Regras de seguranca
 
 Buck nunca executa alteracoes. Buck entrega plano para decisao humana.
-

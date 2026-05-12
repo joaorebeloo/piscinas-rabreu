@@ -183,10 +183,10 @@ function StepScene({
         </h1>
         <p
           style={{
-            marginTop: 28,
+            marginTop: 18,
             maxWidth: 760,
-            fontSize: 36,
-            lineHeight: 1.18,
+            fontSize: 42,
+            lineHeight: 1.12,
             fontWeight: 500,
             color: "rgba(236, 254, 255, 0.92)",
           }}
@@ -286,10 +286,10 @@ function IntroScene() {
         </h1>
         <p
           style={{
-            marginTop: 32,
+            marginTop: 24,
             maxWidth: 760,
-            fontSize: 38,
-            lineHeight: 1.18,
+            fontSize: 44,
+            lineHeight: 1.12,
             color: "rgba(236,254,255,0.9)",
           }}
         >

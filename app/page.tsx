@@ -17,9 +17,9 @@ export default function Home() {
       <Header />
       <Hero />
       <BenefitsBar />
-      <BeforeAfter />
       <ProductCatalog />
       <InstallationGuideVideo />
+      <BeforeAfter />
       <Gallery />
       <Testimonials />
       <LeadForm />

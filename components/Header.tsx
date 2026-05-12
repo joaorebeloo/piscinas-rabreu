@@ -9,9 +9,9 @@ import { useLanguage } from "@/components/LanguageProvider";
 
 const navItems = [
   { key: "services", href: "#servicos" },
-  { key: "beforeAfter", href: "#antes-depois" },
   { key: "models", href: "#modelos" },
-  { key: "gallery", href: "#galeria" },
+  { key: "installation", href: "#guia-instalacao" },
+  { key: "beforeAfterGallery", href: "#antes-depois" },
   { key: "testimonials", href: "#testemunhos" },
   { key: "contacts", href: "#contactos" },
 ] as const;

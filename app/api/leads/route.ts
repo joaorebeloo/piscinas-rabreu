@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
-import { isPoolTypeValue, localeOptions, type Locale } from "@/data/i18n";
+import { localeOptions, type Locale } from "@/data/i18n";
+import { PRODUCTS } from "@/data/products";
 import { getSiteUrl } from "@/data/site";
 
 type LeadPayload = {
@@ -37,6 +38,8 @@ const rateLimitWindowMs = 10 * 60 * 1000;
 const rateLimitMaxRequests = 6;
 const rateLimitRetryAfterSeconds = Math.ceil(rateLimitWindowMs / 1000);
 const rateLimitBuckets = new Map<string, RateLimitBucket>();
+const defaultLeadEmailTo = "andre.rafaela.2025@gmail.com";
+const defaultResendFrom = "Piscinas R Abreu <geral@piscinasrabreu.pt>";
 
 const fieldLimits = {
   name: 120,
@@ -190,7 +193,128 @@ function hasOversizedField(lead: Record<keyof typeof fieldLimits, string>) {
   });
 }
 
+function getPoolTypeLabel(poolType: string, locale: Locale) {
+  return (
+    PRODUCTS.find((product) => product.id === poolType)?.copy[locale].name ??
+    poolType
+  );
+}
+
+function isAllowedPoolType(poolType: string) {
+  return PRODUCTS.some(
+    (product) => product.category === "piscinas" && product.id === poolType,
+  );
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function formatLeadText(leadRecord: LeadRecord) {
+  const poolLabel = getPoolTypeLabel(leadRecord.poolType, leadRecord.locale);
+  const lines = [
+    "Novo pedido de orçamento - Piscinas R Abreu",
+    "",
+    `Nome: ${leadRecord.name}`,
+    leadRecord.phone ? `Telefone: ${leadRecord.phone}` : "",
+    leadRecord.email ? `Email: ${leadRecord.email}` : "",
+    `Localidade: ${leadRecord.location}`,
+    `Tipo de piscina: ${poolLabel}`,
+    leadRecord.message ? `Mensagem: ${leadRecord.message}` : "",
+    "",
+    `Idioma: ${leadRecord.locale}`,
+    `Origem: ${leadRecord.source}`,
+    `Data: ${leadRecord.submittedAt}`,
+  ];
+
+  return lines.filter(Boolean).join("\n");
+}
+
+function formatLeadHtml(leadRecord: LeadRecord) {
+  const poolLabel = getPoolTypeLabel(leadRecord.poolType, leadRecord.locale);
+  const rows = [
+    ["Nome", leadRecord.name],
+    ["Telefone", leadRecord.phone],
+    ["Email", leadRecord.email],
+    ["Localidade", leadRecord.location],
+    ["Tipo de piscina", poolLabel],
+    ["Mensagem", leadRecord.message],
+    ["Idioma", leadRecord.locale],
+    ["Origem", leadRecord.source],
+    ["Data", leadRecord.submittedAt],
+  ].filter(([, value]) => Boolean(value));
+
+  return `
+    <div style="font-family:Arial,sans-serif;color:#061426;line-height:1.5">
+      <h1 style="font-size:20px;margin:0 0 16px">Novo pedido de orçamento</h1>
+      <table style="border-collapse:collapse;width:100%;max-width:680px">
+        <tbody>
+          ${rows
+            .map(
+              ([label, value]) => `
+                <tr>
+                  <th style="border:1px solid #dbe6ee;padding:10px;text-align:left;background:#f6fbfd;width:180px">${escapeHtml(label)}</th>
+                  <td style="border:1px solid #dbe6ee;padding:10px;white-space:pre-line">${escapeHtml(value)}</td>
+                </tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+async function deliverLeadWithResend(leadRecord: LeadRecord) {
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+
+  if (!apiKey) {
+    return null;
+  }
+
+  const to = process.env.LEAD_EMAIL_TO?.trim() || defaultLeadEmailTo;
+  const from = process.env.RESEND_FROM?.trim() || defaultResendFrom;
+  const subject = `Novo pedido de orçamento - ${leadRecord.name}`;
+
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from,
+      to: [to],
+      reply_to: leadRecord.email || undefined,
+      subject,
+      text: formatLeadText(leadRecord),
+      html: formatLeadHtml(leadRecord),
+    }),
+  });
+
+  if (!response.ok) {
+    const body = await response.text().catch(() => "");
+    console.error("lead_resend_failed", {
+      status: response.status,
+      body: body.slice(0, 500),
+    });
+  }
+
+  return response.ok;
+}
+
 async function deliverLead(leadRecord: LeadRecord) {
+  const resendDelivered = await deliverLeadWithResend(leadRecord);
+
+  if (resendDelivered !== null) {
+    return resendDelivered;
+  }
+
   const webhookUrl = process.env.LEAD_WEBHOOK_URL?.trim();
 
   if (!webhookUrl) {
@@ -343,7 +467,7 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!isPoolTypeValue(lead.poolType)) {
+  if (!isAllowedPoolType(lead.poolType)) {
     return NextResponse.json(
       { code: "pool_type_invalid" },
       { status: 400 },

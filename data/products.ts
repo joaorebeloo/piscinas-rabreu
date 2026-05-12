@@ -30,7 +30,7 @@ export const PRODUCT_FILTERS: ProductFilter[] = [
 ];
 
 const modelImagePath = "/images/fotos-piscinas/Modelos";
-const modelImageVersion = "v=7";
+const modelImageVersion = "v=8";
 
 export const POOL_COLOR_OPTIONS = [
   {
@@ -208,6 +208,38 @@ function spaceCopy(): Record<Locale, ProductCopy> {
   };
 }
 
+function braielCopy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casco Piscina de Poliéster\nMedidas Exteriores (5.72 x 2.54 cm)\nInteriores (5.48 x 2.30 cm)\nAltura de 1.41 metros.";
+
+  return {
+    pt: {
+      name: "Braiel",
+      badge: "Novidade",
+      description,
+      imageAlt: "Piscina Braiel",
+    },
+    en: {
+      name: "Braiel",
+      badge: "New",
+      description,
+      imageAlt: "Braiel pool",
+    },
+    es: {
+      name: "Braiel",
+      badge: "Novedad",
+      description,
+      imageAlt: "Piscina Braiel",
+    },
+    fr: {
+      name: "Braiel",
+      badge: "Nouveauté",
+      description,
+      imageAlt: "Piscine Braiel",
+    },
+  };
+}
+
 function spaceLazeCopy(): Record<Locale, ProductCopy> {
   const description =
     "Casco Piscina de Poliéster\nMed. Ext. ( 6.25 x 3.20cm ) Med. Int. ( 6.05x 3.00 cm )\nProfundidade Inclinação de 1.20 cm a 1.60 cm";
@@ -375,6 +407,13 @@ export const PRODUCTS: Product[] = [
     imageSrc: `${modelImagePath}/Space.png?${modelImageVersion}`,
     imageFileName: "Space.png",
     copy: spaceCopy(),
+  },
+  {
+    id: "braiel",
+    category: "piscinas",
+    imageSrc: `${modelImagePath}/Braiel.png?${modelImageVersion}`,
+    imageFileName: "Braiel.png",
+    copy: braielCopy(),
   },
   {
     id: "franco",

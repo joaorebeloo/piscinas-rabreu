@@ -29,7 +29,6 @@ const initialValues: LeadFormValues = {
   message: "",
 };
 
-const desktopLeadEmailAddress = "geral@piscinasrabreu.pt";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const fieldIds: Record<keyof LeadFormValues, string> = {
@@ -71,12 +70,6 @@ function FieldError({ id, message }: { id: string; message?: string }) {
 
 function isMobileViewport() {
   return window.matchMedia("(max-width: 767px)").matches;
-}
-
-function buildEmailHref(subject: string, body: string) {
-  return `mailto:${desktopLeadEmailAddress}?subject=${encodeURIComponent(
-    subject,
-  )}&body=${encodeURIComponent(body)}`;
 }
 
 export function LeadForm({ className = "" }: { className?: string }) {
@@ -191,7 +184,21 @@ export function LeadForm({ className = "" }: { className?: string }) {
     return lines.filter(Boolean).join("\n");
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function submitLead(currentValues: LeadFormValues) {
+    const response = await fetch("/api/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...currentValues,
+        locale,
+        company,
+      }),
+    });
+
+    return response.ok;
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const nextErrors = validateLeadForm(values);
@@ -219,10 +226,15 @@ export function LeadForm({ className = "" }: { className?: string }) {
       window.open(buildWhatsAppHref(leadMessage), "_blank", "noopener");
       setStatusMessage(t.leadForm.success);
     } else {
-      window.location.href = buildEmailHref(
-        `${t.header.quote} - Piscinas R Abreu`,
-        leadMessage,
-      );
+      setStatus("idle");
+      const delivered = await submitLead(values);
+
+      if (!delivered) {
+        setStatus("error");
+        setStatusMessage(t.leadForm.errors.server);
+        return;
+      }
+
       setStatusMessage(t.leadForm.emailSuccess);
     }
 

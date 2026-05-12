@@ -403,7 +403,7 @@ export const translations: Record<Locale, SiteCopy> = {
       submit: "Enviar pedido",
       submitting: "A enviar pedido...",
       success: "Mensagem preparada no WhatsApp. Confirme o envio para concluir o pedido.",
-      emailSuccess: "Email preparado. Confirme o envio na sua aplicação de email.",
+      emailSuccess: "Pedido enviado. Entraremos em contacto consigo em breve.",
       reviewFields: "Reveja os campos assinalados.",
       errors: {
         name: "Indique o seu nome.",
@@ -454,8 +454,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Telefone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "geral@piscinasrabreu.pt",
-          href: "mailto:geral@piscinasrabreu.pt",
+          value: "andre.rafaela.2025@gmail.com",
+          href: "mailto:andre.rafaela.2025@gmail.com",
         },
         {
           label: "Zona",
@@ -667,7 +667,7 @@ export const translations: Record<Locale, SiteCopy> = {
       submit: "Send request",
       submitting: "Sending request...",
       success: "Message prepared in WhatsApp. Confirm sending to complete the request.",
-      emailSuccess: "Email prepared. Confirm sending in your email app.",
+      emailSuccess: "Request sent. We will contact you soon.",
       reviewFields: "Review the highlighted fields.",
       errors: {
         name: "Enter your name.",
@@ -718,8 +718,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Phone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "geral@piscinasrabreu.pt",
-          href: "mailto:geral@piscinasrabreu.pt",
+          value: "andre.rafaela.2025@gmail.com",
+          href: "mailto:andre.rafaela.2025@gmail.com",
         },
         { label: "Area", value: "Alcobaça, Leiria", href: null },
       ],
@@ -924,7 +924,7 @@ export const translations: Record<Locale, SiteCopy> = {
       submit: "Enviar solicitud",
       submitting: "Enviando solicitud...",
       success: "Mensaje preparado en WhatsApp. Confirma el envío para completar la solicitud.",
-      emailSuccess: "Email preparado. Confirma el envío en tu aplicación de correo.",
+      emailSuccess: "Solicitud enviada. Nos pondremos en contacto contigo pronto.",
       reviewFields: "Revisa los campos señalados.",
       errors: {
         name: "Indica tu nombre.",
@@ -975,8 +975,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Teléfono", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "geral@piscinasrabreu.pt",
-          href: "mailto:geral@piscinasrabreu.pt",
+          value: "andre.rafaela.2025@gmail.com",
+          href: "mailto:andre.rafaela.2025@gmail.com",
         },
         { label: "Zona", value: "Alcobaça, Leiria", href: null },
       ],
@@ -1181,7 +1181,7 @@ export const translations: Record<Locale, SiteCopy> = {
       submit: "Envoyer la demande",
       submitting: "Envoi de la demande...",
       success: "Message préparé dans WhatsApp. Confirmez l'envoi pour terminer la demande.",
-      emailSuccess: "Email préparé. Confirmez l'envoi dans votre application email.",
+      emailSuccess: "Demande envoyée. Nous vous contacterons bientôt.",
       reviewFields: "Vérifiez les champs signalés.",
       errors: {
         name: "Indiquez votre nom.",
@@ -1232,8 +1232,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Téléphone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "geral@piscinasrabreu.pt",
-          href: "mailto:geral@piscinasrabreu.pt",
+          value: "andre.rafaela.2025@gmail.com",
+          href: "mailto:andre.rafaela.2025@gmail.com",
         },
         { label: "Zone", value: "Alcobaça, Leiria", href: null },
       ],

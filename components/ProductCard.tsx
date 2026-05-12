@@ -44,6 +44,7 @@ export function ProductCard({
   const Icon = CATEGORY_ICON[product.category];
   const copy = product.copy[locale];
   const isBestSeller = copy.badge.toLowerCase().replace("-", " ") === "best seller";
+  const isNew = product.id === "braiel";
   const resolvedImageSrc = imageSrc ?? product.imageSrc;
 
   return (
@@ -84,8 +85,14 @@ export function ProductCard({
           <Icon className="h-2 w-2 sm:h-3 sm:w-3" strokeWidth={1.8} />
           <span className="hidden min-[420px]:inline">{t.categories[product.category]}</span>
         </div>
-        {isBestSeller ? (
-          <div className="absolute right-2 top-2 rounded-bl-xl rounded-tr-[0.85rem] bg-[#f4c542] px-3 py-2 text-[0.62rem] font-black uppercase tracking-[0.12em] text-[#06162b] shadow-[0_14px_28px_-16px_rgba(7,27,53,0.85),inset_0_1px_0_rgba(255,255,255,0.55)] sm:right-3 sm:top-3 sm:px-4 sm:text-xs">
+        {isBestSeller || isNew ? (
+          <div
+            className={`absolute right-2 top-2 rounded-bl-xl rounded-tr-[0.85rem] px-3 py-2 text-[0.62rem] font-black uppercase tracking-[0.12em] shadow-[0_14px_28px_-16px_rgba(7,27,53,0.85),inset_0_1px_0_rgba(255,255,255,0.55)] sm:right-3 sm:top-3 sm:px-4 sm:text-xs ${
+              isNew
+                ? "bg-[#16d1a0] text-[#031225]"
+                : "bg-[#f4c542] text-[#06162b]"
+            }`}
+          >
             {copy.badge}
           </div>
         ) : null}

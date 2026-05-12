@@ -410,9 +410,9 @@ export const translations: Record<Locale, SiteCopy> = {
           detail: "Venda e aconselhamento de piscinas em Portugal.",
         },
         {
-          value: 500,
+          value: 200,
           suffix: "+",
-          label: "piscinas instaladas",
+          label: "piscinas vendidas",
           detail: "Modelos adaptados a moradias, jardins e espaços exteriores.",
         },
         {

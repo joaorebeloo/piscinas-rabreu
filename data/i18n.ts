@@ -226,7 +226,7 @@ export const translations: Record<Locale, SiteCopy> = {
       titleSuffix: "espaços em momentos únicos.",
       subheadline:
         "Escolha a piscina ideal para o seu espaço, com aconselhamento especializado, modelos de qualidade e orçamento gratuito.",
-      primaryCta: "Pedir orçamento",
+      primaryCta: "Ver catálogo",
       secondaryCta: "Ver catálogo",
       videoCta: "Ver vídeo",
       videoAria: "Ver vídeo da Piscinas R Abreu",
@@ -484,7 +484,7 @@ export const translations: Record<Locale, SiteCopy> = {
       titleSuffix: "spaces into unique moments.",
       subheadline:
         "Sales, installation and support for custom pools with quality, safety and excellent finishes.",
-      primaryCta: "Request quote",
+      primaryCta: "View catalogue",
       secondaryCta: "View catalogue",
       videoCta: "Watch video",
       videoAria: "Watch Piscinas R Abreu video",
@@ -732,7 +732,7 @@ export const translations: Record<Locale, SiteCopy> = {
       titleSuffix: "espacios en momentos únicos.",
       subheadline:
         "Venta, instalación y asistencia de piscinas personalizadas con calidad, seguridad y acabados excelentes.",
-      primaryCta: "Pedir presupuesto",
+      primaryCta: "Ver catálogo",
       secondaryCta: "Ver catálogo",
       videoCta: "Ver vídeo",
       videoAria: "Ver vídeo de Piscinas R Abreu",
@@ -980,7 +980,7 @@ export const translations: Record<Locale, SiteCopy> = {
       titleSuffix: "les espaces en moments uniques.",
       subheadline:
         "Vente, installation et assistance de piscines personnalisées avec qualité, sécurité et finitions d'excellence.",
-      primaryCta: "Demander un devis",
+      primaryCta: "Voir le catalogue",
       secondaryCta: "Voir le catalogue",
       videoCta: "Voir la vidéo",
       videoAria: "Voir la vidéo de Piscinas R Abreu",

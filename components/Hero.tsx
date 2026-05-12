@@ -66,17 +66,11 @@ export function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#contactos"
+              href="#modelos"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#23c7e8] px-6 py-3.5 text-base font-bold text-[#031225] shadow-xl shadow-cyan-950/30 transition hover:bg-[#67e3ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#06162b]"
             >
               {t.hero.primaryCta}
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </a>
-            <a
-              href="#modelos"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/22 bg-white/12 px-6 py-3.5 text-base font-bold text-white backdrop-blur-md transition hover:border-cyan-100/60 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55d6ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#06162b]"
-            >
-              {t.hero.secondaryCta}
             </a>
           </div>
 

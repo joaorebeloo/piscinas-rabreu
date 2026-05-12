@@ -19,14 +19,46 @@ const geistMono = Geist_Mono({
 const siteUrl = getSiteUrl();
 const siteTitle = "Piscinas R Abreu | Venda de piscinas";
 const siteDescription =
-  "Especialistas em venda, instalação e assistência de piscinas. Peça o seu orçamento gratuito.";
+  "Venda de piscinas em Portugal, com catálogo de modelos, aconselhamento especializado e orçamento gratuito.";
 
 export const metadata: Metadata = {
+  applicationName: "Piscinas R Abreu",
   metadataBase: siteUrl,
-  title: siteTitle,
+  title: {
+    default: siteTitle,
+    template: "%s | Piscinas R Abreu",
+  },
   description: siteDescription,
+  keywords: [
+    "piscinas",
+    "venda de piscinas",
+    "piscinas em Portugal",
+    "piscinas em Leiria",
+    "piscinas em Alcobaça",
+    "piscinas de fibra",
+    "orçamento piscina",
+  ],
+  authors: [{ name: "Piscinas R Abreu" }],
+  creator: "Piscinas R Abreu",
+  publisher: "Piscinas R Abreu",
+  category: "Home improvement",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   alternates: {
     canonical: "/",
+    languages: {
+      "pt-PT": "/",
+      "x-default": "/",
+    },
   },
   openGraph: {
     title: siteTitle,
@@ -35,12 +67,13 @@ export const metadata: Metadata = {
     siteName: "Piscinas R Abreu",
     type: "website",
     locale: "pt_PT",
+    countryName: "Portugal",
     images: [
       {
-        url: "/images/hero-pool-residential.png",
+        url: "/images/after-real-pool.png",
         width: 1200,
         height: 630,
-        alt: "Piscina residencial instalada pela Piscinas R Abreu",
+        alt: "Piscina residencial da Piscinas R Abreu",
       },
     ],
   },
@@ -48,7 +81,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/images/hero-pool-residential.png"],
+    images: ["/images/after-real-pool.png"],
   },
 };
 

@@ -24,7 +24,7 @@ const card: Variants = {
 };
 
 export function Testimonials() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
 
   return (
     <section
@@ -48,15 +48,15 @@ export function Testimonials() {
         </div>
 
         <motion.div
+          key={locale}
           variants={container}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          animate="visible"
           className="mt-10 grid grid-cols-1 items-stretch gap-5 md:grid-cols-2"
         >
           {t.testimonials.items.map((testimonial) => (
             <motion.article
-              key={`${testimonial.name}-${testimonial.location}`}
+              key={testimonial.id}
               variants={card}
               className="flex h-full min-h-[250px] flex-col justify-between rounded-[8px] border border-white/10 bg-white/[0.045] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
             >

@@ -1,8 +1,13 @@
+"use client";
+
 import { PlayCircle } from "lucide-react";
 
+import { useLanguage } from "@/components/LanguageProvider";
 import { SectionEyebrow } from "@/components/SectionEyebrow";
 
 export function InstallationGuideVideo() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="guia-instalacao"
@@ -15,14 +20,13 @@ export function InstallationGuideVideo() {
       <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
         <div>
           <SectionEyebrow icon={PlayCircle} variant="dark" className="mb-5">
-            Guia de instalação
+            {t.installationGuide.eyebrow}
           </SectionEyebrow>
           <h2 className="max-w-xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Veja os passos essenciais antes de preparar a sua piscina.
+            {t.installationGuide.title}
           </h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-cyan-50/78 sm:text-lg">
-            Um vídeo prático para compradores que querem compreender medidas,
-            nivelamento, tubagem, enchimento e compactação antes da utilização.
+            {t.installationGuide.intro}
           </p>
         </div>
 
@@ -34,7 +38,7 @@ export function InstallationGuideVideo() {
             poster="/images/fotos-piscinas/IMG-20260501-WA0052.jpg"
           >
             <source src="/videos/pool-installation-guide.mp4" type="video/mp4" />
-            O seu navegador não suporta vídeo HTML5.
+            {t.installationGuide.unsupportedVideo}
           </video>
         </div>
       </div>
@@ -43,4 +47,3 @@ export function InstallationGuideVideo() {
 }
 
 export default InstallationGuideVideo;
-

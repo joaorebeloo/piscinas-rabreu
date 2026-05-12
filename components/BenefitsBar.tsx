@@ -29,7 +29,7 @@ const item: Variants = {
 };
 
 export function BenefitsBar() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
 
   return (
     <section
@@ -53,10 +53,10 @@ export function BenefitsBar() {
         </div>
 
         <motion.div
+          key={locale}
           variants={container}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.25 }}
+          animate="visible"
           className="grid grid-cols-1 gap-px overflow-hidden rounded-[1.1rem] border border-white/10 bg-white/10 md:grid-cols-3"
         >
           {t.benefits.items.map((benefit, index) => {
@@ -64,7 +64,7 @@ export function BenefitsBar() {
 
             return (
               <motion.article
-                key={benefit.title}
+                key={index}
                 variants={item}
                 className="group bg-white/[0.045] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-500 ease-[var(--ease-premium)] hover:bg-white/[0.075]"
               >

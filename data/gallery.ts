@@ -1,6 +1,6 @@
 import type { Locale } from "@/data/i18n";
 
-export type GalleryCategory = "mounted" | "process";
+export type GalleryCategory = "mounted" | "process" | "transport";
 export type GalleryFilter = GalleryCategory | "all";
 
 type GalleryCopy = {
@@ -17,7 +17,12 @@ export type GalleryItem = {
   copy: Record<Locale, GalleryCopy>;
 };
 
-export const GALLERY_FILTERS: GalleryFilter[] = ["all", "mounted", "process"];
+export const GALLERY_FILTERS: GalleryFilter[] = [
+  "all",
+  "mounted",
+  "process",
+  "transport",
+];
 
 export const GALLERY_COPY: Record<
   Locale,
@@ -39,6 +44,7 @@ export const GALLERY_COPY: Record<
       all: "Todos",
       mounted: "Piscinas montadas",
       process: "Processo",
+      transport: "Transporte",
     },
   },
   en: {
@@ -51,6 +57,7 @@ export const GALLERY_COPY: Record<
       all: "All",
       mounted: "Finished pools",
       process: "Process",
+      transport: "Transport",
     },
   },
   es: {
@@ -63,6 +70,7 @@ export const GALLERY_COPY: Record<
       all: "Todos",
       mounted: "Piscinas montadas",
       process: "Proceso",
+      transport: "Transporte",
     },
   },
   fr: {
@@ -75,6 +83,7 @@ export const GALLERY_COPY: Record<
       all: "Tous",
       mounted: "Piscines installées",
       process: "Chantier",
+      transport: "Transport",
     },
   },
 };
@@ -109,7 +118,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "pool-water-fill-close",
-    category: "process",
+    category: "mounted",
     imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0022.jpg",
     copy: {
       pt: {
@@ -326,7 +335,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "pool-transport",
-    category: "process",
+    category: "transport",
     imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0023.jpg",
     featured: true,
     copy: {
@@ -381,7 +390,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "crane-placement",
-    category: "process",
+    category: "transport",
     imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0043.jpg",
     copy: {
       pt: {

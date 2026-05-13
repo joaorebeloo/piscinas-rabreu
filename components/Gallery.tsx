@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { Camera, Hammer, Images, Waves, type LucideIcon } from "lucide-react";
+import { Camera, Hammer, Images, Truck, Waves, type LucideIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { useLanguage } from "@/components/LanguageProvider";
@@ -18,6 +18,7 @@ const FILTER_ICON: Record<GalleryFilter, LucideIcon> = {
   all: Images,
   mounted: Waves,
   process: Hammer,
+  transport: Truck,
 };
 
 export function Gallery() {

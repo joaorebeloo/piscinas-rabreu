@@ -24,6 +24,9 @@ export function Gallery() {
   const { locale } = useLanguage();
   const copy = GALLERY_COPY[locale];
   const [activeFilter, setActiveFilter] = useState<GalleryFilter>("all");
+  const [mobileFeaturedIds, setMobileFeaturedIds] = useState<string[]>(() =>
+    GALLERY_ITEMS.slice(0, 2).map((item) => item.id),
+  );
 
   const visibleItems = useMemo(() => {
     if (activeFilter === "all") {
@@ -32,6 +35,34 @@ export function Gallery() {
 
     return GALLERY_ITEMS.filter((item) => item.category === activeFilter);
   }, [activeFilter]);
+
+  const mobileFeaturedItems = useMemo(() => {
+    const selected = mobileFeaturedIds
+      .map((id) => visibleItems.find((item) => item.id === id))
+      .filter((item): item is (typeof visibleItems)[number] => Boolean(item));
+    const fallback = visibleItems.filter(
+      (item) => !selected.some((selectedItem) => selectedItem.id === item.id),
+    );
+
+    return [...selected, ...fallback].slice(0, 2);
+  }, [mobileFeaturedIds, visibleItems]);
+
+  const mobileThumbnailItems = useMemo(
+    () =>
+      visibleItems.filter(
+        (item) =>
+          !mobileFeaturedItems.some(
+            (featuredItem) => featuredItem.id === item.id,
+          ),
+      ),
+    [mobileFeaturedItems, visibleItems],
+  );
+
+  function promoteMobileItem(itemId: string) {
+    setMobileFeaturedIds((current) =>
+      [itemId, ...current.filter((id) => id !== itemId)].slice(0, 2),
+    );
+  }
 
   return (
     <section
@@ -106,9 +137,78 @@ export function Gallery() {
           </div>
         </div>
 
+        <div className="sm:hidden">
+          <motion.div layout className="grid grid-cols-1 gap-3">
+            {mobileFeaturedItems.map((item, index) => {
+              const itemCopy = item.copy[locale];
+
+              return (
+                <motion.article
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="overflow-hidden rounded-[1rem] border border-white/12 bg-white/[0.06]"
+                >
+                  <div
+                    className={`relative overflow-hidden bg-slate-100 ${
+                      index === 0 ? "aspect-[4/3]" : "aspect-[16/10]"
+                    }`}
+                  >
+                    <Image
+                      src={item.imageSrc}
+                      alt={itemCopy.imageAlt}
+                      fill
+                      sizes="100vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,rgba(7,27,53,0)_0%,rgba(3,13,28,0.94)_100%)] p-4 pt-16 text-white">
+                      <span className="mb-2 inline-flex rounded-full border border-white/15 bg-white/12 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-cyan-100 backdrop-blur-md">
+                        {copy.filters[item.category]}
+                      </span>
+                      <h3 className="text-base font-semibold leading-tight tracking-tight">
+                        {itemCopy.title}
+                      </h3>
+                    </div>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+
+          {mobileThumbnailItems.length > 0 ? (
+            <div
+              className="-mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              aria-label="Miniaturas da galeria"
+            >
+              {mobileThumbnailItems.map((item) => {
+                const itemCopy = item.copy[locale];
+
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[0.65rem] border border-white/12 bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+                    aria-label={`Mostrar ${itemCopy.title}`}
+                    onClick={() => promoteMobileItem(item.id)}
+                  >
+                    <Image
+                      src={item.imageSrc}
+                      alt=""
+                      fill
+                      sizes="25vw"
+                      className="object-cover"
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          ) : null}
+        </div>
+
         <motion.div
           layout
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="hidden grid-cols-1 gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-4"
         >
           <AnimatePresence mode="popLayout">
             {visibleItems.map((item, index) => {

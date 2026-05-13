@@ -197,6 +197,7 @@ export type SiteCopy = {
   whatsapp: {
     aria: string;
     label: string;
+    prompt: string;
   };
 };
 
@@ -307,7 +308,7 @@ export const translations: Record<Locale, SiteCopy> = {
       unsupportedVideo: "O seu navegador não suporta vídeo HTML5.",
     },
     beforeAfter: {
-      eyebrow: "Antes e depois",
+      eyebrow: "Processo",
       title: "Transformamos espaços comuns em refúgios extraordinários.",
       intro:
         "Compare o potencial de um espaço exterior antes da intervenção com uma solução pronta para receber família, amigos e dias longos de sol.",
@@ -357,7 +358,7 @@ export const translations: Record<Locale, SiteCopy> = {
           name: "Marta e Luís Conde",
           location: "Oeiras",
           quote:
-            "A cobertura e o sistema de aquecimento fizeram diferença. Usamos a piscina durante muito mais tempo e com menos manutenção.",
+            "Tínhamos pouco espaço disponível e queríamos uma solução rápida. A equipa indicou o modelo certo e em pouco tempo ficou tudo pronto.",
         },
       ],
     },
@@ -470,6 +471,7 @@ export const translations: Record<Locale, SiteCopy> = {
     whatsapp: {
       aria: "Contactar Piscinas R Abreu pelo WhatsApp",
       label: "WhatsApp",
+      prompt: "Tem alguma dúvida?",
     },
   },
   en: {
@@ -572,7 +574,7 @@ export const translations: Record<Locale, SiteCopy> = {
       unsupportedVideo: "Your browser does not support HTML5 video.",
     },
     beforeAfter: {
-      eyebrow: "Before and after",
+      eyebrow: "Process",
       title: "We turn ordinary spaces into extraordinary retreats.",
       intro:
         "Compare the potential of an outdoor space before intervention with a solution ready for family, friends and long sunny days.",
@@ -622,7 +624,7 @@ export const translations: Record<Locale, SiteCopy> = {
           name: "Marta & Luís Conde",
           location: "Oeiras",
           quote:
-            "The cover and heating system made a real difference. We use the pool for much longer and with less maintenance.",
+            "We had very little space and wanted a fast solution. The team suggested the right model and everything was ready quickly.",
         },
       ],
     },
@@ -727,7 +729,11 @@ export const translations: Record<Locale, SiteCopy> = {
       linksAria: "Quick links",
       socialAria: "Social media",
     },
-    whatsapp: { aria: "Contact Piscinas R Abreu on WhatsApp", label: "WhatsApp" },
+    whatsapp: {
+      aria: "Contact Piscinas R Abreu on WhatsApp",
+      label: "WhatsApp",
+      prompt: "Any questions?",
+    },
   },
   es: {
     nav: {
@@ -829,7 +835,7 @@ export const translations: Record<Locale, SiteCopy> = {
       unsupportedVideo: "Tu navegador no soporta vídeo HTML5.",
     },
     beforeAfter: {
-      eyebrow: "Antes y después",
+      eyebrow: "Proceso",
       title: "Transformamos espacios comunes en refugios extraordinarios.",
       intro:
         "Compara el potencial de un espacio exterior antes de la intervención con una solución lista para recibir familia, amigos y largos días de sol.",
@@ -879,7 +885,7 @@ export const translations: Record<Locale, SiteCopy> = {
           name: "Marta y Luís Conde",
           location: "Oeiras",
           quote:
-            "La cubierta y el sistema de calefacción marcaron la diferencia. Usamos la piscina durante mucho más tiempo y con menos mantenimiento.",
+            "Teníamos muy poco espacio y queríamos una solución rápida. El equipo nos indicó el modelo adecuado y todo quedó listo en poco tiempo.",
         },
       ],
     },
@@ -984,7 +990,11 @@ export const translations: Record<Locale, SiteCopy> = {
       linksAria: "Enlaces rápidos",
       socialAria: "Redes sociales",
     },
-    whatsapp: { aria: "Contactar con Piscinas R Abreu por WhatsApp", label: "WhatsApp" },
+    whatsapp: {
+      aria: "Contactar con Piscinas R Abreu por WhatsApp",
+      label: "WhatsApp",
+      prompt: "¿Tienes alguna duda?",
+    },
   },
   fr: {
     nav: {
@@ -1086,7 +1096,7 @@ export const translations: Record<Locale, SiteCopy> = {
       unsupportedVideo: "Votre navigateur ne prend pas en charge la vidéo HTML5.",
     },
     beforeAfter: {
-      eyebrow: "Avant et après",
+      eyebrow: "Processus",
       title: "Nous transformons les espaces ordinaires en refuges extraordinaires.",
       intro:
         "Comparez le potentiel d'un espace extérieur avant l'intervention avec une solution prête pour la famille, les amis et les longues journées de soleil.",
@@ -1136,7 +1146,7 @@ export const translations: Record<Locale, SiteCopy> = {
           name: "Marta et Luís Conde",
           location: "Oeiras",
           quote:
-            "La couverture et le système de chauffage ont tout changé. Nous utilisons la piscine beaucoup plus longtemps et avec moins d'entretien.",
+            "Nous avions très peu d'espace et voulions une solution rapide. L'équipe nous a conseillé le bon modèle et tout a été prêt rapidement.",
         },
       ],
     },
@@ -1241,6 +1251,10 @@ export const translations: Record<Locale, SiteCopy> = {
       linksAria: "Liens rapides",
       socialAria: "Réseaux sociaux",
     },
-    whatsapp: { aria: "Contacter Piscinas R Abreu sur WhatsApp", label: "WhatsApp" },
+    whatsapp: {
+      aria: "Contacter Piscinas R Abreu sur WhatsApp",
+      label: "WhatsApp",
+      prompt: "Une question ?",
+    },
   },
 };

@@ -78,7 +78,7 @@ export function ProductCatalog() {
 
   return (
     <section
-      className="relative w-full overflow-hidden border-t border-slate-200 bg-[var(--color-foam)] px-4 py-24 pt-28 sm:px-6 lg:px-8"
+      className="relative w-full scroll-mt-24 overflow-hidden border-t border-slate-200 bg-[var(--color-foam)] px-4 py-16 pt-14 sm:px-6 md:py-20 md:pt-20 lg:px-8 lg:py-24 lg:pt-24"
       id="modelos"
     >
       <div

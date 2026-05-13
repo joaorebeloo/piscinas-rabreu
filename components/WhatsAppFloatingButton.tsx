@@ -28,42 +28,76 @@ export function WhatsAppFloatingButton() {
   );
 
   return (
-    <motion.a
-      href={whatsappHref}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={t.whatsapp.aria}
-      initial={{ opacity: 0, scale: 0.9, y: 12 }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        boxShadow: prefersReducedMotion
-          ? "0 18px 44px rgba(2, 132, 199, 0.32)"
-          : [
-              "0 18px 44px rgba(2, 132, 199, 0.32)",
-              "0 18px 58px rgba(34, 211, 238, 0.48)",
-              "0 18px 44px rgba(2, 132, 199, 0.32)",
-            ],
-      }}
-      transition={{
-        opacity: { duration: 0.35, ease: [0.32, 0.72, 0, 1] },
-        scale: { duration: 0.35, ease: [0.32, 0.72, 0, 1] },
-        y: { duration: 0.35, ease: [0.32, 0.72, 0, 1] },
-        boxShadow: prefersReducedMotion
-          ? { duration: 0.35, ease: [0.32, 0.72, 0, 1] }
-          : { duration: 2.4, repeat: Infinity, ease: [0.32, 0.72, 0, 1] },
-      }}
-      className="fixed bottom-5 right-5 z-50 inline-flex min-h-14 items-center gap-3 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold !text-white shadow-2xl transition hover:bg-[#1ebe5d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#06162b] sm:bottom-7 sm:right-7 sm:px-5"
+    <motion.div
+      initial={{ opacity: 0, scale: 0.96, y: 12 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
+      className="fixed bottom-5 right-5 z-50 flex items-end gap-2 sm:bottom-7 sm:right-7"
     >
-      <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white/18 text-white">
-        {!prefersReducedMotion ? (
-          <span className="absolute inset-0 rounded-full bg-white/20" aria-hidden="true" />
-        ) : null}
-        <WhatsAppIcon />
-      </span>
-      <span className="inline pr-0.5">{t.whatsapp.label}</span>
-    </motion.a>
+      <motion.div
+        animate={
+          prefersReducedMotion
+            ? { opacity: 1, y: 0 }
+            : { opacity: [0, 1, 1, 0], y: [4, 0, 0, 4] }
+        }
+        transition={
+          prefersReducedMotion
+            ? { duration: 0 }
+            : {
+                duration: 8,
+                times: [0, 0.16, 0.72, 1],
+                repeat: Infinity,
+                repeatDelay: 10,
+                ease: [0.32, 0.72, 0, 1],
+              }
+        }
+        className="mb-1 hidden rounded-2xl rounded-br-sm border border-slate-200 bg-white px-3.5 py-2 text-sm font-semibold text-slate-950 shadow-[0_18px_55px_-18px_rgba(2,8,23,0.75),0_4px_14px_rgba(2,8,23,0.22)] ring-1 ring-white/70 sm:block"
+      >
+        {t.whatsapp.prompt}
+      </motion.div>
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={t.whatsapp.aria}
+        className="inline-flex min-h-14 items-center gap-3 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold !text-white shadow-2xl transition hover:bg-[#1ebe5d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#06162b] sm:px-5"
+        style={{
+          boxShadow: "0 18px 44px rgba(2, 132, 199, 0.32)",
+        }}
+      >
+        <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white/18 text-white">
+          {!prefersReducedMotion ? (
+            <span
+              className="absolute inset-0 rounded-full bg-white/20"
+              aria-hidden="true"
+            />
+          ) : null}
+          <WhatsAppIcon />
+        </span>
+        <span className="inline pr-0.5">{t.whatsapp.label}</span>
+      </a>
+      <motion.div
+        animate={
+          prefersReducedMotion
+            ? { opacity: 1, y: 0 }
+            : { opacity: [0, 1, 1, 0], y: [4, 0, 0, 4] }
+        }
+        transition={
+          prefersReducedMotion
+            ? { duration: 0 }
+            : {
+                duration: 8,
+                times: [0, 0.16, 0.72, 1],
+                repeat: Infinity,
+                repeatDelay: 10,
+                ease: [0.32, 0.72, 0, 1],
+              }
+        }
+        className="absolute bottom-full right-0 mb-2 rounded-2xl rounded-br-sm border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-950 shadow-[0_18px_55px_-18px_rgba(2,8,23,0.75),0_4px_14px_rgba(2,8,23,0.22)] ring-1 ring-white/70 sm:hidden"
+      >
+        {t.whatsapp.prompt}
+      </motion.div>
+    </motion.div>
   );
 }
 

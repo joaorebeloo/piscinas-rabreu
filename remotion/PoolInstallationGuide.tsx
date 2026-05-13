@@ -26,7 +26,7 @@ const steps = [
     kicker: "03",
     title: "Base nivelada",
     body: "Faça uma laje em cimento com cerca de 10 cm. Depois, aplique 5 a 7 cm de areia e nivele perfeitamente.",
-    image: "images/fotos-piscinas/IMG-20260501-WA0030.jpg",
+    image: "images/antes-depois/3.jpeg",
   },
   {
     kicker: "04",
@@ -38,7 +38,7 @@ const steps = [
     kicker: "05",
     title: "Verifique tolerâncias",
     body: "Diferença máxima: 1 cm em piscinas até 6 m e 2,5 cm em piscinas de 9 m.",
-    image: "images/fotos-piscinas/IMG-20260501-WA0044.jpg",
+    image: "images/antes-depois/6.jpeg",
   },
   {
     kicker: "06",
@@ -50,13 +50,13 @@ const steps = [
     kicker: "07",
     title: "Encha e compacte",
     body: "Encha a piscina com água e adicione pó de pedra em incrementos de 30 a 50 cm.",
-    image: "images/fotos-piscinas/IMG-20260501-WA0037.jpg",
+    image: "images/antes-depois/7.jpeg",
   },
   {
     kicker: "08",
     title: "Alinhe as paredes",
     body: "Repita o processo até a piscina estar cheia, garantindo que as paredes ficam alinhadas.",
-    image: "images/fotos-piscinas/IMG-20260501-WA0049.jpg",
+    image: "images/antes-depois/8.jpeg",
   },
   {
     kicker: "09",

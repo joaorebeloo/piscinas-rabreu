@@ -1,120 +1,23 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type KeyboardEvent,
-} from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowLeftRight, SlidersHorizontal } from "lucide-react";
+import { motion } from "framer-motion";
+import { SlidersHorizontal } from "lucide-react";
 
 import { useLanguage } from "@/components/LanguageProvider";
 import { SectionEyebrow } from "@/components/SectionEyebrow";
 
-function clamp(value: number) {
-  return Math.min(96, Math.max(4, value));
-}
+const projectImages = Array.from({ length: 8 }, (_, index) => ({
+  src: `/images/antes-depois/${index + 1}.jpeg`,
+  number: index + 1,
+}));
 
 export function BeforeAfter() {
   const { t } = useLanguage();
-  const prefersReducedMotion = useReducedMotion();
-  const [position, setPosition] = useState(52);
-  const [isDragging, setIsDragging] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const frameRef = useRef<HTMLDivElement | null>(null);
-
-  const updateFromClientX = useCallback((clientX: number) => {
-    const frame = frameRef.current;
-    if (!frame) {
-      return;
-    }
-
-    const rect = frame.getBoundingClientRect();
-    const nextPosition = ((clientX - rect.left) / rect.width) * 100;
-    setPosition(clamp(Math.round(nextPosition)));
-  }, []);
-
-  useEffect(() => {
-    if (prefersReducedMotion || hasInteracted || isDragging) {
-      return;
-    }
-
-    const duration = 9000;
-    const start = performance.now();
-    let frameId = 0;
-
-    const animateSlider = (timestamp: number) => {
-      const progress = ((timestamp - start) % duration) / duration;
-      const easedProgress = (1 - Math.cos(progress * Math.PI * 2)) / 2;
-      setPosition(Math.round(4 + easedProgress * 92));
-      frameId = window.requestAnimationFrame(animateSlider);
-    };
-
-    frameId = window.requestAnimationFrame(animateSlider);
-
-    return () => window.cancelAnimationFrame(frameId);
-  }, [hasInteracted, isDragging, prefersReducedMotion]);
-
-  const updateFromKeyboard = useCallback(
-    (event: KeyboardEvent<HTMLDivElement>) => {
-      const smallStep = 2;
-      const largeStep = 10;
-
-      if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
-        event.preventDefault();
-        setPosition((current) => clamp(current - smallStep));
-      }
-
-      if (event.key === "ArrowRight" || event.key === "ArrowUp") {
-        event.preventDefault();
-        setPosition((current) => clamp(current + smallStep));
-      }
-
-      if (event.key === "PageDown") {
-        event.preventDefault();
-        setPosition((current) => clamp(current - largeStep));
-      }
-
-      if (event.key === "PageUp") {
-        event.preventDefault();
-        setPosition((current) => clamp(current + largeStep));
-      }
-
-      if (event.key === "Home") {
-        event.preventDefault();
-        setPosition(4);
-      }
-
-      if (event.key === "End") {
-        event.preventDefault();
-        setPosition(96);
-      }
-    },
-    [],
+  const [selectedImageIndex, setSelectedImageIndex] = useState(
+    projectImages.length - 1,
   );
-
-  useEffect(() => {
-    if (!isDragging) {
-      return;
-    }
-
-    const onPointerMove = (event: PointerEvent) => {
-      updateFromClientX(event.clientX);
-    };
-
-    const onPointerUp = () => setIsDragging(false);
-
-    window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerup", onPointerUp, { once: true });
-
-    return () => {
-      window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("pointerup", onPointerUp);
-    };
-  }, [isDragging, updateFromClientX]);
 
   return (
     <section
@@ -142,16 +45,6 @@ export function BeforeAfter() {
           <p className="mt-5 text-base leading-7 text-slate-600">
             {t.beforeAfter.intro}
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-3 text-sm text-slate-700">
-            {t.beforeAfter.steps.map((step, index) => (
-              <div key={step} className="border-t border-slate-200 pt-4">
-                <span className="block text-2xl font-semibold tracking-tight text-slate-950">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                {step}
-              </div>
-            ))}
-          </div>
         </motion.div>
 
         <motion.div
@@ -161,84 +54,72 @@ export function BeforeAfter() {
           transition={{ type: "spring", stiffness: 100, damping: 18 }}
           className="relative"
         >
-          <div
-            ref={frameRef}
-            className="relative aspect-[4/3] touch-none overflow-hidden rounded-[8px] bg-slate-100 shadow-[0_24px_60px_-32px_rgba(15,23,42,0.35)]"
-            onPointerDown={(event) => {
-              if ((event.target as HTMLElement).closest("input")) {
-                return;
-              }
+          <div className="mb-4 grid grid-cols-4 gap-2 sm:grid-cols-8">
+            {projectImages.map((image, index) => {
+              const label =
+                index === 0
+                  ? t.beforeAfter.before
+                  : index === projectImages.length - 1
+                    ? t.beforeAfter.after
+                    : `Fase ${image.number}`;
 
-              setHasInteracted(true);
-              updateFromClientX(event.clientX);
-              setIsDragging(true);
-            }}
+              return (
+                <button
+                  key={image.src}
+                  type="button"
+                  className="group relative aspect-[4/3] overflow-hidden rounded-[6px] border border-slate-200 bg-slate-100 text-left transition duration-200 hover:-translate-y-0.5 hover:border-cyan-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300/70"
+                  aria-label={`${label}: mostrar fotografia ${image.number}`}
+                  aria-pressed={selectedImageIndex === index}
+                  onClick={() => setSelectedImageIndex(index)}
+                >
+                  <Image
+                    src={image.src}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 8vw, 25vw"
+                    className="object-cover transition duration-300 group-hover:scale-105"
+                  />
+                  <span
+                    className={`absolute inset-0 rounded-[6px] ring-inset transition ${
+                      selectedImageIndex === index
+                        ? "ring-4 ring-cyan-400"
+                        : "ring-0"
+                    }`}
+                    aria-hidden="true"
+                  />
+                  <span className="absolute inset-x-1 bottom-1 rounded bg-slate-950/75 px-1.5 py-1 text-center text-[0.62rem] font-semibold uppercase tracking-[0.08em] text-white backdrop-blur">
+                    {label}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-[8px] bg-slate-100 shadow-[0_24px_60px_-32px_rgba(15,23,42,0.35)]"
+            aria-label={`Fotografia ${selectedImageIndex + 1}`}
           >
             <Image
-              src="/images/after-real-pool.png"
+              src={projectImages[selectedImageIndex].src}
               alt={t.beforeAfter.afterAlt}
               fill
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover"
               priority={false}
             />
-            <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-              aria-hidden="true"
-            >
-              <Image
-                src="/images/before-real-pool.png"
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 58vw, 100vw"
-                className="object-cover"
-                aria-hidden="true"
-              />
-            </div>
 
             <div className="pointer-events-none absolute inset-x-4 top-4 flex justify-between text-[0.65rem] font-semibold uppercase tracking-[0.14em] sm:text-xs">
               <span className="rounded-full bg-slate-950/75 px-2 py-1.5 text-white backdrop-blur">
-                {t.beforeAfter.before}
+                {selectedImageIndex === 0
+                  ? t.beforeAfter.before
+                  : selectedImageIndex === projectImages.length - 1
+                    ? t.beforeAfter.after
+                    : `Fase ${selectedImageIndex + 1}`}
               </span>
               <span className="rounded-full bg-white/85 px-2 py-1.5 text-slate-950 backdrop-blur">
-                {t.beforeAfter.after}
+                {selectedImageIndex + 1} / {projectImages.length}
               </span>
             </div>
-
-            <div
-              className="absolute inset-y-0 flex w-12 -translate-x-1/2 cursor-ew-resize touch-none items-center justify-center focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300/70"
-              style={{ left: `${position}%` }}
-              role="slider"
-              tabIndex={0}
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-valuenow={position}
-              aria-valuetext={t.beforeAfter.sliderValue(position)}
-              aria-label={t.beforeAfter.sliderAria}
-              aria-describedby="pool-comparison-help"
-              onKeyDown={updateFromKeyboard}
-              onPointerDown={(event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                setHasInteracted(true);
-                setIsDragging(true);
-                updateFromClientX(event.clientX);
-              }}
-            >
-              <div className="pointer-events-none h-full w-px bg-white/85 shadow-[0_0_0_1px_rgba(15,23,42,0.12)]" />
-              <div
-                className={`absolute flex h-12 w-12 items-center justify-center rounded-full border border-white/80 bg-white/90 text-cyan-900 shadow-lg transition-transform duration-300 ease-[var(--ease-premium)] ${
-                  isDragging ? "scale-110" : "hover:scale-105"
-                }`}
-              >
-                <ArrowLeftRight size={21} strokeWidth={1.8} />
-              </div>
-            </div>
-
-            <p id="pool-comparison-help" className="sr-only">
-              {t.beforeAfter.sliderHelp}
-            </p>
           </div>
         </motion.div>
       </div>

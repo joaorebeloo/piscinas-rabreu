@@ -81,6 +81,141 @@ export const GALLERY_COPY: Record<
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: "pool-open-plot-finished",
+    category: "mounted",
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0035.jpg",
+    copy: {
+      pt: {
+        title: "Piscina em terreno aberto",
+        description: "Piscina montada com zona envolvente em preparação.",
+        imageAlt: "Piscina montada em terreno aberto",
+      },
+      en: {
+        title: "Pool in an open plot",
+        description: "Installed pool with surrounding area under preparation.",
+        imageAlt: "Installed pool in an open plot",
+      },
+      es: {
+        title: "Piscina en terreno abierto",
+        description: "Piscina montada con zona exterior en preparación.",
+        imageAlt: "Piscina montada en terreno abierto",
+      },
+      fr: {
+        title: "Piscine sur terrain ouvert",
+        description: "Piscine installée avec abords en préparation.",
+        imageAlt: "Piscine installée sur terrain ouvert",
+      },
+    },
+  },
+  {
+    id: "pool-water-fill-close",
+    category: "process",
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0022.jpg",
+    copy: {
+      pt: {
+        title: "Enchimento e teste",
+        description: "Água em circulação durante a fase de enchimento.",
+        imageAlt: "Piscina durante enchimento com água",
+      },
+      en: {
+        title: "Filling and testing",
+        description: "Water circulating during the filling stage.",
+        imageAlt: "Pool during water filling",
+      },
+      es: {
+        title: "Llenado y prueba",
+        description: "Agua en circulación durante la fase de llenado.",
+        imageAlt: "Piscina durante el llenado con agua",
+      },
+      fr: {
+        title: "Remplissage et test",
+        description: "Eau en circulation pendant la phase de remplissage.",
+        imageAlt: "Piscine pendant le remplissage",
+      },
+    },
+  },
+  {
+    id: "pool-courtyard-finished",
+    category: "mounted",
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0030.jpg",
+    copy: {
+      pt: {
+        title: "Piscina integrada no pátio",
+        description: "Zona exterior finalizada com relva e acabamento em pedra.",
+        imageAlt: "Piscina finalizada com relva e acabamento em pedra",
+      },
+      en: {
+        title: "Pool integrated into the patio",
+        description: "Finished outdoor area with grass and stone cladding.",
+        imageAlt: "Finished pool with grass and stone cladding",
+      },
+      es: {
+        title: "Piscina integrada en el patio",
+        description: "Zona exterior finalizada con césped y acabado en piedra.",
+        imageAlt: "Piscina finalizada con césped y piedra",
+      },
+      fr: {
+        title: "Piscine intégrée dans la cour",
+        description: "Espace extérieur fini avec gazon et parement pierre.",
+        imageAlt: "Piscine terminée avec gazon et parement pierre",
+      },
+    },
+  },
+  {
+    id: "pool-wall-finished",
+    category: "mounted",
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0031.jpg",
+    copy: {
+      pt: {
+        title: "Piscina com revestimento lateral",
+        description: "Acabamento elevado com pedra e zona envolvente organizada.",
+        imageAlt: "Piscina com revestimento lateral em pedra",
+      },
+      en: {
+        title: "Pool with side cladding",
+        description: "Raised finish with stone cladding and organised surroundings.",
+        imageAlt: "Pool with stone side cladding",
+      },
+      es: {
+        title: "Piscina con revestimiento lateral",
+        description: "Acabado elevado con piedra y zona exterior organizada.",
+        imageAlt: "Piscina con revestimiento lateral de piedra",
+      },
+      fr: {
+        title: "Piscine avec parement latéral",
+        description: "Finition surélevée avec pierre et abords organisés.",
+        imageAlt: "Piscine avec parement latéral en pierre",
+      },
+    },
+  },
+  {
+    id: "pool-terrace-water",
+    category: "mounted",
+    imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0034.jpg",
+    copy: {
+      pt: {
+        title: "Piscina em terraço",
+        description: "Solução compacta com água pronta para utilização.",
+        imageAlt: "Piscina em terraço com água pronta",
+      },
+      en: {
+        title: "Pool on a terrace",
+        description: "Compact solution with water ready for use.",
+        imageAlt: "Pool on a terrace ready for use",
+      },
+      es: {
+        title: "Piscina en terraza",
+        description: "Solución compacta con agua lista para usar.",
+        imageAlt: "Piscina en terraza lista para usar",
+      },
+      fr: {
+        title: "Piscine en terrasse",
+        description: "Solution compacte avec eau prête à l'emploi.",
+        imageAlt: "Piscine en terrasse prête à l'emploi",
+      },
+    },
+  },
+  {
     id: "pool-finished-family-garden",
     category: "mounted",
     imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0052.jpg",

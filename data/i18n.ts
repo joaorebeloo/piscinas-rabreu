@@ -421,7 +421,7 @@ export const translations: Record<Locale, SiteCopy> = {
       title: "Experiência para escolher com confiança.",
       items: [
         {
-          value: 10,
+          value: 8,
           suffix: "+",
           label: "anos de experiência",
           detail: "Venda e aconselhamento de piscinas em Portugal.",
@@ -454,8 +454,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Telefone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "andre.rafaela.2025@gmail.com",
-          href: "mailto:andre.rafaela.2025@gmail.com",
+          value: "andre.rafaela.2015@gmail.com",
+          href: "mailto:andre.rafaela.2015@gmail.com",
         },
         {
           label: "Zona",
@@ -685,7 +685,7 @@ export const translations: Record<Locale, SiteCopy> = {
       title: "Experience to choose with confidence.",
       items: [
         {
-          value: 10,
+          value: 8,
           suffix: "+",
           label: "years of experience",
           detail: "Pool sales and advice in Portugal.",
@@ -718,8 +718,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Phone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "andre.rafaela.2025@gmail.com",
-          href: "mailto:andre.rafaela.2025@gmail.com",
+          value: "andre.rafaela.2015@gmail.com",
+          href: "mailto:andre.rafaela.2015@gmail.com",
         },
         { label: "Area", value: "Alcobaça, Leiria", href: null },
       ],
@@ -942,7 +942,7 @@ export const translations: Record<Locale, SiteCopy> = {
       title: "Experiencia para elegir con confianza.",
       items: [
         {
-          value: 10,
+          value: 8,
           suffix: "+",
           label: "años de experiencia",
           detail: "Venta y asesoramiento de piscinas en Portugal.",
@@ -975,8 +975,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Teléfono", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "andre.rafaela.2025@gmail.com",
-          href: "mailto:andre.rafaela.2025@gmail.com",
+          value: "andre.rafaela.2015@gmail.com",
+          href: "mailto:andre.rafaela.2015@gmail.com",
         },
         { label: "Zona", value: "Alcobaça, Leiria", href: null },
       ],
@@ -1199,7 +1199,7 @@ export const translations: Record<Locale, SiteCopy> = {
       title: "De l'expérience pour choisir en toute confiance.",
       items: [
         {
-          value: 10,
+          value: 8,
           suffix: "+",
           label: "ans d'expérience",
           detail: "Vente et conseil en piscines au Portugal.",
@@ -1232,8 +1232,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Téléphone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "andre.rafaela.2025@gmail.com",
-          href: "mailto:andre.rafaela.2025@gmail.com",
+          value: "andre.rafaela.2015@gmail.com",
+          href: "mailto:andre.rafaela.2015@gmail.com",
         },
         { label: "Zone", value: "Alcobaça, Leiria", href: null },
       ],

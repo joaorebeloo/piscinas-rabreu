@@ -30,7 +30,7 @@ export const PRODUCT_FILTERS: ProductFilter[] = [
 ];
 
 const modelImagePath = "/images/fotos-piscinas/Modelos";
-const modelImageVersion = "v=8";
+const modelImageVersion = "v=9";
 
 export const POOL_COLOR_OPTIONS = [
   {

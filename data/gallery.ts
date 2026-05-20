@@ -90,6 +90,114 @@ export const GALLERY_COPY: Record<
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: "pool-gravel-garden",
+    category: "mounted",
+    imageSrc: "/images/fotos-piscinas/pool-mounted-new-01.png",
+    copy: {
+      pt: {
+        title: "Piscina em jardim natural",
+        description: "Piscina montada com zona envolvente em gravilha e jardim.",
+        imageAlt: "Piscina montada em jardim com gravilha",
+      },
+      en: {
+        title: "Pool in a natural garden",
+        description: "Installed pool with gravel surroundings and garden area.",
+        imageAlt: "Installed pool in a garden with gravel",
+      },
+      es: {
+        title: "Piscina en jardín natural",
+        description: "Piscina montada con zona de grava y jardín.",
+        imageAlt: "Piscina montada en jardín con grava",
+      },
+      fr: {
+        title: "Piscine dans un jardin naturel",
+        description: "Piscine installée avec abords en gravier et jardin.",
+        imageAlt: "Piscine installée dans un jardin avec gravier",
+      },
+    },
+  },
+  {
+    id: "pool-lawn-close",
+    category: "mounted",
+    imageSrc: "/images/fotos-piscinas/pool-mounted-new-02.png",
+    copy: {
+      pt: {
+        title: "Piscina com relva envolvente",
+        description: "Piscina compacta integrada numa zona verde.",
+        imageAlt: "Piscina montada com relva envolvente",
+      },
+      en: {
+        title: "Pool with surrounding lawn",
+        description: "Compact pool integrated into a green area.",
+        imageAlt: "Installed pool with surrounding lawn",
+      },
+      es: {
+        title: "Piscina con césped alrededor",
+        description: "Piscina compacta integrada en una zona verde.",
+        imageAlt: "Piscina montada con césped alrededor",
+      },
+      fr: {
+        title: "Piscine avec pelouse autour",
+        description: "Piscine compacte intégrée dans un espace vert.",
+        imageAlt: "Piscine installée avec pelouse autour",
+      },
+    },
+  },
+  {
+    id: "pool-rounded-entry",
+    category: "mounted",
+    imageSrc: "/images/fotos-piscinas/pool-mounted-new-03.png",
+    copy: {
+      pt: {
+        title: "Piscina com escada integrada",
+        description: "Modelo montado com entrada arredondada e acabamento branco.",
+        imageAlt: "Piscina com escada integrada e acabamento branco",
+      },
+      en: {
+        title: "Pool with integrated steps",
+        description: "Installed model with rounded entry and white finish.",
+        imageAlt: "Pool with integrated steps and white finish",
+      },
+      es: {
+        title: "Piscina con escalera integrada",
+        description: "Modelo montado con entrada redondeada y acabado blanco.",
+        imageAlt: "Piscina con escalera integrada y acabado blanco",
+      },
+      fr: {
+        title: "Piscine avec escalier intégré",
+        description: "Modèle installé avec entrée arrondie et finition blanche.",
+        imageAlt: "Piscine avec escalier intégré et finition blanche",
+      },
+    },
+  },
+  {
+    id: "pool-private-lawn",
+    category: "mounted",
+    imageSrc: "/images/fotos-piscinas/pool-mounted-new-04.png",
+    copy: {
+      pt: {
+        title: "Piscina em espaço privado",
+        description: "Piscina montada numa zona de relva com acabamento limpo.",
+        imageAlt: "Piscina montada em espaço privado com relva",
+      },
+      en: {
+        title: "Pool in a private space",
+        description: "Installed pool in a lawn area with a clean finish.",
+        imageAlt: "Installed pool in a private lawn area",
+      },
+      es: {
+        title: "Piscina en espacio privado",
+        description: "Piscina montada en zona de césped con acabado limpio.",
+        imageAlt: "Piscina montada en espacio privado con césped",
+      },
+      fr: {
+        title: "Piscine en espace privé",
+        description: "Piscine installée dans une zone de pelouse avec finition propre.",
+        imageAlt: "Piscine installée dans un espace privé avec pelouse",
+      },
+    },
+  },
+  {
     id: "pool-open-plot-finished",
     category: "mounted",
     imageSrc: "/images/fotos-piscinas/IMG-20260501-WA0035.jpg",

@@ -6,7 +6,7 @@ import { ArrowDown, ArrowRight, ShieldCheck, Waves } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 
 const heroVideoSrc = "/videos/hero-seedance-20260504.mp4";
-const heroPosterSrc = "/images/after-real-pool.png";
+const heroPosterSrc = "/images/hero-seedance-poster.png";
 
 export function Hero() {
   const { t } = useLanguage();

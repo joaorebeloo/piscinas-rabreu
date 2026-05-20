@@ -256,12 +256,9 @@ export function Gallery() {
                       <span className="mb-2 inline-flex rounded-full border border-white/15 bg-white/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-cyan-100 backdrop-blur-md">
                         {copy.filters[item.category]}
                       </span>
-                      <h3 className="text-lg font-semibold leading-tight tracking-tight">
+                      <h3 className="text-[0.9rem] font-semibold leading-tight tracking-tight">
                         {itemCopy.title}
                       </h3>
-                      <p className="mt-2 max-w-md text-sm leading-6 text-cyan-50/85">
-                        {itemCopy.description}
-                      </p>
                     </div>
                   </div>
                 </motion.article>

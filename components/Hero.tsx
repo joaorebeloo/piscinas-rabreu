@@ -6,7 +6,6 @@ import { ArrowDown, ArrowRight, ShieldCheck, Waves } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 
 const heroVideoSrc = "/videos/hero-seedance-20260504.mp4";
-const heroPosterSrc = "/images/hero-seedance-poster.png";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -15,15 +14,14 @@ export function Hero() {
     <section
       id="inicio"
       aria-labelledby="hero-title"
-      className="relative isolate min-h-[100dvh] overflow-hidden bg-[#031225] text-white"
+      className="relative isolate min-h-[100dvh] overflow-hidden bg-black text-white"
     >
       <video
-        className="absolute inset-0 -z-30 h-full w-full object-cover object-center brightness-[0.82] contrast-[1.04] saturate-[1.08]"
+        className="absolute inset-0 -z-30 h-full w-full bg-black object-cover object-center brightness-[0.82] contrast-[1.04] saturate-[1.08]"
         autoPlay
         muted
         loop
         playsInline
-        poster={heroPosterSrc}
         preload="metadata"
         aria-hidden="true"
       >

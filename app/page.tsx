@@ -24,8 +24,8 @@ function JsonLd() {
         name: "Piscinas R Abreu",
         url: siteUrl.toString(),
         telephone: `+${businessWhatsAppNumber}`,
-        image: new URL("/images/after-real-pool.png", siteUrl).toString(),
-        logo: new URL("/images/after-real-pool.png", siteUrl).toString(),
+        image: new URL("/images/hero-seedance-poster.png", siteUrl).toString(),
+        logo: new URL("/images/hero-seedance-poster.png", siteUrl).toString(),
         description:
           "Venda de piscinas em Portugal, com catálogo de modelos, aconselhamento especializado e orçamento gratuito.",
         address: {

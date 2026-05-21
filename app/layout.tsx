@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     countryName: "Portugal",
     images: [
       {
-        url: "/images/after-real-pool.png",
+        url: "/images/hero-seedance-poster.png",
         width: 1200,
         height: 630,
         alt: "Piscina residencial da Piscinas R Abreu",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/images/after-real-pool.png"],
+    images: ["/images/hero-seedance-poster.png"],
   },
 };
 

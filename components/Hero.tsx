@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowRight, ShieldCheck, Waves } from "lucide-react";
 
@@ -9,6 +10,7 @@ const heroVideoSrc = "/videos/hero-seedance-20260504.mp4";
 
 export function Hero() {
   const { t } = useLanguage();
+  const [videoReady, setVideoReady] = useState(false);
 
   return (
     <section
@@ -17,12 +19,15 @@ export function Hero() {
       className="relative isolate min-h-[100dvh] overflow-hidden bg-black text-white"
     >
       <video
-        className="absolute inset-0 -z-30 h-full w-full bg-black object-cover object-center brightness-[0.82] contrast-[1.04] saturate-[1.08]"
+        className={`absolute inset-0 -z-30 h-full w-full bg-black object-cover object-center brightness-[0.82] contrast-[1.04] saturate-[1.08] transition-opacity duration-300 ${
+          videoReady ? "opacity-100" : "opacity-0"
+        }`}
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
+        onCanPlay={() => setVideoReady(true)}
         aria-hidden="true"
       >
         <source src={heroVideoSrc} type="video/mp4" />

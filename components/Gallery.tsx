@@ -26,7 +26,7 @@ export function Gallery() {
   const copy = GALLERY_COPY[locale];
   const [activeFilter, setActiveFilter] = useState<GalleryFilter>("all");
   const [mobileFeaturedIds, setMobileFeaturedIds] = useState<string[]>(() =>
-    GALLERY_ITEMS.slice(0, 2).map((item) => item.id),
+    GALLERY_ITEMS.slice(0, 1).map((item) => item.id),
   );
 
   const visibleItems = useMemo(() => {
@@ -45,7 +45,7 @@ export function Gallery() {
       (item) => !selected.some((selectedItem) => selectedItem.id === item.id),
     );
 
-    return [...selected, ...fallback].slice(0, 2);
+    return [...selected, ...fallback].slice(0, 1);
   }, [mobileFeaturedIds, visibleItems]);
 
   const mobileThumbnailItems = useMemo(
@@ -61,7 +61,7 @@ export function Gallery() {
 
   function promoteMobileItem(itemId: string) {
     setMobileFeaturedIds((current) =>
-      [itemId, ...current.filter((id) => id !== itemId)].slice(0, 2),
+      [itemId, ...current.filter((id) => id !== itemId)].slice(0, 1),
     );
   }
 

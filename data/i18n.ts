@@ -455,8 +455,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Telefone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "andre.rafaela.2015@gmail.com",
-          href: "mailto:andre.rafaela.2015@gmail.com",
+          value: "geral@piscinasrabreu.pt",
+          href: "mailto:geral@piscinasrabreu.pt",
         },
         {
           label: "Zona",
@@ -720,8 +720,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Phone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "andre.rafaela.2015@gmail.com",
-          href: "mailto:andre.rafaela.2015@gmail.com",
+          value: "geral@piscinasrabreu.pt",
+          href: "mailto:geral@piscinasrabreu.pt",
         },
         { label: "Area", value: "Alcobaça, Leiria", href: null },
       ],
@@ -981,8 +981,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Teléfono", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "andre.rafaela.2015@gmail.com",
-          href: "mailto:andre.rafaela.2015@gmail.com",
+          value: "geral@piscinasrabreu.pt",
+          href: "mailto:geral@piscinasrabreu.pt",
         },
         { label: "Zona", value: "Alcobaça, Leiria", href: null },
       ],
@@ -1242,8 +1242,8 @@ export const translations: Record<Locale, SiteCopy> = {
         { label: "Téléphone", value: "+351 934 643 669", href: "tel:+351934643669" },
         {
           label: "Email",
-          value: "andre.rafaela.2015@gmail.com",
-          href: "mailto:andre.rafaela.2015@gmail.com",
+          value: "geral@piscinasrabreu.pt",
+          href: "mailto:geral@piscinasrabreu.pt",
         },
         { label: "Zone", value: "Alcobaça, Leiria", href: null },
       ],

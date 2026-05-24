@@ -38,7 +38,7 @@ const rateLimitWindowMs = 10 * 60 * 1000;
 const rateLimitMaxRequests = 6;
 const rateLimitRetryAfterSeconds = Math.ceil(rateLimitWindowMs / 1000);
 const rateLimitBuckets = new Map<string, RateLimitBucket>();
-const defaultLeadEmailTo = "andre.rafaela.2015@gmail.com";
+const defaultLeadEmailTo = "geral@piscinasrabreu.pt";
 const defaultResendFrom = "Piscinas R Abreu <geral@piscinasrabreu.pt>";
 
 const fieldLimits = {

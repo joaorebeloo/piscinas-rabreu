@@ -15,3 +15,5 @@ Thumbs.db
 next-dev.log
 next-dev.err.log
 MazyOS/
+
+.vercel

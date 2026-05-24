@@ -86,7 +86,18 @@ function isAllowedOrigin(request: Request) {
     return true;
   }
 
-  const allowedOrigins = new Set([getSiteUrl().origin]);
+  const siteUrl = getSiteUrl();
+  const allowedOrigins = new Set([siteUrl.origin]);
+
+  if (siteUrl.hostname.startsWith("www.")) {
+    const apexUrl = new URL(siteUrl);
+    apexUrl.hostname = siteUrl.hostname.replace(/^www\./, "");
+    allowedOrigins.add(apexUrl.origin);
+  } else {
+    const wwwUrl = new URL(siteUrl);
+    wwwUrl.hostname = `www.${siteUrl.hostname}`;
+    allowedOrigins.add(wwwUrl.origin);
+  }
 
   if (process.env.NODE_ENV !== "production") {
     allowedOrigins.add("http://localhost:3000");

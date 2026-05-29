@@ -334,15 +334,15 @@ export const translations: Record<Locale, SiteCopy> = {
       items: [
         {
           id: "carlos-mariana",
-          name: "Carlos e Mariana",
-          location: "Lisboa",
+          name: "Filipe Santos",
+          location: "Viseu",
           quote:
-            "A equipa ajudou-nos a escolher o modelo certo para o jardim. O resultado ficou elegante e muito fácil de manter.",
+            "Obrigado pela disponibilidade. Percebo agora porque tem tanto trabalho. É um excelente profissional.",
         },
         {
           id: "ricardo-almeida",
           name: "Ricardo Almeida",
-          location: "Porto",
+          location: "Leiria",
           quote:
             "Gostei da clareza do orçamento e das opções apresentadas. Ficámos com uma piscina adequada ao nosso espaço.",
         },

@@ -403,7 +403,7 @@ export const translations: Record<Locale, SiteCopy> = {
       ],
       submit: "Enviar pedido",
       submitting: "A enviar pedido...",
-      success: "Mensagem preparada no WhatsApp. Confirme o envio para concluir o pedido.",
+      success: "Mensagem preparada no Whatsapp",
       emailSuccess: "Pedido enviado. Entraremos em contacto consigo em breve.",
       reviewFields: "Reveja os campos assinalados.",
       errors: {

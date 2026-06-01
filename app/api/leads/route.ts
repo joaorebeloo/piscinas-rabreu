@@ -13,7 +13,10 @@ type LeadPayload = {
   message?: unknown;
   locale?: unknown;
   company?: unknown;
+  deliveryTarget?: unknown;
 };
+
+type LeadDeliveryTarget = "primary" | "mobile-fallback";
 
 type LeadRecord = {
   name: string;
@@ -39,6 +42,7 @@ const rateLimitMaxRequests = 6;
 const rateLimitRetryAfterSeconds = Math.ceil(rateLimitWindowMs / 1000);
 const rateLimitBuckets = new Map<string, RateLimitBucket>();
 const defaultLeadEmailTo = "geral@piscinasrabreu.pt";
+const defaultMobileFallbackEmailTo = "sir.rebelo@gmail.com";
 const defaultResendFrom = "Piscinas R Abreu <geral@piscinasrabreu.pt>";
 
 const fieldLimits = {
@@ -63,6 +67,10 @@ function getLocale(value: unknown): Locale {
   const matchedLocale = localeOptions.find((option) => option.id === locale);
 
   return matchedLocale?.id ?? "pt";
+}
+
+function getDeliveryTarget(value: unknown): LeadDeliveryTarget {
+  return getString(value) === "mobile-fallback" ? "mobile-fallback" : "primary";
 }
 
 function normalizeHeaderValue(value: string | undefined) {
@@ -281,14 +289,28 @@ function formatLeadHtml(leadRecord: LeadRecord) {
   `;
 }
 
-async function deliverLeadWithResend(leadRecord: LeadRecord) {
+function getLeadEmailTo(deliveryTarget: LeadDeliveryTarget) {
+  if (deliveryTarget === "mobile-fallback") {
+    return (
+      process.env.LEAD_MOBILE_FALLBACK_EMAIL_TO?.trim() ||
+      defaultMobileFallbackEmailTo
+    );
+  }
+
+  return process.env.LEAD_EMAIL_TO?.trim() || defaultLeadEmailTo;
+}
+
+async function deliverLeadWithResend(
+  leadRecord: LeadRecord,
+  deliveryTarget: LeadDeliveryTarget,
+) {
   const apiKey = process.env.RESEND_API_KEY?.trim();
 
   if (!apiKey) {
     return null;
   }
 
-  const to = process.env.LEAD_EMAIL_TO?.trim() || defaultLeadEmailTo;
+  const to = getLeadEmailTo(deliveryTarget);
   const from = process.env.RESEND_FROM?.trim() || defaultResendFrom;
   const subject = `Novo pedido de orçamento - ${leadRecord.name}`;
 
@@ -319,8 +341,11 @@ async function deliverLeadWithResend(leadRecord: LeadRecord) {
   return response.ok;
 }
 
-async function deliverLead(leadRecord: LeadRecord) {
-  const resendDelivered = await deliverLeadWithResend(leadRecord);
+async function deliverLead(
+  leadRecord: LeadRecord,
+  deliveryTarget: LeadDeliveryTarget,
+) {
+  const resendDelivered = await deliverLeadWithResend(leadRecord, deliveryTarget);
 
   if (resendDelivered !== null) {
     return resendDelivered;
@@ -485,6 +510,7 @@ export async function POST(request: Request) {
     );
   }
 
+  const deliveryTarget = getDeliveryTarget(payload.deliveryTarget);
   const leadRecord: LeadRecord = {
     ...lead,
     submittedAt: new Date().toISOString(),
@@ -492,7 +518,7 @@ export async function POST(request: Request) {
     locale: getLocale(payload.locale),
   };
 
-  const delivered = await deliverLead(leadRecord);
+  const delivered = await deliverLead(leadRecord, deliveryTarget);
 
   if (!delivered) {
     return NextResponse.json(

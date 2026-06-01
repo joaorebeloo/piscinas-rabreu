@@ -19,6 +19,7 @@ type LeadFormValues = {
 };
 
 type LeadFormErrors = Partial<Record<keyof LeadFormValues, string>>;
+type LeadDeliveryTarget = "primary" | "mobile-fallback";
 
 const initialValues: LeadFormValues = {
   name: "",
@@ -184,18 +185,27 @@ export function LeadForm({ className = "" }: { className?: string }) {
     return lines.filter(Boolean).join("\n");
   }
 
-  async function submitLead(currentValues: LeadFormValues) {
-    const response = await fetch("/api/leads", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...currentValues,
-        locale,
-        company,
-      }),
-    });
+  async function submitLead(
+    currentValues: LeadFormValues,
+    deliveryTarget: LeadDeliveryTarget = "primary",
+  ) {
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        keepalive: true,
+        body: JSON.stringify({
+          ...currentValues,
+          locale,
+          company,
+          deliveryTarget,
+        }),
+      });
 
-    return response.ok;
+      return response.ok;
+    } catch {
+      return false;
+    }
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -223,8 +233,10 @@ export function LeadForm({ className = "" }: { className?: string }) {
     const leadMessage = buildLeadMessage(values);
 
     if (isMobileViewport()) {
+      void submitLead(values, "mobile-fallback");
       window.open(buildWhatsAppHref(leadMessage), "_blank", "noopener");
       setStatusMessage(t.leadForm.success);
+      setStatus("success");
     } else {
       setStatus("idle");
       const delivered = await submitLead(values);

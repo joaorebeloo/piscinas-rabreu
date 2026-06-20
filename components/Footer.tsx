@@ -39,6 +39,7 @@ export function Footer() {
           <div className="grid gap-px overflow-hidden rounded-[8px] border border-white/10 bg-white/10 sm:grid-cols-3">
             {t.footer.contacts.map((contact, index) => {
               const Icon = contactIcons[index] ?? Phone;
+              const noteLines = contact.note?.split("\n").filter(Boolean) ?? [];
               const content = (
                 <>
                   <Icon
@@ -53,6 +54,13 @@ export function Footer() {
                   <span className="mt-2 block text-sm leading-6 text-white">
                     {contact.value}
                   </span>
+                  {noteLines.length > 0 ? (
+                    <div className="mt-4 border-t border-white/10 pt-3 text-xs leading-5 text-slate-300">
+                      {noteLines.map((line) => (
+                        <p key={line}>{line}</p>
+                      ))}
+                    </div>
+                  ) : null}
                 </>
               );
 

@@ -90,6 +90,33 @@ export const GALLERY_COPY: Record<
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: "pool-mounted-raiela",
+    category: "mounted",
+    imageSrc: "/images/fotos-piscinas/pool-mounted-raiela.png",
+    copy: {
+      pt: {
+        title: "Modelo Raiela",
+        description: "Modelo Raiela",
+        imageAlt: "Piscina montada do modelo Raiela",
+      },
+      en: {
+        title: "Raiela model",
+        description: "Raiela model",
+        imageAlt: "Installed Raiela pool model",
+      },
+      es: {
+        title: "Modelo Raiela",
+        description: "Modelo Raiela",
+        imageAlt: "Piscina montada del modelo Raiela",
+      },
+      fr: {
+        title: "Modèle Raiela",
+        description: "Modèle Raiela",
+        imageAlt: "Piscine installée du modèle Raiela",
+      },
+    },
+  },
+  {
     id: "pool-gravel-garden",
     category: "mounted",
     imageSrc: "/images/fotos-piscinas/pool-mounted-new-01.png",

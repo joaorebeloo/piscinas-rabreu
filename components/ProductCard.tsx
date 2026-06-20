@@ -44,7 +44,7 @@ export function ProductCard({
   const Icon = CATEGORY_ICON[product.category];
   const copy = product.copy[locale];
   const isBestSeller = copy.badge.toLowerCase().replace("-", " ") === "best seller";
-  const isNew = product.id === "braiel";
+  const isNew = product.id === "raiela";
   const resolvedImageSrc = imageSrc ?? product.imageSrc;
 
   return (

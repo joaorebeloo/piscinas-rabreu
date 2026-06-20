@@ -189,7 +189,12 @@ export type SiteCopy = {
   footer: {
     homeAria: string;
     description: string;
-    contacts: Array<{ label: string; value: string; href: string | null }>;
+    contacts: Array<{
+      label: string;
+      value: string;
+      href: string | null;
+      note?: string;
+    }>;
     copyright: string;
     linksAria: string;
     socialAria: string;
@@ -452,7 +457,12 @@ export const translations: Record<Locale, SiteCopy> = {
       description:
         "Venda de piscinas personalizadas com qualidade, segurança, aconselhamento e acabamentos de excelência.",
       contacts: [
-        { label: "Telefone", value: "+351 934 643 669", href: "tel:+351934643669" },
+        {
+          label: "Telefone",
+          value: "+351 934 643 669",
+          href: "tel:+351934643669",
+          note: "Atendimento de Segunda a Sexta das 9h até 19h.\nSábado das 9h até 13h",
+        },
         {
           label: "Email",
           value: "geral@piscinasrabreu.pt",
@@ -717,7 +727,12 @@ export const translations: Record<Locale, SiteCopy> = {
       description:
         "Sales of custom pools with quality, safety, advice and excellent finishes.",
       contacts: [
-        { label: "Phone", value: "+351 934 643 669", href: "tel:+351934643669" },
+        {
+          label: "Phone",
+          value: "+351 934 643 669",
+          href: "tel:+351934643669",
+          note: "Support from Mon. to Fri. 9am to 7pm.\nSaturday 9am to 1pm",
+        },
         {
           label: "Email",
           value: "geral@piscinasrabreu.pt",
@@ -978,7 +993,12 @@ export const translations: Record<Locale, SiteCopy> = {
       description:
         "Venta de piscinas personalizadas con calidad, seguridad, asesoramiento y acabados excelentes.",
       contacts: [
-        { label: "Teléfono", value: "+351 934 643 669", href: "tel:+351934643669" },
+        {
+          label: "Teléfono",
+          value: "+351 934 643 669",
+          href: "tel:+351934643669",
+          note: "Atención de lun. a vie. de 9h a 19h.\nSábado de 9h a 13h",
+        },
         {
           label: "Email",
           value: "geral@piscinasrabreu.pt",
@@ -1239,7 +1259,12 @@ export const translations: Record<Locale, SiteCopy> = {
       description:
         "Vente de piscines personnalisées avec qualité, sécurité, conseil et finitions d'excellence.",
       contacts: [
-        { label: "Téléphone", value: "+351 934 643 669", href: "tel:+351934643669" },
+        {
+          label: "Téléphone",
+          value: "+351 934 643 669",
+          href: "tel:+351934643669",
+          note: "Accueil du lun. au ven. de 9h à 19h.\nSamedi de 9h à 13h",
+        },
         {
           label: "Email",
           value: "geral@piscinasrabreu.pt",

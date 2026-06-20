@@ -215,27 +215,59 @@ function braielCopy(): Record<Locale, ProductCopy> {
   return {
     pt: {
       name: "Braiel",
-      badge: "Novidade",
+      badge: "Piscina",
       description,
       imageAlt: "Piscina Braiel",
     },
     en: {
       name: "Braiel",
-      badge: "New",
+      badge: "Pool",
       description,
       imageAlt: "Braiel pool",
     },
     es: {
       name: "Braiel",
-      badge: "Novedad",
+      badge: "Piscina",
       description,
       imageAlt: "Piscina Braiel",
     },
     fr: {
       name: "Braiel",
-      badge: "Nouveauté",
+      badge: "Piscine",
       description,
       imageAlt: "Piscine Braiel",
+    },
+  };
+}
+
+function raielaCopy(): Record<Locale, ProductCopy> {
+  const description =
+    "Casco Piscina de Poliéster\nMed. ( 5.00 x 2.65 cm )\nProfundidade 1.20 cm";
+
+  return {
+    pt: {
+      name: "Raiela",
+      badge: "Novidade",
+      description,
+      imageAlt: "Piscina Raiela",
+    },
+    en: {
+      name: "Raiela",
+      badge: "New",
+      description,
+      imageAlt: "Raiela pool",
+    },
+    es: {
+      name: "Raiela",
+      badge: "Novedad",
+      description,
+      imageAlt: "Piscina Raiela",
+    },
+    fr: {
+      name: "Raiela",
+      badge: "Nouveauté",
+      description,
+      imageAlt: "Piscine Raiela",
     },
   };
 }
@@ -407,6 +439,13 @@ export const PRODUCTS: Product[] = [
     imageSrc: `${modelImagePath}/Space.png?${modelImageVersion}`,
     imageFileName: "Space.png",
     copy: spaceCopy(),
+  },
+  {
+    id: "raiela",
+    category: "piscinas",
+    imageSrc: `${modelImagePath}/Raiela.png?${modelImageVersion}`,
+    imageFileName: "Raiela.png",
+    copy: raielaCopy(),
   },
   {
     id: "braiel",

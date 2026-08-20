@@ -272,70 +272,6 @@ function raielaCopy(): Record<Locale, ProductCopy> {
   };
 }
 
-function spaceLazeCopy(): Record<Locale, ProductCopy> {
-  const description =
-    "Casco Piscina de Poliéster\nMed. Ext. ( 6.25 x 3.20cm ) Med. Int. ( 6.05x 3.00 cm )\nProfundidade Inclinação de 1.20 cm a 1.60 cm";
-
-  return {
-    pt: {
-      name: "Space Laze",
-      badge: "Piscina",
-      description,
-      imageAlt: "Piscina Space Laze",
-    },
-    en: {
-      name: "Space Laze",
-      badge: "Pool",
-      description,
-      imageAlt: "Space Laze pool",
-    },
-    es: {
-      name: "Space Laze",
-      badge: "Piscina",
-      description,
-      imageAlt: "Piscina Space Laze",
-    },
-    fr: {
-      name: "Space Laze",
-      badge: "Piscine",
-      description,
-      imageAlt: "Piscine Space Laze",
-    },
-  };
-}
-
-function trustCopy(): Record<Locale, ProductCopy> {
-  const description =
-    "Casco Piscina de Poliéster\nMed. Ext. ( 8.57 x 3.97cm ) Med. Int. ( 8.27x 3.60 cm )\nProfundidade Inclinação de 1.39 cm a 1.70 cm";
-
-  return {
-    pt: {
-      name: "Trust",
-      badge: "Piscina",
-      description,
-      imageAlt: "Piscina Trust",
-    },
-    en: {
-      name: "Trust",
-      badge: "Pool",
-      description,
-      imageAlt: "Trust pool",
-    },
-    es: {
-      name: "Trust",
-      badge: "Piscina",
-      description,
-      imageAlt: "Piscina Trust",
-    },
-    fr: {
-      name: "Trust",
-      badge: "Piscine",
-      description,
-      imageAlt: "Piscine Trust",
-    },
-  };
-}
-
 function relaxCopy(): Record<Locale, ProductCopy> {
   const description =
     "Casco Piscina de Poliéster\nMed. Ext. ( 5.10 x 2.57 cm ) Med. Int. ( 4.90 x 2.37 cm )\nProfundidade 1.40 cm";
@@ -474,20 +410,6 @@ export const PRODUCTS: Product[] = [
     imageSrc: `${modelImagePath}/Relax.png?${modelImageVersion}`,
     imageFileName: "Relax.png",
     copy: relaxCopy(),
-  },
-  {
-    id: "space-laze",
-    category: "piscinas",
-    imageSrc: `${modelImagePath}/Space Laze.png?${modelImageVersion}`,
-    imageFileName: "Space Laze.png",
-    copy: spaceLazeCopy(),
-  },
-  {
-    id: "trust",
-    category: "piscinas",
-    imageSrc: `${modelImagePath}/Trust.png?${modelImageVersion}`,
-    imageFileName: "Trust.png",
-    copy: trustCopy(),
   },
   {
     id: "big-tran",

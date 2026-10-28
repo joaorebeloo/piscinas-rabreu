@@ -144,38 +144,6 @@ function francoCopy(): Record<Locale, ProductCopy> {
   };
 }
 
-function bigTranCopy(): Record<Locale, ProductCopy> {
-  const description =
-    "Casco Piscina de Poliéster\nMed. Ext. ( 8.40 x 3.85cm ) Med. Int. ( 8.20x 3.60 cm )\nProfundidade Inclinação de 1.35 cm a 1.71 cm";
-
-  return {
-    pt: {
-      name: "Big Tran",
-      badge: "Piscina",
-      description,
-      imageAlt: "Piscina Big Tran",
-    },
-    en: {
-      name: "Big Tran",
-      badge: "Pool",
-      description,
-      imageAlt: "Big Tran pool",
-    },
-    es: {
-      name: "Big Tran",
-      badge: "Piscina",
-      description,
-      imageAlt: "Piscina Big Tran",
-    },
-    fr: {
-      name: "Big Tran",
-      badge: "Piscine",
-      description,
-      imageAlt: "Piscine Big Tran",
-    },
-  };
-}
-
 function spaceCopy(): Record<Locale, ProductCopy> {
   const description =
     "Casco Piscina de Poliéster\nMed. Ext. ( 6.20 x 3.25 cm ) Med. Int. ( 6.00 x 3.00 cm )\nProfundidade Inclinação de 1.20 cm a 1.60 cm";
@@ -300,38 +268,6 @@ function spaceLazeCopy(): Record<Locale, ProductCopy> {
       badge: "Piscine",
       description,
       imageAlt: "Piscine Space Laze",
-    },
-  };
-}
-
-function trustCopy(): Record<Locale, ProductCopy> {
-  const description =
-    "Casco Piscina de Poliéster\nMed. Ext. ( 8.57 x 3.97cm ) Med. Int. ( 8.27x 3.60 cm )\nProfundidade Inclinação de 1.39 cm a 1.70 cm";
-
-  return {
-    pt: {
-      name: "Trust",
-      badge: "Piscina",
-      description,
-      imageAlt: "Piscina Trust",
-    },
-    en: {
-      name: "Trust",
-      badge: "Pool",
-      description,
-      imageAlt: "Trust pool",
-    },
-    es: {
-      name: "Trust",
-      badge: "Piscina",
-      description,
-      imageAlt: "Piscina Trust",
-    },
-    fr: {
-      name: "Trust",
-      badge: "Piscine",
-      description,
-      imageAlt: "Piscine Trust",
     },
   };
 }
@@ -481,20 +417,6 @@ export const PRODUCTS: Product[] = [
     imageSrc: `${modelImagePath}/Space Laze.png?${modelImageVersion}`,
     imageFileName: "Space Laze.png",
     copy: spaceLazeCopy(),
-  },
-  {
-    id: "trust",
-    category: "piscinas",
-    imageSrc: `${modelImagePath}/Trust.png?${modelImageVersion}`,
-    imageFileName: "Trust.png",
-    copy: trustCopy(),
-  },
-  {
-    id: "big-tran",
-    category: "piscinas",
-    imageSrc: `${modelImagePath}/BigTran.png?${modelImageVersion}`,
-    imageFileName: "BigTran.png",
-    copy: bigTranCopy(),
   },
   {
     id: "filtro500",

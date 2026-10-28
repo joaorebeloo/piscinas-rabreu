@@ -82,7 +82,7 @@ export function getProductImageSrc(product: Product, poolColor: PoolColorId) {
 
 function jupiterCopy(): Record<Locale, ProductCopy> {
   const description =
-    "Casco Piscina de Poliéster\nMed. Ext. ( 3.15 x 2.40 cm ) Med. Int. ( 2.99 x 2.23 cm )\nProfundidade 1.20 cm";
+    "Casco Piscina de Poliéster\nMed. Ext. ( 3.15 x 2.40 m ) Med. Int. ( 2.99 x 2.23 m )\nProfundidade 1.20 m";
 
   return {
     pt: {
@@ -114,7 +114,7 @@ function jupiterCopy(): Record<Locale, ProductCopy> {
 
 function francoCopy(): Record<Locale, ProductCopy> {
   const description =
-    "Casco Piscina de Poliéster\nMed. Ext. ( 4.02 x 2.40 cm ) Med. Int. ( 3.87 x 2.23 cm )\nProfundidade 1.20 cm";
+    "Casco Piscina de Poliéster\nMed. Ext. ( 4.02 x 2.40 m ) Med. Int. ( 3.87 x 2.23 m )\nProfundidade 1.20 m";
 
   return {
     pt: {
@@ -146,7 +146,7 @@ function francoCopy(): Record<Locale, ProductCopy> {
 
 function spaceCopy(): Record<Locale, ProductCopy> {
   const description =
-    "Casco Piscina de Poliéster\nMed. Ext. ( 6.20 x 3.25 cm ) Med. Int. ( 6.00 x 3.00 cm )\nProfundidade Inclinação de 1.20 cm a 1.60 cm";
+    "Casco Piscina de Poliéster\nMed. Ext. ( 6.20 x 3.25 m ) Med. Int. ( 6.00 x 3.00 m )\nProfundidade Inclinação de 1.20 m a 1.60 m";
 
   return {
     pt: {
@@ -178,7 +178,7 @@ function spaceCopy(): Record<Locale, ProductCopy> {
 
 function braielCopy(): Record<Locale, ProductCopy> {
   const description =
-    "Casco Piscina de Poliéster\nMedidas Exteriores (5.72 x 2.54 cm)\nInteriores (5.48 x 2.30 cm)\nAltura de 1.41 metros.";
+    "Casco Piscina de Poliéster\nMedidas Exteriores (5.72 x 2.54 m)\nInteriores (5.48 x 2.30 m)\nAltura de 1.41 metros.";
 
   return {
     pt: {
@@ -210,7 +210,7 @@ function braielCopy(): Record<Locale, ProductCopy> {
 
 function raielaCopy(): Record<Locale, ProductCopy> {
   const description =
-    "Casco Piscina de Poliéster\nMed. ( 5.00 x 2.65 cm )\nProfundidade 1.20 cm";
+    "Casco Piscina de Poliéster\nMed. ( 5.00 x 2.65 m )\nProfundidade 1.20 m";
 
   return {
     pt: {
@@ -242,7 +242,7 @@ function raielaCopy(): Record<Locale, ProductCopy> {
 
 function spaceLazeCopy(): Record<Locale, ProductCopy> {
   const description =
-    "Casco Piscina de Poliéster\nMed. Ext. ( 6.25 x 3.20cm ) Med. Int. ( 6.05x 3.00 cm )\nProfundidade Inclinação de 1.20 cm a 1.60 cm";
+    "Casco Piscina de Poliéster\nMed. Ext. ( 6.25 x 3.20 m ) Med. Int. ( 6.05x 3.00 m )\nProfundidade Inclinação de 1.20 m a 1.60 m";
 
   return {
     pt: {
@@ -274,7 +274,7 @@ function spaceLazeCopy(): Record<Locale, ProductCopy> {
 
 function relaxCopy(): Record<Locale, ProductCopy> {
   const description =
-    "Casco Piscina de Poliéster\nMed. Ext. ( 5.10 x 2.57 cm ) Med. Int. ( 4.90 x 2.37 cm )\nProfundidade 1.40 cm";
+    "Casco Piscina de Poliéster\nMed. Ext. ( 5.10 x 2.57 m ) Med. Int. ( 4.90 x 2.37 m )\nProfundidade 1.40 m";
 
   return {
     pt: {

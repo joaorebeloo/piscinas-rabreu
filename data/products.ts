@@ -306,7 +306,7 @@ function relaxCopy(): Record<Locale, ProductCopy> {
 
 function filter500Copy(): Record<Locale, ProductCopy> {
   const description =
-    "Casa de máquinas de Poliéster para Piscina de 3 a 7 Metros\nMed.  ( 1.20 x 1.20cm )\nFiltro de Areia 500\nBomba 0,75CV\nValvula Seletora\nTratamento de Água a Cloro";
+    "Casa de máquinas de Poliéster para Piscina de 3 a 7 Metros\nMed.  ( 1.20 x 1.20 m )\nFiltro de Areia 500\nBomba 0,75CV\nValvula Seletora\nTratamento de Água a Cloro";
 
   return {
     pt: {
@@ -338,7 +338,7 @@ function filter500Copy(): Record<Locale, ProductCopy> {
 
 function filter600Copy(): Record<Locale, ProductCopy> {
   const description =
-    "Casa de máquinas de Poliéster para Piscina de 7 a 10 Metros\nMed.  ( 1.20 x 1.20cm )\nFiltro de Areia 600\nBomba 1CV\nValvula Seletora\nTratamento de Água a Cloro";
+    "Casa de máquinas de Poliéster para Piscina de 7 a 10 Metros\nMed.  ( 1.20 x 1.20 m )\nFiltro de Areia 600\nBomba 1CV\nValvula Seletora\nTratamento de Água a Cloro";
 
   return {
     pt: {
